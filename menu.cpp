@@ -9,12 +9,12 @@ int main(){
     // cout << "You Entered :" << a << endl ;
 
     //Printing a rectangle
-    cout << "Enter length:"<< endl;
-    int a;
-    cin>>a;
-    cout << "Enter breadth:"<< endl;
-    int b;
-    cin>>b;
+    // cout << "Enter length:"<< endl;
+    // int a;
+    // cin>>a;
+    // cout << "Enter breadth:"<< endl;
+    // int b;
+    // cin>>b;
     // for(int row=0; row<a; row++){
     //     for(int col=0; col<b; col++){
     //         cout << "* ";
@@ -24,20 +24,20 @@ int main(){
     // similar for square length and breadth are same
 
     //Printing hollow rectangle or square
-    for(int row=0; row<a; row++){
-        if(row==0 || row==a-1){
-        for(int col=0; col<b; col++){
-            cout << "* ";
-        }
-        }else{
-            cout<< "* ";
-            for(int col=0; col<b-2; col++){
-                cout << "  ";
-            }
-            cout<< "* ";
-        }
-        cout << endl;
-    }    
+    // for(int row=0; row<a; row++){
+    //     if(row==0 || row==a-1){
+    //     for(int col=0; col<b; col++){
+    //         cout << "* ";
+    //     }
+    //     }else{
+    //         cout<< "* ";
+    //         for(int col=0; col<b-2; col++){
+    //             cout << "  ";
+    //         }
+    //         cout<< "* ";
+    //     }
+    //     cout << endl;
+    // };
 
 
     // Printing hollow hollow half-pyramid
