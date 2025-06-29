@@ -101,4 +101,39 @@ int main(){
     //    }
     //     cout<<endl;
     // }
+
+    //Different approach for full pyramid
+    // int n;
+    // cin >> n;
+    // for(int row=0; row<n; row++){
+    //     // for spaces
+    //     for(int col=0; col<n-row-1; col++){
+    //         cout << " ";
+    //     }
+    //     // for stars
+    //     for(int k=0; k<row+1; k++){
+    //        cout << "* ";
+    //     }
+    //     cout<<endl;
+    // }
+
+    // Different approach for hollow full pyramid
+    int n;
+    cin >> n;
+    for(int row=0; row<n; row++){
+        // for spaces
+        for(int col=0; col<n-row-1; col++){
+            cout << "  ";
+        }
+        // for stars
+        for(int k=0; k<2*row+1; k++){
+          if(k==0 || k==2*row || row==n-1){
+            cout << "* ";
+          }else{
+            cout << "  ";
+          }
+        }
+        cout<<endl;
+    }
+    return 0;
 };
