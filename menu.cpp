@@ -118,22 +118,84 @@ int main(){
     // }
 
     // Different approach for hollow full pyramid
+    // int n;
+    // cin >> n;
+    // for(int row=0; row<n; row++){
+    //     // for spaces
+    //     for(int col=0; col<n-row-1; col++){
+    //         cout << "  ";
+    //     }
+    //     // for stars
+    //     for(int k=0; k<2*row+1; k++){
+    //       if(k==0 || k==2*row || row==n-1){
+    //         cout << "* ";
+    //       }else{
+    //         cout << "  ";
+    //       }
+    //     }
+    //     cout<<endl;
+    // }
+    // return 0;
+
+    // Printing reverse pyramid
+    // int n;
+    // cin >> n;
+    // for(int row=0; row<n-1; row++){
+    //     // for spaces
+    //     for(int col=1; col<n-row-1; col++){
+    //         cout << " ";
+    //     }
+    //     // for stars
+    //     for(int k=0; k<row+1; k++){
+    //        cout << "* ";
+    //     }
+    //     cout<<endl;
+    // }
+
+    // for(int row=0; row<n; row++){
+    //   // for spaces
+    //   for(int col=0; col<row; col++){
+    //     cout << " ";
+    //   }
+    //   // for stars
+    //   for (int col=0; col<n-row-1; col++){
+    //     cout << "* ";
+    //   }
+    //   cout<<endl;
+      
+    // }
+
+    // Printing hollow daimond
     int n;
     cin >> n;
-    for(int row=0; row<n; row++){
-        // for spaces
+       for(int row=0; row<n; row++){
+        //for spaces
         for(int col=0; col<n-row-1; col++){
-            cout << "  ";
+          cout << " ";
         }
         // for stars
         for(int k=0; k<2*row+1; k++){
-          if(k==0 || k==2*row || row==n-1){
-            cout << "* ";
+          if(k==0 || k==2*row){
+            cout << "*";
           }else{
-            cout << "  ";
+            cout << " ";
+          }
+        }
+        cout << endl;
+       }
+
+       for(int row=0; row<n; row++){
+        //spaces
+        for(int col=0; col<row; col++){
+          cout<< " ";
+        }
+        for(int col=0; col<2*n-2*row-1; col++){
+          if(col==0 || col==2*n-2*row-2){
+            cout<< "*";
+          }else{
+            cout<< " ";
           }
         }
         cout<<endl;
-    }
-    return 0;
+       }
 };
