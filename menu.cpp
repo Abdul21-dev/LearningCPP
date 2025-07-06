@@ -272,21 +272,42 @@ int main(){
     // }
    
     // Fancy pattern3 => Alphabetic Palindrome
-    int n;
-    cin >> n;
-    for(int row=0; row<n; row++){
-        int col=0;
-        for(; col<row+1; col++){
-            int ans = col+1;
-            char ch = ans + 'A'-1;
-            cout << ch;
-        }
-        // reverse counting
-        for(int col=row; col>0; col--){
-            int ans = col;
-            char ch = ans + 'A'-1;
-            cout << ch;
-        }
-        cout << endl;
-    }
+    // int n;
+    // cin >> n;
+    // for(int row=0; row<n; row++){
+    //     int col=0;
+    //     for(; col<row+1; col++){
+    //         int ans = col+1;
+    //         char ch = ans + 'A'-1;
+    //         cout << ch;
+    //     }
+    //     // reverse counting
+    //     for(int col=row; col>0; col--){
+    //         int ans = col;
+    //         char ch = ans + 'A'-1;
+    //         cout << ch;
+    //     }
+    //     cout << endl;
+    // }
+
+    // Fancy pattern 4
+    // int n;
+    // cin >> n;
+    // for(int row=0; row<n; row++){
+    //     for(int col=0; col<n-row-1; col++){
+    //         cout << "  ";
+    //     }
+    //     int start;
+    //     start=row+1;
+    //     for(int col=0; col<row+1; col++){
+    //         cout << start << " ";
+    //         start = start+1;
+    //     }
+    //     int end = start-2;
+    //     for(int col=0; col<row; col++){
+    //         cout << end << " ";
+    //         end=end-1;
+    //     }
+    //     cout<<endl;
+    // }
 };
