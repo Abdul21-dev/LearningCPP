@@ -339,6 +339,22 @@ int main(){
 //                 }
         
 //    }
-//     cout << endl;
+//   cout << endl;
 // }
+
+// Switch case
+cout  << "Enter the number" << endl;
+int val;
+cin >> val;
+switch(val){
+     case 1: cout << "Love";
+     break;
+     case 2: cout << "Rahul";
+     break;
+     case 3: cout << "Virat";
+     break;
+     case 4: cout << "Rohit";
+     break;
+     default: "suresh";
+}
 };
