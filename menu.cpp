@@ -1,14 +1,14 @@
 #include<iostream>
 using namespace std;
 
-// void Printfunction(){
-//     int n;
-//     cout << "Enter the value of n" << endl;
-//     cin >> n;
-//     for(int i=0; i<n; i++){
-//         cout << "Abdul"<<endl;
-//     }
-// }
+void Printfunction(){
+    int n;
+    cout << "Enter the value of n" << endl;
+    cin >> n;
+    for(int i=0; i<n; i++){
+        cout << "Abdul"<<endl;
+    }
+}
 int main(){
     //cout << "Hello World!!" ;
     // cout << "Enter a number :" << endl ;
@@ -367,5 +367,6 @@ int main(){
 // }
 
 // Learning functions
-// Printfunction();
+Printfunction();
+
 };
