@@ -1,12 +1,20 @@
 #include<iostream>
 using namespace std;
 
-void Printfunction(){
-    int n;
-    cout << "Enter the value of n" << endl;
-    cin >> n;
-    for(int i=0; i<n; i++){
-        cout << "Abdul"<<endl;
+// void Printfunction(){
+//     int n;
+//     cout << "Enter the value of n" << endl;
+//     cin >> n;
+//     for(int i=0; i<n; i++){
+//         cout << "Abdul"<<endl;
+//     }
+// }
+
+int max(int a, int b){
+    if(a>b){
+        return a;
+    }else{
+        return b;
     }
 }
 int main(){
@@ -367,6 +375,12 @@ int main(){
 // }
 
 // Learning functions
-Printfunction();
-
+// Printfunction();
+ cout << "Enter a" << endl;
+int a;
+cin >> a;
+cout << "Enter b" << endl;;
+int b;
+cin >> b;
+cout << max(a,b);
 };
