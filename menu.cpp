@@ -10,12 +10,56 @@ using namespace std;
 //     }
 // }
 
-int max(int a, int b){
-    if(a>b){
-        return a;
+// int max(int a, int b){
+//     if(a>b){
+//         return a;
+//     }else{
+//         return b;
+//     }
+// }
+
+// function to print sum of two numbers
+// int Sum(int a, int b){
+//     return  a+ b;
+// }
+
+// function to find the max of three numbers;
+// int max(int a, int b, int c){
+//     if(a>=b && a>=c){
+//         return a;
+//     }else if(b>=a && b>=c){
+//         return b;
+//     }else{
+//         return c;
+//     }
+// }
+
+// Function for counting 1 to N
+// void count(int N){
+//     for(int i=1; i<=N; i++){
+//         cout << i << endl;
+//     }
+//     cout << endl;
+// }
+
+// Function for sum of even number upto n
+int Sumeven(int n){
+    int sum =0;
+    if(n%2 == 0){
+        for(int i=0; i<=n; i=i+2){
+         sum = sum +i;
+        }
+        return sum;
     }else{
-        return b;
+        for(int i=0; i<n; i=i+2){
+            sum= sum+i;
+        }
+        return sum;
     }
+    // for(int i=0; i<=n; i=i+2){
+    //     sum = sum + i;
+    // }
+    // return sum;
 }
 int main(){
     //cout << "Hello World!!" ;
@@ -376,11 +420,47 @@ int main(){
 
 // Learning functions
 // Printfunction();
- cout << "Enter a" << endl;
-int a;
-cin >> a;
-cout << "Enter b" << endl;;
-int b;
-cin >> b;
-cout << max(a,b);
+// cout << "Enter a" << endl;
+// int a;
+// cin >> a;
+// cout << "Enter b" << endl;;
+// int b;
+// cin >> b;
+// cout << max(a,b);
+
+// Function to print the sum of two numbers
+// cout << "Enter a" << endl;
+// int a;
+// cin >> a;
+// cout << "Enter b" << endl;;
+// int b;
+// cin >> b;
+// cout << Sum(a,b);
+
+// function to find the max of two numbers
+// cout << "Enter a" << endl;
+// int a;
+// cin >> a;
+// cout << "Enter b" << endl;;
+// int b;
+// cin >> b;
+// cout << "Enter c" << endl;;
+// int c;
+// cin >> c;
+// cout << max(a, b, c)<< endl;
+
+// Function for counting 1 to N
+// cout << "Enter N" << endl;
+// int N;
+// cin >> N;
+// count(N);
+
+// function for sum of even numbers upto n
+cout << "Enter n" << endl;
+int n;
+ cin >> n;
+int ans= Sumeven(n);
+cout << "sum upto "<< n << " even number is: " << ans << endl;
+
+return 0;
 };
