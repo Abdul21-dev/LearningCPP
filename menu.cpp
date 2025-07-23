@@ -43,23 +43,28 @@ using namespace std;
 // }
 
 // Function for sum of even number upto n
-int Sumeven(int n){
-    int sum =0;
-    if(n%2 == 0){
-        for(int i=0; i<=n; i=i+2){
-         sum = sum +i;
-        }
-        return sum;
-    }else{
-        for(int i=0; i<n; i=i+2){
-            sum= sum+i;
-        }
-        return sum;
-    }
+// int Sumeven(int n){
+//     int sum =0;
+//     if(n%2 == 0){
+//         for(int i=0; i<=n; i=i+2){
+//          sum = sum +i;
+//         }
+//         return sum;
+//     }else{
+//         for(int i=0; i<n; i=i+2){
+//             sum= sum+i;
+//         }
+//         return sum;
+//     }
     // for(int i=0; i<=n; i=i+2){
     //     sum = sum + i;
     // }
     // return sum;
+// }
+
+int temp( int a){
+    int fah = 1.8*a + 32;
+    return fah;
 }
 int main(){
     //cout << "Hello World!!" ;
@@ -456,11 +461,17 @@ int main(){
 // count(N);
 
 // function for sum of even numbers upto n
-cout << "Enter n" << endl;
-int n;
- cin >> n;
-int ans= Sumeven(n);
-cout << "sum upto "<< n << " even number is: " << ans << endl;
+// cout << "Enter n" << endl;
+// int n;
+//  cin >> n;
+// int ans= Sumeven(n);
+// cout << "sum upto "<< n << " even number is: " << ans << endl;
+
+// function for converting degree temperature to fahrenheight
+cout << "Enter temperature in degree celcius: "<< endl;
+int tem;
+cin >> tem;
+cout << "Temperature in fahrenheight is : " << temp(tem) << endl;
 
 return 0;
 };
