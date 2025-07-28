@@ -62,10 +62,10 @@ using namespace std;
     // return sum;
 // }
 
-int temp( int a){
-    int fah = 1.8*a + 32;
-    return fah;
-}
+// int temp( int a){
+//     int fah = 1.8*a + 32;
+//     return fah;
+// }
 int main(){
     //cout << "Hello World!!" ;
     // cout << "Enter a number :" << endl ;
@@ -468,10 +468,21 @@ int main(){
 // cout << "sum upto "<< n << " even number is: " << ans << endl;
 
 // function for converting degree temperature to fahrenheight
-cout << "Enter temperature in degree celcius: "<< endl;
-int tem;
-cin >> tem;
-cout << "Temperature in fahrenheight is : " << temp(tem) << endl;
+// cout << "Enter temperature in degree celcius: "<< endl;
+// int tem;
+// cin >> tem;
+// cout << "Temperature in fahrenheight is : " << temp(tem) << endl;
 
+// Arrays
+int arr[5]= {1,2,3,4,5};
+char arrr[6]={'a','b','c','d','e','f'};
+cout << "Array successfully created" << endl;
+for(int i=0; i<5; i++){
+ cout << arr[i] << " ";    
+} 
+cout << endl;
+for(int i=0; i<6; i++){
+ cout << arrr[i] << " ";    
+}
 return 0;
 };
