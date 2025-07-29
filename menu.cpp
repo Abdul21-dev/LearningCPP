@@ -474,15 +474,15 @@ int main(){
 // cout << "Temperature in fahrenheight is : " << temp(tem) << endl;
 
 // Arrays
-int arr[5]= {1,2,3,4,5};
-char arrr[6]={'a','b','c','d','e','f'};
-cout << "Array successfully created" << endl;
-for(int i=0; i<5; i++){
- cout << arr[i] << " ";    
-} 
-cout << endl;
-for(int i=0; i<6; i++){
- cout << arrr[i] << " ";    
-}
-return 0;
+// int arr[5]= {1,2,3,4,5};
+// char arrr[6]={'a','b','c','d','e','f'};
+// cout << "Array successfully created" << endl;
+// for(int i=0; i<5; i++){
+//  cout << arr[i] << " ";    
+// } 
+// cout << endl;
+// for(int i=0; i<6; i++){
+//  cout << arrr[i] << " ";    
+// }
+// return 0;
 };
