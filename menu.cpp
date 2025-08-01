@@ -66,6 +66,30 @@ using namespace std;
 //     int fah = 1.8*a + 32;
 //     return fah;
 // }
+
+// Functions and Array
+// void printArray(int arr[], int size){
+//     for(int i=0; i<size; i++){
+//         cout << arr[i] << " ";
+//     }
+//     cout << endl;
+// }
+// void inc(int arr[], int size){
+//     arr[0]= arr[0]+ 10;
+//     printArray(arr, size);
+// }
+
+// Linear seearch in Array
+bool find(int arr[], int size, int key){
+    for(int i=0; i<size; i++){
+        if(arr[i]==key){
+            return true;
+        }
+    }
+    // not found
+        
+        return false;
+}
 int main(){
     //cout << "Hello World!!" ;
     // cout << "Enter a number :" << endl ;
@@ -485,4 +509,59 @@ int main(){
 //  cout << arrr[i] << " ";    
 // }
 // return 0;
+
+// taking input in Array
+// int arr[10];
+// cout << "Enter Elements of Array" << endl;
+// for(int i=0; i<10; i++){
+//     int n;
+//     cin >> n;
+//     arr[i]= n;
+// }
+// cout << "Elements of Array are :"<< endl;
+// for(int i=0; i<10; i++){
+//     cout << arr[i] << " ";
+// }
+
+// ques. taking array input and printing its double
+// int arr[5];
+// cout << "Enter Elements of Array" << endl;
+// for(int i=0; i<5; i++){
+//     int n;
+//     cin >> n;
+//     arr[i]= n;
+// }
+// cout << "Elements of Array are :"<< endl;
+// for(int i=0; i<5; i++){
+//     cout << arr[i]*2 << " ";
+// }
+
+// ques2. changing all the values of an array to a constant
+// int arr[5]= {1,3,5,7,9};
+// for(int i=0; i<5; i++){
+//     arr[i]=1;
+// }
+// cout << "New Array is :" << endl;
+// for(int i=0; i<5; i++){
+//     cout << arr[i] << " ";
+// }
+
+// functions and Array(Pass by reference example hai)
+// int arr[]= {5,7};
+// int size =2;
+
+// inc(arr, size);
+// printArray(arr, size);
+
+// Linear Search in Array
+int arr[]={7,10,17,18,33,45,73,93};
+int size=8;
+int key;
+cout << "Enter Key " << endl;
+cin >> key;
+if(find(arr, size, key)){
+    cout << "Present " << endl;
+}else{
+    cout << "Absent "<< endl;
+}
 };
