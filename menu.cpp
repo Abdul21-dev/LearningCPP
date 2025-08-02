@@ -1,4 +1,5 @@
 #include<iostream>
+#include<limits.h>
 using namespace std;
 
 // void Printfunction(){
@@ -80,16 +81,54 @@ using namespace std;
 // }
 
 // Linear seearch in Array
-bool find(int arr[], int size, int key){
-    for(int i=0; i<size; i++){
-        if(arr[i]==key){
-            return true;
-        }
-    }
-    // not found
+// bool find(int arr[], int size, int key){
+//     for(int i=0; i<size; i++){
+//         if(arr[i]==key){
+//             return true;
+//         }
+//     }
+//     // not found
         
-        return false;
-}
+//         return false;
+// }
+
+// Counting number of ones and zeros in an Array
+// int count(int arr[],int size){
+//     int numZero =0;
+//     int numOne =0;
+//     for(int i=0; i<size; i++){
+//         if(arr[i]==0){
+//         numZero++;
+//         }
+//         if(arr[i]==1){
+//         numOne++;
+//         }
+//     }
+//    cout << "Number of zeros are :" << numZero << endl;
+// cout << "Number of Ones are :" << numOne << endl;
+// }
+
+//Maximum number in an Array
+// int Maxi(int arr[], int size){
+//     int maxint=INT_MIN;
+//     for(int i=0; i<size; i++){
+//         if(arr[i]>maxint){
+//             maxint=arr[i];
+//         }
+//     }
+//     cout << maxint << endl;
+// }
+
+// Minimum number in an Array
+// int Mini(int arr[], int size){
+//     int minint=INT_MAX;
+//     for(int i=0; i<size; i++){
+//         if(arr[i]<minint){
+//             minint=arr[i];
+//         }
+//     }
+//     cout << minint << endl;
+// }
 int main(){
     //cout << "Hello World!!" ;
     // cout << "Enter a number :" << endl ;
@@ -554,14 +593,70 @@ int main(){
 // printArray(arr, size);
 
 // Linear Search in Array
-int arr[]={7,10,17,18,33,45,73,93};
+// int arr[]={7,10,17,18,33,45,73,93};
+// int size=8;
+// int key;
+// cout << "Enter Key " << endl;
+// cin >> key;
+// if(find(arr, size, key)){
+//     cout << "Present " << endl;
+// }else{
+//     cout << "Absent "<< endl;
+// }
+
+// counting number of zeros and ones in an Array
+// int arr[]={0,0,1,0,1,1,1,0,0,1,0,1,0,1,1};
+// int size = 15;
+
+// count(arr, size);
+
+// Maximum number in an Array
+// int arr[]={0,1,7,10,17,18,33,45,65,73,93,101};
+// int size=12;
+//  Maxi(arr, size);
+//  Mini(arr, size);
+
+// Printing Extremes in an Array
+// int arr[]={10,20,30,40,50,60,70,80};
+// int size=8;
+
+// int start=0;
+// int end= size-1;
+
+// while(true){
+//     if(start>end){
+//         break;
+//     }
+    
+// //for odd case
+//     if(start==end){
+//         cout << arr[start] << " ";
+//         break;
+//     }
+//     else{
+//     cout << arr[start] << " ";
+//     cout << arr[end] << " ";
+//     }
+//     start++;
+//     end--;
+// }
+
+// Reversing Array
+int arr[]={10,20,30,40,50,60,70,80};
 int size=8;
-int key;
-cout << "Enter Key " << endl;
-cin >> key;
-if(find(arr, size, key)){
-    cout << "Present " << endl;
-}else{
-    cout << "Absent "<< endl;
+
+int start=0;
+int end= size-1;
+
+while(true){
+    if(start>end){
+        break;
+    }
+    swap(arr[start], arr[end]);
+    start++;
+    end--;
+}
+for(int i=0; i<size; i++){
+    cout << arr[i] << " ";
 }
 };
