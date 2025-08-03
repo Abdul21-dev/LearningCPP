@@ -642,21 +642,21 @@ int main(){
 // }
 
 // Reversing Array
-int arr[]={10,20,30,40,50,60,70,80};
-int size=8;
+// int arr[]={10,20,30,40,50,60,70,80};
+// int size=8;
 
-int start=0;
-int end= size-1;
+// int start=0;
+// int end= size-1;
 
-while(true){
-    if(start>end){
-        break;
-    }
-    swap(arr[start], arr[end]);
-    start++;
-    end--;
-}
-for(int i=0; i<size; i++){
-    cout << arr[i] << " ";
-}
+// while(true){
+//     if(start>end){
+//         break;
+//     }
+//     swap(arr[start], arr[end]);
+//     start++;
+//     end--;
+// }
+// for(int i=0; i<size; i++){
+//     cout << arr[i] << " ";
+// }
 };
