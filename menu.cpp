@@ -1,5 +1,6 @@
 #include<iostream>
 #include<limits.h>
+#include<vector>
 using namespace std;
 
 // void Printfunction(){
@@ -129,6 +130,15 @@ using namespace std;
 //     }
 //     cout << minint << endl;
 // }
+
+// finding unique
+int Findunique(vector<int>arr){
+    int ans=0;
+    for(int i=0; i<arr.size(); i++){
+        ans = ans^arr[i];
+    }
+    return ans;
+}
 int main(){
     //cout << "Hello World!!" ;
     // cout << "Enter a number :" << endl ;
@@ -659,4 +669,63 @@ int main(){
 // for(int i=0; i<size; i++){
 //     cout << arr[i] << " ";
 // }
+
+// Learning Array
+
+// vector<int>arr;
+// cout << arr.size() << endl;
+// cout << arr.capacity() << endl;
+
+// arr.push_back(5);
+// arr.push_back(7);
+
+// for(int i=0; i<arr.size(); i++){
+//     cout << arr[i] << " ";
+// }
+// cout << endl;
+
+// arr.pop_back();
+// for(int i=0; i<arr.size(); i++){
+//     cout << arr[i] << " ";
+// }
+// cout << endl;
+
+// vector<int>brr(10, 1);
+// cout << brr.size() << endl;
+// cout << brr.capacity() << endl;
+// for(int i=0; i<brr.size(); i++){
+//     cout << brr[i] << " ";
+// }
+// cout << endl;
+
+// vector<int>crr{7,10,17,18,33,45,73,93};
+// for(int i=0; i<crr.size(); i++){
+//     cout << crr[i] << " ";
+// }
+// cout << endl;
+
+// int n;
+// cout << "Enter the size of vector "<< endl;
+// cin >> n;
+// vector<int>drr(n);
+// cout << drr.size() << endl;
+// cout << drr.capacity() << endl;
+
+// cout << "Checking if drr is empty or not :" << drr.empty() << endl;
+
+// question1. finding unique
+
+int n;
+cout << "Enter the size of the Array " << endl;
+cin>> n;
+
+cout << "Enter elements of Array " << endl;
+vector<int>arr(n);
+for(int i=0; i<arr.size(); i++){
+    cin >> arr[i];
+}
+
+int uniqueElement = Findunique(arr);
+cout << "Unique Element is : " << uniqueElement;
+
 };
