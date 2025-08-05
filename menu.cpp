@@ -132,13 +132,13 @@ using namespace std;
 // }
 
 // finding unique
-int Findunique(vector<int>arr){
-    int ans=0;
-    for(int i=0; i<arr.size(); i++){
-        ans = ans^arr[i];
-    }
-    return ans;
-}
+// int Findunique(vector<int>arr){
+//     int ans=0;
+//     for(int i=0; i<arr.size(); i++){
+//         ans = ans^arr[i];
+//     }
+//     return ans;
+// }
 int main(){
     //cout << "Hello World!!" ;
     // cout << "Enter a number :" << endl ;
@@ -715,17 +715,87 @@ int main(){
 
 // question1. finding unique
 
-int n;
-cout << "Enter the size of the Array " << endl;
-cin>> n;
+// int n;
+// cout << "Enter the size of the Array " << endl;
+// cin>> n;
 
-cout << "Enter elements of Array " << endl;
-vector<int>arr(n);
-for(int i=0; i<arr.size(); i++){
-    cin >> arr[i];
+// cout << "Enter elements of Array " << endl;
+// vector<int>arr(n);
+// for(int i=0; i<arr.size(); i++){
+//     cin >> arr[i];
+// }
+
+// int uniqueElement = Findunique(arr);
+// cout << "Unique Element is : " << uniqueElement;
+
+// Union of Arrays
+// int arr[]={1,2,3,4,6,8};
+// int sizea = 6;
+// int brr[]={3,4,9,10};
+// int sizeb = 4;
+
+// vector<int>ans;
+// for(int i=0; i<sizea; i++){
+//     ans.push_back(arr[i]);
+// }
+// for(int i=0; i<sizeb; i++){
+//     ans.push_back(brr[i]);
+// }
+
+// // Printing ans array
+// for(int i=0; i<ans.size(); i++){
+//     cout << ans[i] << " ";
+// }
+
+// Intersection of two Arrays
+// int arr[]={1,2,3,3,4,6,8};
+// int sizea = 7;
+// int brr[]={3,4,8,9,10};
+// int sizeb = 4;
+
+// vector<int>ans;
+// for(int i=0; i<sizea; i++){
+//     int element = arr[i];
+//     for(int j=0; j<sizeb; j++){
+//         if(element == brr[j]){
+//             brr[j] = INT_MIN; // marking one element after taking intersection
+//             ans.push_back(element);
+//         }
+//     }
+// }
+// // Printing ans array
+// for(int i=0; i<ans.size(); i++){
+//     cout << ans[i] << " ";
+// }
+
+// Intersection with duplicates
+int arr[]={1,2,4,6,8,10};
+int sizea = 6;
+int brr[]={3,4,5,6};
+int sizeb = 4;
+
+vector<int>ans;
+for(int i=0; i<sizea; i++){
+    int element = arr[i];
+    for(int j=0; j<sizeb; j++){
+        if(element == brr[j]){
+            brr[j] = INT_MIN;
+        }
+    }
 }
 
-int uniqueElement = Findunique(arr);
-cout << "Unique Element is : " << uniqueElement;
+for(int i=0; i<sizea; i++){
+    ans.push_back(arr[i]);
+}
+for(int i=0; i<sizeb; i++){
+    if(brr[i] != INT_MIN){
+    ans.push_back(brr[i]);
+    }
+}
+
+// Printing ans array
+for(int i=0; i<ans.size(); i++){
+    cout << ans[i] << " ";
+}
 
 };
