@@ -811,18 +811,66 @@ int main(){
 // }
 
 // Printing triplet with sum as ans
-vector<int>arr{10,20,30,40};
-int sum = 80;
-for(int i=0; i<arr.size(); i++){
-    int element1 = arr[i];
-    for(int j=i+1; j<arr.size(); j++){
-    int element2 = arr[j];
-    for(int k=j+1; k<arr.size(); k++){
-    int element3 = arr[k];
-    if(element1 + element2 + element3 == sum){
-        cout << "(" << element1 << "," << element2 << "," << element3 << ")" << endl;
+// vector<int>arr{10,20,30,40};
+// int sum = 80;
+// for(int i=0; i<arr.size(); i++){
+//     int element1 = arr[i];
+//     for(int j=i+1; j<arr.size(); j++){
+//     int element2 = arr[j];
+//     for(int k=j+1; k<arr.size(); k++){
+//     int element3 = arr[k];
+//     if(element1 + element2 + element3 == sum){
+//         cout << "(" << element1 << "," << element2 << "," << element3 << ")" << endl;
+//     }
+//   }
+//  }
+// }
+
+// Sorting 0's and 1's
+// vector<int>arr{0,1,1,0,1,0,1,0};
+// vector<int>brr;
+// vector<int>crr;
+// vector<int>drr;
+// for(int i=0; i<arr.size(); i++){
+//     if(arr[i]==0){
+//    brr.push_back(arr[i]);
+//     }
+//      if(arr[i]==1){
+//    crr.push_back(arr[i]);
+//     }
+// }
+// for(int i=0; i<brr.size(); i++){
+//     drr.push_back(brr[i]);
+// }
+// for(int i=0; i<crr.size(); i++){
+//     drr.push_back(crr[i]);
+// }
+// for(int i=0; i<drr.size(); i++){
+//     cout << drr[i] << " ";
+// }
+
+// Sorting 0's and 1's by two pointer apporoach(starting me 0's daal do aur end me 1's)
+vector<int>arr{0,1,1,0,1,1,0,1,0};
+int start = 0;
+int end = arr.size() - 1;
+ int i=0;
+while(true){
+   
+    if(i>end){
+        break;
     }
-  }
- }
+    if(arr[i] == 0){
+        swap(arr[i], arr[start]);
+        start++;
+        i++;
+    }
+    if(arr[i] == 1){
+        swap(arr[i], arr[end]);
+        end--;
+    }
+    
+}
+for(int i=0; i<arr.size(); i++){
+    cout << arr[i] << " ";
 }
 };
