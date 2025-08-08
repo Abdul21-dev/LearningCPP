@@ -850,27 +850,45 @@ int main(){
 // }
 
 // Sorting 0's and 1's by two pointer apporoach(starting me 0's daal do aur end me 1's)
-vector<int>arr{0,1,1,0,1,1,0,1,0};
-int start = 0;
-int end = arr.size() - 1;
- int i=0;
-while(true){
+// vector<int>arr{0,1,1,0,1,1,0,1,0};
+// int start = 0;
+// int end = arr.size() - 1;
+//  int i=0;
+// while(true){
    
-    if(i>end){
-        break;
-    }
-    if(arr[i] == 0){
-        swap(arr[i], arr[start]);
-        start++;
-        i++;
-    }
-    if(arr[i] == 1){
-        swap(arr[i], arr[end]);
-        end--;
-    }
+//     if(i>end){
+//         break;
+//     }
+//     if(arr[i] == 0){
+//         swap(arr[i], arr[start]);
+//         start++;
+//         i++;
+//     }
+//     if(arr[i] == 1){
+//         swap(arr[i], arr[end]);
+//         end--;
+//     }
     
+// }
+// for(int i=0; i<arr.size(); i++){
+//     cout << arr[i] << " ";
+// }
+
+// Learning 2-D Arrays
+// int arr[3][3] = {{1,2,3}, {4,5,6}, {7,8,9}};
+
+// Taking input and giving output in 2-D Arrays
+int arr[3][3];
+int size = 3;
+for(int i=0; i<size; i++){
+    for(int j=0; j<size; j++){
+        cin >> arr[i][j];
+    }
+
 }
-for(int i=0; i<arr.size(); i++){
-    cout << arr[i] << " ";
+for(int i=0; i<size; i++){
+    for(int j=0; j<size; j++){
+    cout << arr[i][j] << " ";
+    }
 }
 };
