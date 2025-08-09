@@ -139,6 +139,42 @@ using namespace std;
 //     }
 //     return ans;
 // }
+
+// Printing rowwise sum
+// void Rowwisesum(int arr[][3], int row, int col){
+//     cout << "Printing Rowwise Sum" << endl;
+//     for(int i=0; i<row; i++){
+//         int sum =0;
+//         for(int j=0; j<col; j++){
+//             sum = sum + arr[i][j];
+//         }
+//         cout << sum << " ";
+//     }
+//     cout << endl;
+// }
+// Printing columwise sum
+// void Columnwisesum(int arr[][3], int row, int col){
+//     cout << "Printing Columnwise Sum" << endl;
+//     for(int i=0; i<row; i++){
+//         int sum =0;
+//         for(int j=0; j<col; j++){
+//             sum = sum + arr[j][i];
+//         }
+//         cout << sum << endl;
+//     }
+// }
+
+// Linear Search in 2-D Array
+bool Findnum(int arr[][3], int row, int col, int Key){
+    for(int i=0; i<row; i++){
+        for(int j=0; j<col; j++){
+            if(arr[i][j] == Key){
+                return true;
+            }
+        }
+    }
+    return false;
+}
 int main(){
     //cout << "Hello World!!" ;
     // cout << "Enter a number :" << endl ;
@@ -878,17 +914,64 @@ int main(){
 // int arr[3][3] = {{1,2,3}, {4,5,6}, {7,8,9}};
 
 // Taking input and giving output in 2-D Arrays
-int arr[3][3];
-int size = 3;
-for(int i=0; i<size; i++){
-    for(int j=0; j<size; j++){
-        cin >> arr[i][j];
-    }
+// int arr[3][3];
+// int size = 3;
 
-}
-for(int i=0; i<size; i++){
-    for(int j=0; j<size; j++){
-    cout << arr[i][j] << " ";
-    }
+// row wise input le rahe
+// for(int i=0; i<size; i++){
+//     for(int j=0; j<size; j++){
+//         cin >> arr[i][j];
+//     }
+
+// }
+
+// column wise input le rahe
+// for(int i=0; i<size; i++){
+//     for(int j=0; j<size; j++){
+//         cin >> arr[j][i];
+//     }
+
+// }
+// //Printing row wise
+// cout << "Printing row wise" <<endl;
+// for(int i=0; i<size; i++){
+//     for(int j=0; j<size; j++){
+//     cout << arr[i][j] << " ";
+//     }
+//     cout << endl;
+// }
+// // Printing column wise
+// cout << "Printing column wise" << endl;
+// for(int i=0; i<size; i++){
+//     for(int j=0; j<size; j++){
+//     cout << arr[j][i] << " ";
+//     }
+//     cout << endl;
+// }
+
+// Printing row wise Sum
+// int arr[3][3] = {{1,2,3}, {4,5,6}, {7,8,9}};
+// int row = 3;
+// int col = 3;
+// for(int i=0; i<row; i++){
+//     for(int j=0; j<col; j++){
+//     cout << arr[i][j] << " ";
+//     }
+//     cout << endl;
+// }
+// Rowwisesum(arr, row, col);
+// Columnwisesum(arr, row, col);
+
+// Linear search in 2-D Array
+int arr[3][3] = {{5,6,8}, {7,2,4}, {1,6,9}};
+int row = 3;
+int col = 3;
+int Key;
+cout << "Enter Key"<< endl;
+cin >> Key;
+if(Findnum(arr, row, col, Key)){
+    cout << Key << " is present in the array" << endl;
+}else{
+    cout << Key << " is not present in the array"<< endl;
 }
 };
