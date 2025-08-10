@@ -165,16 +165,66 @@ using namespace std;
 // }
 
 // Linear Search in 2-D Array
-bool Findnum(int arr[][3], int row, int col, int Key){
-    for(int i=0; i<row; i++){
-        for(int j=0; j<col; j++){
-            if(arr[i][j] == Key){
-                return true;
-            }
-        }
-    }
-    return false;
-}
+// bool Findnum(int arr[][3], int row, int col, int Key){
+//     for(int i=0; i<row; i++){
+//         for(int j=0; j<col; j++){
+//             if(arr[i][j] == Key){
+//                 return true;
+//             }
+//         }
+//     }
+//     return false;
+// }
+
+// Finding maximum element in an Array
+// void Findmax(int arr[][3], int row, int col){
+//     int maxint = INT_MIN;
+//     for(int i=0; i<row; i++){
+        
+//         for(int j=0; j<row; j++){
+//             if(arr[i][j] > maxint){
+//                 maxint = arr[i][j];
+//             }
+//         }
+
+//     }
+//     cout << "Maximum element is "<< maxint << endl;
+// }
+
+// Finding minimum element in an Array
+// void Findmin(int arr[][3], int row, int col){
+//     int minint = INT_MAX;
+//     for(int i=0; i<row; i++){
+        
+//         for(int j=0; j<row; j++){
+//             if(arr[i][j] < minint){
+//                 minint = arr[i][j];
+//             }
+//         }
+
+//     }
+//     cout << "Minimum element is " << minint << endl;
+// }
+
+// Transpose of a Matrix
+// void Transpose(int arr[][3], int row, int col, int TransposeArr[][3]){
+//     for(int i=0; i<row; i++){
+//         for(int j=0; j<col; j++){
+//             TransposeArr[j][i] = arr[i][j];
+//         }
+//     }
+// }
+
+// Printing Array
+// void PrintArray(int arr[][3], int row, int col){
+//     for(int i=0; i<row; i++){
+//         for(int j=0; j<col; j++){
+//             cout << arr[i][j] << " ";
+//         }
+//         cout << endl;
+//     }
+    
+// }
 int main(){
     //cout << "Hello World!!" ;
     // cout << "Enter a number :" << endl ;
@@ -963,15 +1013,61 @@ int main(){
 // Columnwisesum(arr, row, col);
 
 // Linear search in 2-D Array
-int arr[3][3] = {{5,6,8}, {7,2,4}, {1,6,9}};
+// int arr[3][3] = {{5,6,8}, {7,2,4}, {1,6,9}};
+// int row = 3;
+// int col = 3;
+// int Key;
+// cout << "Enter Key"<< endl;
+// cin >> Key;
+// if(Findnum(arr, row, col, Key)){
+//     cout << Key << " is present in the array" << endl;
+// }else{
+//     cout << Key << " is not present in the array"<< endl;
+// }
+
+// Finding Maximum and Minimum element in an Array
+// int arr[3][3] = {{5,6,18}, {17,2,4}, {1,6,9}};
+// int row = 3;
+// int col = 3;
+// Findmax(arr, row, col);
+// Findmin(arr, row, col);
+
+// Transpose of a Matrix
+// int arr[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+// int row =3;
+// int col=3;
+// int TransposeArr[3][3];
+// cout << "Original Array " << endl;
+// PrintArray(arr, row, col);
+// Transpose(arr, row, col, TransposeArr);
+// cout << "Transposed Array " << endl;
+// PrintArray(TransposeArr, row, col);
+
+// Vector of 2-D Array
+// vector<vector<int> >arr;
+// vector<int>a{1,2,3};
+// vector<int>b{4,5,6,17,18};
+// vector<int>c{7,8,9};
+
+// arr.push_back(a);
+// arr.push_back(b);
+// arr.push_back(c);
+
+// for(int i=0; i<arr.size(); i++){
+//     for(int j=0; j<arr[i].size(); j++){
+//         cout << arr[i][j] << " ";
+//     }
+//     cout << endl;
+// }
+
+// Initialising 2D Array
 int row = 3;
-int col = 3;
-int Key;
-cout << "Enter Key"<< endl;
-cin >> Key;
-if(Findnum(arr, row, col, Key)){
-    cout << Key << " is present in the array" << endl;
-}else{
-    cout << Key << " is not present in the array"<< endl;
+int col = 5;
+vector<vector<int> >arr(row, vector<int>(col, 18));
+for(int i=0; i<arr.size(); i++){
+    for(int j=0; j<arr[i].size(); j++){
+        cout << arr[i][j] << " ";
+    }
+    cout << endl;
 }
 };
