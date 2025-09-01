@@ -225,6 +225,33 @@ using namespace std;
 //     }
     
 // }
+
+// Binary search
+int BinarySearch(int arr[], int size, int target){
+    int start = 0;
+    int end = size - 1;
+   
+
+    while (start <= end){
+         int mid = (start + end)/2;
+        int element = arr[mid];
+
+        if(target == element){
+            return mid;
+        }
+        else if(target < element){
+            end = mid - 1;
+        }
+        else{
+            start = mid + 1;
+        }
+        
+        mid = (start + end)/2;
+
+    }
+
+    return -1;
+}
 int main(){
     //cout << "Hello World!!" ;
     // cout << "Enter a number :" << endl ;
@@ -1061,13 +1088,28 @@ int main(){
 // }
 
 // Initialising 2D Array
-int row = 3;
-int col = 5;
-vector<vector<int> >arr(row, vector<int>(col, 18));
-for(int i=0; i<arr.size(); i++){
-    for(int j=0; j<arr[i].size(); j++){
-        cout << arr[i][j] << " ";
-    }
-    cout << endl;
+// int row = 3;
+// int col = 5;
+// vector<vector<int> >arr(row, vector<int>(col, 18));
+// for(int i=0; i<arr.size(); i++){
+//     for(int j=0; j<arr[i].size(); j++){
+//         cout << arr[i][j] << " ";
+//     }
+//     cout << endl;
+// }
+
+// Binary Search
+int arr[] = {2, 4, 6, 8, 10, 12, 14, 16};
+int size = 8;
+int target;
+cout << "Enter target search value" << endl;
+cin >> target;
+
+int indexOftarget = BinarySearch(arr, size, target);
+if(indexOftarget == -1){
+    cout << "Target not found";
+}
+else{
+    cout << "Target found at " << indexOftarget << " index" << endl;
 }
 };
