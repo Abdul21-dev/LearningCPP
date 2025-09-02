@@ -227,30 +227,53 @@ using namespace std;
 // }
 
 // Binary search
-int BinarySearch(int arr[], int size, int target){
-    int start = 0;
-    int end = size - 1;
+// int BinarySearch(int arr[], int size, int target){
+//     int start = 0;
+//     int end = size - 1;
    
 
-    while (start <= end){
-         int mid = (start + end)/2;
-        int element = arr[mid];
+//     while (start <= end){
+//          int mid = (start + end)/2;
+//         int element = arr[mid];
 
-        if(target == element){
-            return mid;
-        }
-        else if(target < element){
+//         if(target == element){
+//             return mid;
+//         }
+//         else if(target < element){
+//             end = mid - 1;
+//         }
+//         else{
+//             start = mid + 1;
+//         }
+        
+//         mid = (start + end)/2;
+
+//     }
+
+//     return -1;
+// }
+
+// Finding first occurance through binary search
+int FirstOccurance(vector<int>arr, int target){
+    int start =0;
+    int end= arr.size() - 1;
+    int mid = start + (end - start)/2 ;
+    int ans = -1;
+
+    while(start<=end){
+        if(arr[mid] == target){
+            ans = mid;
             end = mid - 1;
         }
-        else{
+        else if(target > arr[mid]){
             start = mid + 1;
         }
-        
-        mid = (start + end)/2;
-
+        else if(target < arr[mid]){
+            end = mid - 1;
+        }
+        mid = start + (end - start)/2 ;
     }
-
-    return -1;
+    return ans;
 }
 int main(){
     //cout << "Hello World!!" ;
@@ -1099,17 +1122,23 @@ int main(){
 // }
 
 // Binary Search
-int arr[] = {2, 4, 6, 8, 10, 12, 14, 16};
-int size = 8;
-int target;
-cout << "Enter target search value" << endl;
-cin >> target;
+// int arr[] = {2, 4, 6, 8, 10, 12, 14, 16};
+// int size = 8;
+// int target;
+// cout << "Enter target search value" << endl;
+// cin >> target;
 
-int indexOftarget = BinarySearch(arr, size, target);
-if(indexOftarget == -1){
-    cout << "Target not found";
-}
-else{
-    cout << "Target found at " << indexOftarget << " index" << endl;
-}
+// int indexOftarget = BinarySearch(arr, size, target);
+// if(indexOftarget == -1){
+//     cout << "Target not found";
+// }
+// else{
+//     cout << "Target found at " << indexOftarget << " index" << endl;
+// }
+
+// finding the first occurance by binary search
+vector<int>arr{1,3,3,3,3,3,4,4,4,4,5,6,7};
+int target = 4;
+int ans = FirstOccurance(arr, target);
+cout << "first occurance is at index " << ans << endl;
 };
