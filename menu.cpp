@@ -1,6 +1,7 @@
 #include<iostream>
 #include<limits.h>
 #include<vector>
+#include<algorithm>
 using namespace std;
 
 // void Printfunction(){
@@ -254,27 +255,65 @@ using namespace std;
 // }
 
 // Finding first occurance through binary search
-int FirstOccurance(vector<int>arr, int target){
-    int start =0;
-    int end= arr.size() - 1;
-    int mid = start + (end - start)/2 ;
-    int ans = -1;
+// int FirstOccurance(vector<int>arr, int target){
+//     int start =0;
+//     int end= arr.size() - 1;
+//     int mid = start + (end - start)/2 ;
+//     int ans = -1;
 
-    while(start<=end){
-        if(arr[mid] == target){
-            ans = mid;
-            end = mid - 1;
-        }
-        else if(target > arr[mid]){
-            start = mid + 1;
-        }
-        else if(target < arr[mid]){
-            end = mid - 1;
-        }
-        mid = start + (end - start)/2 ;
-    }
-    return ans;
-}
+//     while(start<=end){
+//         if(arr[mid] == target){
+//             ans = mid;
+//             end = mid - 1;
+//         }
+//         else if(target > arr[mid]){
+//             start = mid + 1;
+//         }
+//         else if(target < arr[mid]){
+//             end = mid - 1;
+//         }
+//         mid = start + (end - start)/2 ;
+//     }
+//     return ans;
+// }
+
+// int LastOccurance(vector<int>arr, int target){
+//     int start =0;
+//     int end= arr.size() - 1;
+//     int mid = start + (end - start)/2 ;
+//     int ans = -1;
+
+//     while(start<=end){
+//         if(arr[mid] == target){
+//             ans = mid;
+//             start = mid + 1;
+//         }
+//         else if(target > arr[mid]){
+//             start = mid + 1;
+//         }
+//         else if(target < arr[mid]){
+//             end = mid - 1;
+//         }
+//         mid = start + (end - start)/2 ;
+//     }
+//     return ans;
+// }
+
+// void rearrangeNegatives(vector<int>& arr) {
+//     int start = 0, end = arr.size() - 1;
+    
+//     while (start <= end) {
+//         if (arr[start] < 0) {
+//             start++;
+//         } else if (arr[end] >= 0) {
+//             end--;
+//         } else {
+//             swap(arr[start], arr[end]);
+//             start++;
+//             end--;
+//         }
+//     }
+// }
 int main(){
     //cout << "Hello World!!" ;
     // cout << "Enter a number :" << endl ;
@@ -1137,8 +1176,74 @@ int main(){
 // }
 
 // finding the first occurance by binary search
-vector<int>arr{1,3,3,3,3,3,4,4,4,4,5,6,7};
-int target = 4;
-int ans = FirstOccurance(arr, target);
-cout << "first occurance is at index " << ans << endl;
+// vector<int>arr{1,3,3,3,3,3,4,4,4,4,5,6,7};
+// int target = 4;
+// int ans = FirstOccurance(arr, target);
+// cout << "first occurance is at index " << ans << endl;
+
+// predefined binary function
+// vector<int>arr{1,3,3,3,3,3,4,4,4,4,5,6,7};
+// if(binary_search(arr.begin(), arr.end(), 8)){
+//     cout << "Found" << endl;
+// }
+// else{
+//     cout << "Not found " << endl;
+// }
+
+// finding the last occurance by binary search
+// vector<int>arr{1,3,3,3,3,3,4,4,4,4,5,6,7};
+// int target = 3;
+// int ans = LastOccurance(arr, target);
+// cout << "Last occurance is at index " << ans << endl;
+// };
+
+// vector<int>arr{1,3,-6,5,-2};
+// // int start = 0;
+// // int end = arr.size() - 1 ;
+// rearrangeNegatives(arr);
+// for(int i=0; i<arr.size(); i++){
+//     cout << arr[i] << " ";
+// }
+
+// vector<int>nums{1,1,0,2,1,0,2,0};
+// int start = 0;
+// int end = nums.size() - 1 ;
+// int i =0;
+// while(i<=end){
+// if(nums[i]==0){
+//     swap(nums[start],nums[i]);
+// start++;
+// i++;
+// }else if(nums[i]==2){
+//     swap(nums[end],nums[i]);
+//     end--;
+// }else if(nums[i]==1){
+//     i++;
+// }
+// }
+// for(int i=0; i<nums.size(); i++){
+//     cout << nums[i] ;
+// }
+
+int arr[] = {2,4,6,8,10,12,14,16};
+int start = 0;
+int end = 7;
+int mid = start + (end - start)/2;
+int target = 14;
+
+while(start<=end){
+    if(arr[mid]>target){
+        end = mid -1;
+       mid = start + (end - start)/2;
+    }else if(arr[mid]<target){
+        start = mid + 1;
+        mid = start + (end - start)/2;
+    }else if(arr[mid]==target){
+        cout << mid;
+        break;
+    }else(
+        cout << "Target not found"
+    );
 };
+
+}
