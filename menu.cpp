@@ -1225,25 +1225,83 @@ int main(){
 //     cout << nums[i] ;
 // }
 
-int arr[] = {2,4,6,8,10,12,14,16};
+// int arr[] = {2,4,6,8,10,12,14,16};
+// int start = 0;
+// int end = 7;
+// int mid = start + (end - start)/2;
+// int target = 14;
+
+// while(start<=end){
+//     if(arr[mid]>target){
+//         end = mid -1;
+//        mid = start + (end - start)/2;
+//     }else if(arr[mid]<target){
+//         start = mid + 1;
+//         mid = start + (end - start)/2;
+//     }else if(arr[mid]==target){
+//         cout << mid;
+//         break;
+//     }else(
+//         cout << "Target not found"
+//     );
+// };
+
+// Q. finding the first occurence of a number
+
+// vector<int>arr{1,2,3,3,3,3,3,4,4,4,5,6,7,8,8,8,8,8};
+// int start = 0;
+// int end = arr.size()-1;
+// int mid = start + (end - start)/2;
+// int target = 8;
+// int ans = -1;
+
+// while(start<=end){
+//     if(arr[mid]==target){
+//         ans = mid;
+//         end = mid - 1;
+//     }else if(arr[mid]<target){
+//         start = mid + 1;
+//     }else if(arr[mid]>target){
+//         end = mid - 1;
+//     }
+//     mid = start + (end - start)/2;
+// }
+// cout << ans ;
+
+// Q. finding the last occurence of a number
+// vector<int>arr{1,2,3,3,3,3,3,4,4,4,5,6,7,8,8,8,8,8};
+// int start = 0;
+// int end = arr.size()-1;
+// int mid = start + (end - start)/2;
+// int target = 3;
+// int ans = -1;
+
+// while(start<=end){
+//     if(arr[mid]==target){
+//         ans = mid;
+//         start = mid + 1;
+//     }else if(arr[mid]<target){
+//         start = mid + 1;
+//     }else if(arr[mid]>target){
+//         end = mid - 1;
+//     }
+//     mid = start + (end - start)/2;
+// }
+// cout << ans ;
+
+//Q. Finding mountain peak
+vector<int>arr{0,3,10,5,2};
 int start = 0;
-int end = 7;
+int end = arr.size()-1;
 int mid = start + (end - start)/2;
-int target = 14;
 
-while(start<=end){
-    if(arr[mid]>target){
-        end = mid -1;
-       mid = start + (end - start)/2;
-    }else if(arr[mid]<target){
-        start = mid + 1;
-        mid = start + (end - start)/2;
-    }else if(arr[mid]==target){
-        cout << mid;
-        break;
-    }else(
-        cout << "Target not found"
-    );
-};
-
+while(start<end){
+    if(arr[mid]<arr[mid + 1]){
+        start = mid+1;
+    }else{
+        end = mid;
+    }
+    mid = start + (end - start)/2;
+}
+cout << start ;
 }
