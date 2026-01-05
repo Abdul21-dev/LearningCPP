@@ -1290,18 +1290,88 @@ int main(){
 // cout << ans ;
 
 //Q. Finding mountain peak
-vector<int>arr{0,3,10,5,2};
-int start = 0;
-int end = arr.size()-1;
-int mid = start + (end - start)/2;
+// vector<int>arr{0,3,10,5,2};
+// int start = 0;
+// int end = arr.size()-1;
+// int mid = start + (end - start)/2;
 
-while(start<end){
-    if(arr[mid]<arr[mid + 1]){
-        start = mid+1;
+// while(start<end){
+//     if(arr[mid]<arr[mid + 1]){
+//         start = mid+1;
+//     }else{
+//         end = mid;
+//     }
+//     mid = start + (end - start)/2;
+// }
+// cout << start ;
+
+// Q. Finding square root of a number
+// int n;
+// cout << "Enter a number"<<endl;;
+// cin>> n;
+// int start =0;
+// int end = n;
+// int target = n;
+// int mid = start + (end - start)/2;
+// int ans = -1;
+// while(start<=end){
+//     if(mid*mid == target){
+//         ans = mid ;
+//         break;
+//     }else if(mid*mid>target){
+//        end = mid -1;
+//     }else if(mid*mid < target ){
+//         ans = mid;
+//         start = mid + 1;
+//     }
+//     mid = start + (end - start)/2;
+// }
+// cout << "SquareRoot of the given number is : " << ans << endl;
+
+// // Q. Calculating precision of the square root of the number
+// double finalans = ans; 
+// int precision;
+// cout << "Enter number of floating digits you want" << endl;
+// cin >> precision;
+
+// double step = 0.1;
+
+// for(int i=0; i<precision; i++){
+
+//     for(double j=finalans; j*j<n; j=j+step){
+//         finalans=j;
+//     }
+//     step = step/10;
+// }
+// cout << "Final precise ans you want is " << finalans<<endl;
+
+//Q. Calculating target in a 2-D Array
+
+int arr[5][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16},{17,18,19,20}};
+int rows = 5;
+int cols = 4;
+int start =0;
+int end = rows*cols -1;
+int mid = start + (end - start)/2;
+int n;
+cout << "Enter number whose index you want to find "<<endl;
+cin >> n;
+int target = n;
+
+while(start<=end){
+    int indexofrows = mid/cols;
+    int indexofcols = mid%cols;
+    if(arr[indexofrows][indexofcols]==target){
+        cout << "Index of required number is ("<<indexofrows<<","<<indexofcols<<")"<< endl;
+        break;
+    }else if (arr[indexofrows][indexofcols]<target){
+        start = mid + 1;
+        mid = start + (end - start)/2;
+    }else if(arr[indexofrows][indexofcols]>target){
+        end = mid - 1;
+        mid = start + (end - start)/2;
     }else{
-        end = mid;
+        cout <<"Number is not present in the matrix"<<endl;
     }
-    mid = start + (end - start)/2;
 }
-cout << start ;
 }
