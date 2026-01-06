@@ -1347,31 +1347,103 @@ int main(){
 
 //Q. Calculating target in a 2-D Array
 
-int arr[5][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16},{17,18,19,20}};
-int rows = 5;
-int cols = 4;
-int start =0;
-int end = rows*cols -1;
-int mid = start + (end - start)/2;
-int n;
-cout << "Enter number whose index you want to find "<<endl;
-cin >> n;
-int target = n;
+// int arr[5][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12},{13,14,15,16},{17,18,19,20}};
+// int rows = 5;
+// int cols = 4;
+// int start =0;
+// int end = rows*cols -1;
+// int mid = start + (end - start)/2;
+// int n;
+// cout << "Enter number whose index you want to find "<<endl;
+// cin >> n;
+// int target = n;
 
-while(start<=end){
-    int indexofrows = mid/cols;
-    int indexofcols = mid%cols;
-    if(arr[indexofrows][indexofcols]==target){
-        cout << "Index of required number is ("<<indexofrows<<","<<indexofcols<<")"<< endl;
-        break;
-    }else if (arr[indexofrows][indexofcols]<target){
-        start = mid + 1;
-        mid = start + (end - start)/2;
-    }else if(arr[indexofrows][indexofcols]>target){
-        end = mid - 1;
-        mid = start + (end - start)/2;
-    }else{
-        cout <<"Number is not present in the matrix"<<endl;
+// while(start<=end){
+//     int indexofrows = mid/cols;
+//     int indexofcols = mid%cols;
+//     if(arr[indexofrows][indexofcols]==target){
+//         cout << "Index of required number is ("<<indexofrows<<","<<indexofcols<<")"<< endl;
+//         break;
+//     }else if (arr[indexofrows][indexofcols]<target){
+//         start = mid + 1;
+//         mid = start + (end - start)/2;
+//     }else if(arr[indexofrows][indexofcols]>target){
+//         end = mid - 1;
+//         mid = start + (end - start)/2;
+//     }else{
+//         cout <<"Number is not present in the matrix"<<endl;
+//     }
+//}
+
+//Q. Binary search in a nearly sorted Array
+// vector<int>arr{10,3,40,20,50,80,70};
+// int n;
+// cout << "Enter target" << endl;
+// cin >> n;
+// int target = n;
+// int s=0;
+// int e=arr.size()-1;
+// int mid = s+(e-s)/2;
+
+// while(s<=e){
+//     if(arr[mid]==target){
+//         cout << "Index of target is " << mid ;
+//         break;
+//     }
+//     if(mid-1>=0 && arr[mid-1]==target){
+//         cout << "Index of target is " << mid-1 ;
+//         break;
+//     }
+//     if(mid+1<arr.size() && arr[mid+1]==target){
+//         cout << "Index of target is " << mid+1 ;
+//         break;
+//     }
+//     else if (arr[mid]<target){
+//         s=mid+2;
+//     }
+//     else if (arr[mid]>target){
+//         e=mid-2;
+//     }
+//      mid = s+(e-s)/2;
+// }
+
+//Q. Diving two numbers by BinarySearch
+int dividend = 22;
+int divisor = 7;
+int quotient ;
+
+int s=0;
+int e= dividend;
+int mid = s+(e-s)/2;
+while(s<=e){
+    if(mid*divisor == divisor){
+        quotient=mid;
+    }else if(mid*divisor > dividend){
+     e = mid-1;
+    }else if(mid*divisor < dividend){
+        quotient = mid;
+        s = mid +1;
     }
+    mid = s+(e-s)/2;
 }
+cout<< "Divisor is: "<< quotient <<endl;
+
+ // Q. Calculating precision of the divisor
+double finalans = quotient; 
+int precision;
+cout << "Enter number of floating digits you want" << endl;
+cin >> precision;
+
+double step = 0.1;
+
+for(int i=0; i<precision; i++){
+
+    for(double j=finalans; j*divisor<dividend; j=j+step){
+        finalans=j;
+    }
+    step = step/10;
+}
+cout << "Final precise ans you want is " << finalans<<endl;
+
+
 }
