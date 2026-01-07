@@ -1408,42 +1408,143 @@ int main(){
 // }
 
 //Q. Diving two numbers by BinarySearch
-int dividend = 22;
-int divisor = 7;
-int quotient ;
+// int dividend = 22;
+// int divisor = 7;
+// int quotient ;
 
-int s=0;
-int e= dividend;
-int mid = s+(e-s)/2;
-while(s<=e){
-    if(mid*divisor == divisor){
-        quotient=mid;
-    }else if(mid*divisor > dividend){
-     e = mid-1;
-    }else if(mid*divisor < dividend){
-        quotient = mid;
-        s = mid +1;
+// int s=0;
+// int e= dividend;
+// int mid = s+(e-s)/2;
+// while(s<=e){
+//     if(mid*divisor == dividend){
+//         quotient=mid;
+//     }else if(mid*divisor > dividend){
+//      e = mid-1;
+//     }else if(mid*divisor < dividend){
+//         quotient = mid;
+//         s = mid +1;
+//     }
+//     mid = s+(e-s)/2;
+// }
+// cout<< "Divisor is: "<< quotient <<endl;
+
+//  // Q. Calculating precision of the divisor
+// double finalans = quotient; 
+// int precision;
+// cout << "Enter number of floating digits you want" << endl;
+// cin >> precision;
+
+// double step = 0.1;
+
+// for(int i=0; i<precision; i++){
+
+//     for(double j=finalans; j*divisor<dividend; j=j+step){
+//         finalans=j;
+//     }
+//     step = step/10;
+// }
+// cout << "Final precise ans you want is " << finalans<<endl;
+
+// Find the odd occuring element in an array
+// int arr[11]= {1,1,2,2,3,3,4,600,600,4,4};
+// int s=0;
+// int e=12;
+// int  mid = s+(e-s)/2;
+// int ans;
+
+// while(s<=e){
+//     if(s==e){
+//         ans=s;
+//         break;
+//     }
+//     if(mid%2==0){
+//         if(arr[mid]==arr[mid+1]){
+//             s=mid+2;
+//         }else{
+//             e=mid;
+//         }
+//     }else if(mid%2!=0){
+//         if(arr[mid]==arr[mid-1]){
+//             s=mid+1;
+//         }else{
+//             e=mid-1; //ans can't be at odd positiion
+//         }
+//     }
+//      mid = s+(e-s)/2;
+// }
+// cout << ans;
+
+//Q.Finding the duplicates
+//Given an array of integers nums containing n + 1 integers where each integer is in the range [1, n] inclusive.
+// There is only one repeated number in nums, return this repeated number.
+// You must solve the problem without modifying the array nums and using only constant extra space.
+// vector<int>nums{1,3,4,2,2};
+//  int ans=-1;
+//         for(int i=0; i<nums.size(); i++){
+//             int index = abs(nums[i]);
+//             if(nums[index]<0){
+//                 ans=index;
+//                 break;
+//             }
+            
+//                 nums[index] *= -1;
+           
+//         }
+//       //  return ans;
+    
+//     cout << ans;
+
+//q. finding missing elements from array with duplicates
+// vector<int>arr{1,3,5,3,4};
+// for(int i=0; i<arr.size(); i++){
+//     int index = abs(arr[i]);
+//     if(arr[index-1]>0){
+//         arr[index-1] *= -1;
+//     }
+// }
+// for(int i=0; i<arr.size(); i++){
+//     if(arr[i]>0){
+//     cout << i+1;
+//     }
+// }
+
+//q. Common elements in 3 Sorted Arrays
+// vector<int>a{2,4,18,30,20,40,80,100};
+// vector <int>b{1,3,5,18,22,20,13,88,80};
+// vector<int>c{5,8,45,20,80,66,18,19};
+// vector<int>arr;
+
+// for(int i=0; i<a.size(); i++){
+//     int element = a[i];
+//     for(int j=0; j<b.size(); j++){
+//         if(element==b[j]){
+//             for(int k=0; k<c.size(); k++){
+//                 if(element==c[k]){
+//                     arr.push_back(element);
+//                 }
+//             }
+//         }
+//     }
+// }
+// for(int i=0; i<arr.size(); i++){
+//     cout << arr[i] << " ";
+// }
+
+//Q. Wave-print a Matrix
+int arr[3][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+int rows=3;
+int cols=4;
+
+for(int col=0; col<cols; col++){
+    if(col%2==0){
+        for(int row=0; row<rows; row++){
+            cout << arr[row][col] << " ";
+        }
+    }else{
+        for(int row=2; row>=0; row--){
+            cout <<arr[row][col] << " ";
+        }
     }
-    mid = s+(e-s)/2;
 }
-cout<< "Divisor is: "<< quotient <<endl;
-
- // Q. Calculating precision of the divisor
-double finalans = quotient; 
-int precision;
-cout << "Enter number of floating digits you want" << endl;
-cin >> precision;
-
-double step = 0.1;
-
-for(int i=0; i<precision; i++){
-
-    for(double j=finalans; j*divisor<dividend; j=j+step){
-        finalans=j;
-    }
-    step = step/10;
-}
-cout << "Final precise ans you want is " << finalans<<endl;
-
 
 }
