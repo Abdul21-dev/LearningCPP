@@ -2,6 +2,8 @@
 #include<limits.h>
 #include<vector>
 #include<algorithm>
+#include<set>
+#include<utility>
 using namespace std;
 
 // void Printfunction(){
@@ -1531,20 +1533,70 @@ int main(){
 // }
 
 //Q. Wave-print a Matrix
-int arr[3][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12}};
-int rows=3;
-int cols=4;
+// int arr[3][4]={{1,2,3,4},{5,6,7,8},{9,10,11,12}};
+// int rows=3;
+// int cols=4;
 
-for(int col=0; col<cols; col++){
-    if(col%2==0){
-        for(int row=0; row<rows; row++){
-            cout << arr[row][col] << " ";
-        }
-    }else{
-        for(int row=2; row>=0; row--){
-            cout <<arr[row][col] << " ";
-        }
+// for(int col=0; col<cols; col++){
+//     if(col%2==0){
+//         for(int row=0; row<rows; row++){
+//             cout << arr[row][col] << " ";
+//         }
+//     }else{
+//         for(int row=2; row>=0; row--){
+//             cout <<arr[row][col] << " ";
+//         }
+//     }
+// }
+
+//Q. Factorial of a larege number
+// int n;
+// cout << "enter number whose factorial you want to find " << endl;
+// cin >> n;
+// vector<int>ans;
+// ans.push_back(1);
+// int carry=0;
+
+// for(int i=2; i<=n; i++){
+//     for(int j=0; j<ans.size(); j++){
+//         int x = ans[j]*i + carry;
+//         ans[j]=x%10;
+//         carry=x/10;
+//     }
+//     while(carry){
+//         ans.push_back(carry%10);
+//         carry = carry/10;
+//     }
+//     carry=0;
+// }
+// reverse(ans.begin(),ans.end());
+// for(int i=0; i<ans.size(); i++){
+//     cout << ans[i];
+// }
+
+//Q. finding k pairs with a difference given k
+vector<int>arr{3,1,4,1,5};
+sort(arr.begin(),arr.end());
+int i=0;
+int j=1;
+int k=2;
+set<pair<int,int>>ans;
+
+while(j<arr.size()){
+    int diff = arr[j]-arr[i];
+    
+    if(diff == k)
+    {
+        ans.insert({arr[i],arr[j]});
+        i++;
+        j++;
+    }else if(diff > k){
+        i++;
+    }else if(diff < k){
+        j++;
+    }else if(i == j){
+        j++;
     }
 }
-
+cout << ans.size();
 }
