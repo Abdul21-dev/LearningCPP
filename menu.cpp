@@ -1549,7 +1549,7 @@ int main(){
 //     }
 // }
 
-//Q. Factorial of a larege number
+//Q. Factorial of a large number
 // int n;
 // cout << "enter number whose factorial you want to find " << endl;
 // cin >> n;
@@ -1575,28 +1575,94 @@ int main(){
 // }
 
 //Q. finding k pairs with a difference given k
-vector<int>arr{3,1,4,1,5};
-sort(arr.begin(),arr.end());
-int i=0;
-int j=1;
-int k=2;
-set<pair<int,int>>ans;
+// vector<int>arr{3,1,4,1,5};
+// sort(arr.begin(),arr.end());
+// int i=0;
+// int j=1;
+// int k=2;
+// set<pair<int,int>>ans;
 
-while(j<arr.size()){
-    int diff = arr[j]-arr[i];
+// while(j<arr.size()){
+//     int diff = arr[j]-arr[i];
     
-    if(diff == k)
-    {
-        ans.insert({arr[i],arr[j]});
-        i++;
-        j++;
-    }else if(diff > k){
-        i++;
-    }else if(diff < k){
-        j++;
-    }else if(i == j){
-        j++;
+//     if(diff == k)
+//     {
+//         ans.insert({arr[i],arr[j]});
+//         i++;
+//         j++;
+//     }else if(diff > k){
+//         i++;
+//     }else if(diff < k){
+//         j++;
+//     }else if(i == j){
+//         j++;
+//     }
+// }
+// cout << ans.size();
+
+//Q. find k closest element to x
+// vector<int>arr{1,2,3,4,5};
+// int k=4;
+// int x=3;
+// int l=0;
+//        int h=arr.size()-1;
+//        vector<int>ans;
+//        while(h-l>=k){
+//         if(x-arr[l]>arr[h]-x){
+//            l++;
+//         }else{
+//             h--;
+//         }
+//        }
+//        for(int i=l; i<=h; i++){
+//         ans.push_back(arr[i]);
+//         cout << arr[i] << " ";
+//        }
+       
+//Q. EKO SPOJ
+    // vector<int>arr{20,15,10,17};
+    // int M=7;
+    // int N=arr.size();
+    // int x;
+    // int y = 0;
+    // for(int i=0; i<20; i++){
+    //       for(int j=0; j<arr.size(); j++){
+    //         if(arr[j]-i>0){
+    //         y += arr[j]-i;
+    //         }
+           
+    //       }
+    //       if(y>=M){
+    //         x=i;
+    //       }
+    //       y=0;
+    //       }
+    //       cout << x;
+
+    //Q.method-2 by BinarySearch
+    vector<int>arr{20,15,10,17};
+    int M=7;
+    int N=arr.size();
+    int y=0;
+    int x;
+    int s=0;
+    int e=20;
+    int mid = s+(e-s)/2;
+    while(s<=e){
+       for(int i=0; i<arr.size(); i++){
+        if(arr[i]-mid>0){
+           y += arr[i]-mid;
+        }
+       }
+       if(y>=M){
+        x=mid;
+        s=mid+1;
+       }else{
+        e = mid-1;
+       }
+       y=0;
+       mid = s+(e-s)/2;
     }
-}
-cout << ans.size();
-}
+    cout << x;
+    }
+
