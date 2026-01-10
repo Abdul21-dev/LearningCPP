@@ -1620,49 +1620,49 @@ int main(){
 //        }
        
 //Q. EKO SPOJ
-    // vector<int>arr{20,15,10,17};
-    // int M=7;
-    // int N=arr.size();
-    // int x;
-    // int y = 0;
-    // for(int i=0; i<20; i++){
-    //       for(int j=0; j<arr.size(); j++){
-    //         if(arr[j]-i>0){
-    //         y += arr[j]-i;
-    //         }
-           
-    //       }
-    //       if(y>=M){
-    //         x=i;
-    //       }
-    //       y=0;
-    //       }
-    //       cout << x;
-
-    //Q.method-2 by BinarySearch
     vector<int>arr{20,15,10,17};
     int M=7;
     int N=arr.size();
-    int y=0;
     int x;
-    int s=0;
-    int e=20;
-    int mid = s+(e-s)/2;
-    while(s<=e){
-       for(int i=0; i<arr.size(); i++){
-        if(arr[i]-mid>0){
-           y += arr[i]-mid;
-        }
-       }
-       if(y>=M){
-        x=mid;
-        s=mid+1;
-       }else{
-        e = mid-1;
-       }
-       y=0;
-       mid = s+(e-s)/2;
-    }
-    cout << x;
+    int y = 0;
+    for(int i=0; i<20; i++){
+          for(int j=0; j<arr.size(); j++){
+            if(arr[j]-i>0){
+            y += arr[j]-i;
+            }
+           
+          }
+          if(y>=M){
+            x=i;
+          }
+          y=0;
+          }
+          cout << x;
+
+    //Q.method-2 by BinarySearch
+    // vector<int>arr{20,15,10,17};
+    // int M=7;
+    // int N=arr.size();
+    // int y=0;
+    // int x;
+    // int s=0;
+    // int e=20;
+    // int mid = s+(e-s)/2;
+    // while(s<=e){
+    //    for(int i=0; i<arr.size(); i++){
+    //     if(arr[i]-mid>0){
+    //        y += arr[i]-mid;
+    //     }
+    //    }
+    //    if(y>=M){
+    //     x=mid;
+    //     s=mid+1;
+    //    }else{
+    //     e = mid-1;
+    //    }
+    //    y=0;
+    //    mid = s+(e-s)/2;
+    // }
+    // cout << x;
     }
 
