@@ -4,6 +4,7 @@
 #include<algorithm>
 #include<set>
 #include<utility>
+#include<string.h>
 using namespace std;
 
 // void Printfunction(){
@@ -1620,24 +1621,24 @@ int main(){
 //        }
        
 //Q. EKO SPOJ
-    vector<int>arr{20,15,10,17};
-    int M=7;
-    int N=arr.size();
-    int x;
-    int y = 0;
-    for(int i=0; i<20; i++){
-          for(int j=0; j<arr.size(); j++){
-            if(arr[j]-i>0){
-            y += arr[j]-i;
-            }
+    // vector<int>arr{20,15,10,17};
+    // int M=7;
+    // int N=arr.size();
+    // int x;
+    // int y = 0;
+    // for(int i=0; i<20; i++){
+    //       for(int j=0; j<arr.size(); j++){
+    //         if(arr[j]-i>0){
+    //         y += arr[j]-i;
+    //         }
            
-          }
-          if(y>=M){
-            x=i;
-          }
-          y=0;
-          }
-          cout << x;
+    //       }
+    //       if(y>=M){
+    //         x=i;
+    //       }
+    //       y=0;
+    //       }
+    //       cout << x;
 
     //Q.method-2 by BinarySearch
     // vector<int>arr{20,15,10,17};
@@ -1664,5 +1665,45 @@ int main(){
     //    mid = s+(e-s)/2;
     // }
     // cout << x;
+
+    // Char Array & String
+    // char name[100];
+    // cout << "enter your name :" << endl;
+    // cin >> name;
+    //  cout << name; 
+    // for(int i=0; i<6; i++){
+    //     cout << " index of " << i << " is " << name[i] << endl;
+    // }
+    // int value = (int)name[5];
+    // cout << value;
+
+    char name[100];
+    cout << "enter your name :" << endl;
+//    // cin >> name;
+//    cin.getline(name, 50);
+//     cout << name;
+     cin.getline(name, 50);
+      int length = 0;
+      int i = 0;
+      while(name[i] != '\0'){
+        length++;
+        i++;
+      }
+      cout << length <<endl;
+
+    // Reversing a string
+    // for(int i=length-1; i>=0; i--){
+    //       cout << name[i];
+    // }
+
+    // Reversing a string by two pointer method 
+    int s=0;
+    int e=length-1;
+    while(s<=e){
+        swap(name[s],name[e]);
+        s++;
+        e--;
+    }
+    cout << name;
     }
 
