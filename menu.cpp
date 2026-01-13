@@ -1677,19 +1677,19 @@ int main(){
     // int value = (int)name[5];
     // cout << value;
 
-    char name[100];
-    cout << "enter your name :" << endl;
+    // char name[100];
+    // cout << "enter your name :" << endl;
 //    // cin >> name;
 //    cin.getline(name, 50);
 //     cout << name;
-     cin.getline(name, 50);
-      int length = 0;
-      int i = 0;
-      while(name[i] != '\0'){
-        length++;
-        i++;
-      }
-      cout << length <<endl;
+    //  cin.getline(name, 50);
+    //   int length = 0;
+    //   int i = 0;
+    //   while(name[i] != '\0'){
+    //     length++;
+    //     i++;
+    //   }
+    //   cout << length <<endl;
 
     // Reversing a string
     // for(int i=length-1; i>=0; i--){
@@ -1697,13 +1697,80 @@ int main(){
     // }
 
     // Reversing a string by two pointer method 
-    int s=0;
-    int e=length-1;
-    while(s<=e){
-        swap(name[s],name[e]);
-        s++;
-        e--;
-    }
-    cout << name;
+    // int s=0;
+    // int e=length-1;
+    // while(s<=e){
+    //     swap(name[s],name[e]);
+    //     s++;
+    //     e--;
+    // }
+    // cout << name;
+
+    // Replacing spaces in a String
+    //  char name[100];
+    // cout << "enter your name :" << endl;
+    //  cin.getline(name, 50);
+    //  cout << name << endl;
+    //   int length = strlen(name);
+    //  // cout << length;
+    //   for(int i=0; i<length; i++){
+    //     if(name[i]==' '){
+    //         name[i]='@';
+    //     };
+    //   }
+    //   cout << name ;
+
+    // Palindrome
+    // int yes=0;
+    // int no=0;
+    // for(int i=0; i<length; i++){
+    //     if(name[i]==name[length-1-i]){
+    //         yes++;
+    //     }else{
+    //        no++;
+    //     }
+    // }
+    // if(yes == length){
+    //     cout << "Palindrome";
+    // }else{
+    //     cout << "No Palindrome";
+    // }
+
+    // Palindrome method 2
+    // int yes=0;
+    // int no=0;
+    // int s=0;
+    // int e=length-1;
+    // while(s<=e){
+    //     if(name[s]==name[e]){
+    //         yes++;
+    //     }else{
+    //         no++;
+    //     }
+    //     s++;
+    //     e--;
+    // }
+    // if(no>1){
+    //     cout << "No Palindrome";
+    // }else{
+    //     cout << "Palindrome";
+    // }
+
+    // Converting string into uppercase
+     char name[100];
+    cout << "enter your name :" << endl;
+     cin.getline(name, 50);
+     cout << name << endl;
+      int length = strlen(name);
+    //   for(int i=0; i<length; i++){
+    //     name[i] = name[i] - 'a' + 'A';
+    //     cout << name[i];
+    //   }
+      // Converting string inti lowercase
+    //   for(int i=0; i<length; i++){
+    //     name[i]=name[i]-'A'+'a';
+    //     cout << name[i];
+    //   }
+
     }
 
