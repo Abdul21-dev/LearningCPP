@@ -1757,11 +1757,11 @@ int main(){
     // }
 
     // Converting string into uppercase
-     char name[100];
-    cout << "enter your name :" << endl;
-     cin.getline(name, 50);
-     cout << name << endl;
-      int length = strlen(name);
+    //  char name[100];
+    // cout << "enter your name :" << endl;
+    //  cin.getline(name, 50);
+    //  cout << name << endl;
+    //   int length = strlen(name);
     //   for(int i=0; i<length; i++){
     //     name[i] = name[i] - 'a' + 'A';
     //     cout << name[i];
@@ -1772,5 +1772,75 @@ int main(){
     //     cout << name[i];
     //   }
 
+    // Strings
+//     string str;
+//     cout << "enter your string" <<endl;
+//     getline(cin, str);
+//     cout << str <<endl;;
+//   //  cout << str.length();
+//     cout << str.substr(0,4);
+
+// string A = "boss";
+// string B = "boss";
+//cout << A.compare(B);
+
+// leetcode 1047 (Remove all adjacent duplicates in a string)
+// string s = "abbaca";
+// for(int i=0; i<s.length()-1; i++){
+//     if(s[i]==s[i+1]){
+//      s.erase(i,2);
+//      i=-1;
+//     }
+// }
+// cout << s;
+
+// Method 2
+// string s = "abbaca";
+// string ans = "";
+// for(int i=0; i<s.length(); i++){
+//     if(ans.length()>0){
+//       if(s[i]==ans[ans.length()-1]){
+//         ans.pop_back();
+//       }else{
+//         ans.push_back(s[i]);
+//       }
+//     }else{
+//         ans.push_back(s[i]);
+//     }
+// }
+// cout << ans;
+
+// Removing k adjacent elements in a string
+string s = "deeedbbcccbdaa";
+int k=3;
+string ans="";
+string ans2="";
+vector<int>count;
+for(int i=0; i<s.length(); i++){
+   if(ans.length()==0){
+    ans.push_back(s[i]);
+    count.push_back(1);
+   }
+  else{
+    if(s[i]==ans.back()){
+        count.back()++;
+    }else{
+        ans.push_back(s[i]);
+        count.push_back(1);
     }
+    if(count.back()==k){
+        ans.pop_back();
+        count.pop_back();
+    }
+   }
+}
+int j=0;
+while(j<count.size()){
+for(int i=0; i<count[j]; i++){
+  ans2.push_back(ans[j]);
+}
+j++;
+}
+cout << ans2;
+}
 
