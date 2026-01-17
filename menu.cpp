@@ -1811,36 +1811,51 @@ int main(){
 // cout << ans;
 
 // Removing k adjacent elements in a string
-string s = "deeedbbcccbdaa";
-int k=3;
-string ans="";
-string ans2="";
-vector<int>count;
-for(int i=0; i<s.length(); i++){
-   if(ans.length()==0){
-    ans.push_back(s[i]);
-    count.push_back(1);
-   }
-  else{
-    if(s[i]==ans.back()){
-        count.back()++;
-    }else{
-        ans.push_back(s[i]);
-        count.push_back(1);
-    }
-    if(count.back()==k){
-        ans.pop_back();
-        count.pop_back();
-    }
-   }
-}
-int j=0;
-while(j<count.size()){
-for(int i=0; i<count[j]; i++){
-  ans2.push_back(ans[j]);
-}
-j++;
-}
-cout << ans2;
+// string s = "deeedbbcccbdaa";
+// int k=3;
+// string ans="";
+// string ans2="";
+// vector<int>count;
+// for(int i=0; i<s.length(); i++){
+//    if(ans.length()==0){
+//     ans.push_back(s[i]);
+//     count.push_back(1);
+//    }
+//   else{
+//     if(s[i]==ans.back()){
+//         count.back()++;
+//     }else{
+//         ans.push_back(s[i]);
+//         count.push_back(1);
+//     }
+//     if(count.back()==k){
+//         ans.pop_back();
+//         count.pop_back();
+//     }
+//    }
+// }
+// int j=0;
+// while(j<count.size()){
+// for(int i=0; i<count[j]; i++){
+//   ans2.push_back(ans[j]);
+// }
+// j++;
+// }
+// cout << ans2;
+
+// Leetcode 1
+   int nums[]={2,7,11,15};
+   int target = 9;
+  vector<int>ans;
+        for(int i=0; i<sizeof(nums); i++){
+            int element = nums[i];
+            for(int j=i+1; j<sizeof(nums); j++){
+                if(nums[j]+element==target){
+                    ans.push_back(i);
+                    ans.push_back(j);
+                }
+            }
+        }
+       cout << ans;
 }
 
