@@ -1844,18 +1844,44 @@ int main(){
 // cout << ans2;
 
 // Leetcode 1
-   int nums[]={2,7,11,15};
-   int target = 9;
-  vector<int>ans;
-        for(int i=0; i<sizeof(nums); i++){
-            int element = nums[i];
-            for(int j=i+1; j<sizeof(nums); j++){
-                if(nums[j]+element==target){
-                    ans.push_back(i);
-                    ans.push_back(j);
-                }
+//    int nums[]={2,7,11,15};
+//    int target = 9;
+//   vector<int>ans;
+//         for(int i=0; i<sizeof(nums); i++){
+//             int element = nums[i];
+//             for(int j=i+1; j<sizeof(nums); j++){
+//                 if(nums[j]+element==target){
+//                     ans.push_back(i);
+//                     ans.push_back(j);
+//                 }
+//             }
+//         }
+//        cout << ans;
+
+//Leetcode 15
+vector<vector<int>> threeSum(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        set<vector<int>>st;
+        for(int i=0; i<nums.size(); i++){
+            int l=i+1;
+            int r=nums.size()-1;
+           while(l<r){
+            int sum = nums[i]+nums[l]+nums[r];
+            if(nums[i]+nums[l]+nums[r]==0){
+             vector<int>triplet={nums[i],nums[l],nums[r]};
+               sort(triplet.begin(),triplet.end());
+               st.insert(triplet);
+               l++;
+               r--;
+            }else if(sum<0){
+                l++;
+            }else{
+                r--;
             }
+           }
         }
-       cout << ans;
+        vector<vector<int>>ans(st.begin(),st.end());
+        return ans;
+    }
 }
 
