@@ -1859,29 +1859,56 @@ int main(){
 //        cout << ans;
 
 //Leetcode 15
-vector<vector<int>> threeSum(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
-        set<vector<int>>st;
-        for(int i=0; i<nums.size(); i++){
-            int l=i+1;
-            int r=nums.size()-1;
-           while(l<r){
-            int sum = nums[i]+nums[l]+nums[r];
-            if(nums[i]+nums[l]+nums[r]==0){
-             vector<int>triplet={nums[i],nums[l],nums[r]};
-               sort(triplet.begin(),triplet.end());
-               st.insert(triplet);
-               l++;
-               r--;
-            }else if(sum<0){
-                l++;
+// vector<vector<int>> threeSum(vector<int>& nums) {
+//         sort(nums.begin(), nums.end());
+//         set<vector<int>>st;
+//         for(int i=0; i<nums.size(); i++){
+//             int l=i+1;
+//             int r=nums.size()-1;
+//            while(l<r){
+//             int sum = nums[i]+nums[l]+nums[r];
+//             if(nums[i]+nums[l]+nums[r]==0){
+//              vector<int>triplet={nums[i],nums[l],nums[r]};
+//                sort(triplet.begin(),triplet.end());
+//                st.insert(triplet);
+//                l++;
+//                r--;
+//             }else if(sum<0){
+//                 l++;
+//             }else{
+//                 r--;
+//             }
+//            }
+//         }
+//         vector<vector<int>>ans(st.begin(),st.end());
+//         return ans;
+//     }
+
+// Leetcode 680 Valid Palindrome2
+bool checkPalindrome(string s, int i, int j){
+        while(i<=j){
+            if(s[i] != s[j]){
+                return false;
             }else{
-                r--;
+                i++;
+                j--;
             }
-           }
         }
-        vector<vector<int>>ans(st.begin(),st.end());
-        return ans;
+        return true;
+    }
+    bool validPalindrome(string s) {
+        int i=0;
+        int j=s.length()-1;
+        while(i<=j){
+          if(s[i] != s[j]){
+            return checkPalindrome(s,i+1,j) || checkPalindrome(s,i,j-1);
+          }else{
+            // s[i] == s[j];
+            i++;
+            j--;
+          }
+        }
+        return true;
     }
 }
 
