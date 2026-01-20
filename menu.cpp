@@ -1885,30 +1885,54 @@ int main(){
 //     }
 
 // Leetcode 680 Valid Palindrome2
-bool checkPalindrome(string s, int i, int j){
-        while(i<=j){
-            if(s[i] != s[j]){
-                return false;
-            }else{
-                i++;
-                j--;
-            }
+// bool checkPalindrome(string s, int i, int j){
+//         while(i<=j){
+//             if(s[i] != s[j]){
+//                 return false;
+//             }else{
+//                 i++;
+//                 j--;
+//             }
+//         }
+//         return true;
+//     }
+//     bool validPalindrome(string s) {
+//         int i=0;
+//         int j=s.length()-1;
+//         while(i<=j){
+//           if(s[i] != s[j]){
+//             return checkPalindrome(s,i+1,j) || checkPalindrome(s,i,j-1);
+//           }else{
+//             // s[i] == s[j];
+//             i++;
+//             j--;
+//           }
+//         }
+//         return true;
+//     }
+
+// Leetcode 539. Minimum Time difference
+int findMinDifference(vector<string>& timePoints) {
+        vector<int>Minutes;
+        for(int i=0; i<timePoints.size(); i++){
+            string current = timePoints[i];
+            int hours = stoi(current.substr(0,2));
+            int minute = stoi(current.substr(3,2));
+            int totalminutes = hours*60 + minute;
+            Minutes.push_back(totalminutes);
         }
-        return true;
-    }
-    bool validPalindrome(string s) {
-        int i=0;
-        int j=s.length()-1;
-        while(i<=j){
-          if(s[i] != s[j]){
-            return checkPalindrome(s,i+1,j) || checkPalindrome(s,i,j-1);
-          }else{
-            // s[i] == s[j];
-            i++;
-            j--;
-          }
+        sort(Minutes.begin(), Minutes.end());
+
+        int Mini = INT_MAX;
+        int n = Minutes.size();
+        for(int i=0; i<n-1; i++){
+           int diff = Minutes[i+1]-Minutes[i];
+           Mini = min(Mini, diff);
         }
-        return true;
+        int lastdiff = (1440-Minutes[n-1]+Minutes[0]);
+        Mini = min(Mini, lastdiff);
+
+        return Mini;
     }
 }
 
