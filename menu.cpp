@@ -1912,27 +1912,51 @@ int main(){
 //     }
 
 // Leetcode 539. Minimum Time difference
-int findMinDifference(vector<string>& timePoints) {
-        vector<int>Minutes;
-        for(int i=0; i<timePoints.size(); i++){
-            string current = timePoints[i];
-            int hours = stoi(current.substr(0,2));
-            int minute = stoi(current.substr(3,2));
-            int totalminutes = hours*60 + minute;
-            Minutes.push_back(totalminutes);
-        }
-        sort(Minutes.begin(), Minutes.end());
+// int findMinDifference(vector<string>& timePoints) {
+//         vector<int>Minutes;
+//         for(int i=0; i<timePoints.size(); i++){
+//             string current = timePoints[i];
+//             int hours = stoi(current.substr(0,2));
+//             int minute = stoi(current.substr(3,2));
+//             int totalminutes = hours*60 + minute;
+//             Minutes.push_back(totalminutes);
+//         }
+//         sort(Minutes.begin(), Minutes.end());
 
-        int Mini = INT_MAX;
-        int n = Minutes.size();
-        for(int i=0; i<n-1; i++){
-           int diff = Minutes[i+1]-Minutes[i];
-           Mini = min(Mini, diff);
-        }
-        int lastdiff = (1440-Minutes[n-1]+Minutes[0]);
-        Mini = min(Mini, lastdiff);
+//         int Mini = INT_MAX;
+//         int n = Minutes.size();
+//         for(int i=0; i<n-1; i++){
+//            int diff = Minutes[i+1]-Minutes[i];
+//            Mini = min(Mini, diff);
+//         }
+//         int lastdiff = (1440-Minutes[n-1]+Minutes[0]);
+//         Mini = min(Mini, lastdiff);
 
-        return Mini;
+//         return Mini;
+//     }
+
+// Leetcode 647. Palindromic Sunstring
+int ExpandAroundIndex(string s, int i, int j){
+    int count = 0;
+    while(i>=0 && j<s.length() && s[i]==s[j]){
+        count++;
+        i--;
+        j++;
+    }
+    return count;
+}
+    int countSubstrings(string s) {
+        int count = 0;
+        int n = s.length();
+        for(int i=0; i<n; i++){
+            //check odd
+        int checkOdd = ExpandAroundIndex(s, i, i);
+        count = count + checkOdd;
+            //check even
+            int checkEven = ExpandAroundIndex(s, i, i+1);
+        count = count + checkEven;
+        }
+        return count;
     }
 }
 
