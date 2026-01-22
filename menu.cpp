@@ -1936,27 +1936,47 @@ int main(){
 //     }
 
 // Leetcode 647. Palindromic Sunstring
-int ExpandAroundIndex(string s, int i, int j){
-    int count = 0;
-    while(i>=0 && j<s.length() && s[i]==s[j]){
-        count++;
-        i--;
-        j++;
-    }
-    return count;
-}
-    int countSubstrings(string s) {
-        int count = 0;
-        int n = s.length();
-        for(int i=0; i<n; i++){
-            //check odd
-        int checkOdd = ExpandAroundIndex(s, i, i);
-        count = count + checkOdd;
-            //check even
-            int checkEven = ExpandAroundIndex(s, i, i+1);
-        count = count + checkEven;
+// int ExpandAroundIndex(string s, int i, int j){
+//     int count = 0;
+//     while(i>=0 && j<s.length() && s[i]==s[j]){
+//         count++;
+//         i--;
+//         j++;
+//     }
+//     return count;
+// }
+//     int countSubstrings(string s) {
+//         int count = 0;
+//         int n = s.length();
+//         for(int i=0; i<n; i++){
+//             //check odd
+//         int checkOdd = ExpandAroundIndex(s, i, i);
+//         count = count + checkOdd;
+//             //check even
+//             int checkEven = ExpandAroundIndex(s, i, i+1);
+//         count = count + checkEven;
+//         }
+//         return count;
+//     }
+
+// Leetcode 69. squareroot
+int mySqrt(int x) {
+        int a=0;
+       int s=0;
+       int e=x;
+       while(s<=e){
+        long mid = s+(e-s)/2;
+        if(mid*mid == x){
+            a = mid;
+            break;
+        }else if(mid*mid > x){
+            e = mid - 1;
+        }else{
+            a = mid;
+            s = mid + 1;
         }
-        return count;
+       }
+       return a;
     }
 }
 
