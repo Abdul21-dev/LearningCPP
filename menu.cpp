@@ -1960,23 +1960,35 @@ int main(){
 //     }
 
 // Leetcode 69. squareroot
-int mySqrt(int x) {
-        int a=0;
-       int s=0;
-       int e=x;
-       while(s<=e){
-        long mid = s+(e-s)/2;
-        if(mid*mid == x){
-            a = mid;
-            break;
-        }else if(mid*mid > x){
-            e = mid - 1;
-        }else{
-            a = mid;
-            s = mid + 1;
+// int mySqrt(int x) {
+//         int a=0;
+//        int s=0;
+//        int e=x;
+//        while(s<=e){
+//         long mid = s+(e-s)/2;
+//         if(mid*mid == x){
+//             a = mid;
+//             break;
+//         }else if(mid*mid > x){
+//             e = mid - 1;
+//         }else{
+//             a = mid;
+//             s = mid + 1;
+//         }
+//        }
+//        return a;
+//     }
+
+// Leetcode 74. Search in 2D matrix
+ bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        for(int i=0; i<matrix.size(); i++){
+            for(int j=0; j<matrix[i].size(); j++){
+                if(matrix[i][j] == target){
+                    return true;
+                }
+            }
         }
-       }
-       return a;
+        return false;
     }
 }
 
