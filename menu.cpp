@@ -1980,15 +1980,29 @@ int main(){
 //     }
 
 // Leetcode 74. Search in 2D matrix
- bool searchMatrix(vector<vector<int>>& matrix, int target) {
-        for(int i=0; i<matrix.size(); i++){
-            for(int j=0; j<matrix[i].size(); j++){
-                if(matrix[i][j] == target){
-                    return true;
-                }
-            }
+//  bool searchMatrix(vector<vector<int>>& matrix, int target) {
+//         for(int i=0; i<matrix.size(); i++){
+//             for(int j=0; j<matrix[i].size(); j++){
+//                 if(matrix[i][j] == target){
+//                     return true;
+//                 }
+//             }
+//         }
+//         return false;
+//     }
+
+// Leetcode 66. PlusOne
+vector<int> plusOne(vector<int>& digits) {
+    for (int i = digits.size() - 1; i >= 0; i--) {
+        if (digits[i] < 9) {
+            digits[i]++;
+            return digits;
         }
-        return false;
+        digits[i] = 0;
     }
+    digits.insert(digits.begin(), 1);
+    return digits;
+}
+
 }
 
