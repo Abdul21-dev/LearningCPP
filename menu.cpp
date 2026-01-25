@@ -2017,17 +2017,82 @@ int main(){
 // int* ptr =0;
 // cout << *ptr;
 
-int a=5;
-int* p=&a;
-int* q=p;
-cout << a <<endl;
-cout << &a <<endl;
-cout << p <<endl;
-cout << &p <<endl;
-cout << *p <<endl;
-cout << q <<endl;
-cout << &q <<endl;
-cout << *q <<endl;
+// int a=5;
+// int* p=&a;
+// int* q=p;
+// cout << a <<endl;
+// cout << &a <<endl;
+// cout << p <<endl;
+// cout << &p <<endl;
+// cout << *p <<endl;
+// cout << q <<endl;
+// cout << &q <<endl;
+// cout << *q <<endl;
+
+// Leetcode. 917 Reverse only Letters
+// string reverseOnlyLetters(string s) {
+//         int i=0;
+//         int e = s.length()-1;
+
+//         while(i<=e){
+//             if((s[i]>='A'&& s[i]<='Z' || s[i]>='a'&&s[i]<='z') && (s[e]>='A'&& s[e]<='Z' || s[e]>='a'&&s[e]<='z')){
+//                 swap(s[i],s[e]);
+//                 i++;
+//                 e--;
+//             }else if(!(s[i]>='A'&& s[i]<='Z' || s[i]>='a'&&s[i]<='z')){
+//                 i++;
+//             }else{
+//                 e--;
+//             }
+//         }
+//         return s;
+//     }
+
+// Leetcode 242. Valid Anagram
+ bool isAnagram(string s, string t) {
+        // if(s.length() != t.length()){
+        //     return false;
+        // }
+        // for(int i=0; i<s.length(); i++){
+        //     char element = s[i];
+        //     for(int j=0; j<t.length(); j++){
+        //        if(s[i]==t[j]){
+        //         t.erase(j,1);
+        //         break;
+        //        }
+        //     }
+        // }
+
+        // if(t==""){
+        //    return true; 
+        // }
+        // return false;
+
+        // Method 2
+        // sort(s.begin(), s.end());
+        // sort(t.begin(), t.end());
+        // if(s==t){
+        //     return true;
+        // }else{
+        //     return false;
+        // }
+
+        // Method 3 by hashmap
+        int Hashtable[256]={0};
+
+        for(int i=0; i<s.length(); i++){
+            Hashtable[s[i]]++;
+        }
+         for(int i=0; i<t.length(); i++){
+            Hashtable[t[i]]--;
+        }
+        for(int i=0; i<256; i++){
+            if(Hashtable[i]!=0){
+                return false;
+            }
+        }
+        return true;
+    }
 
 }
 
