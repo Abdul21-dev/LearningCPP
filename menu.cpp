@@ -1992,17 +1992,42 @@ int main(){
 //     }
 
 // Leetcode 66. PlusOne
-vector<int> plusOne(vector<int>& digits) {
-    for (int i = digits.size() - 1; i >= 0; i--) {
-        if (digits[i] < 9) {
-            digits[i]++;
-            return digits;
-        }
-        digits[i] = 0;
-    }
-    digits.insert(digits.begin(), 1);
-    return digits;
-}
+// vector<int> plusOne(vector<int>& digits) {
+//     for (int i = digits.size() - 1; i >= 0; i--) {
+//         if (digits[i] < 9) {
+//             digits[i]++;
+//             return digits;
+//         }
+//         digits[i] = 0;
+//     }
+//     digits.insert(digits.begin(), 1);
+//     return digits;
+// }
+
+// Pointers
+// int a=5;
+// int* ptr = &a;
+
+// cout << a <<endl;
+// cout << &a <<endl;
+// cout << ptr <<endl;
+// cout << *ptr <<endl;
+
+// Null pointer
+// int* ptr =0;
+// cout << *ptr;
+
+int a=5;
+int* p=&a;
+int* q=p;
+cout << a <<endl;
+cout << &a <<endl;
+cout << p <<endl;
+cout << &p <<endl;
+cout << *p <<endl;
+cout << q <<endl;
+cout << &q <<endl;
+cout << *q <<endl;
 
 }
 
