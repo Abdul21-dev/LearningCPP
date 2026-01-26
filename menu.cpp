@@ -2049,7 +2049,7 @@ int main(){
 //     }
 
 // Leetcode 242. Valid Anagram
- bool isAnagram(string s, string t) {
+// bool isAnagram(string s, string t) {
         // if(s.length() != t.length()){
         //     return false;
         // }
@@ -2078,21 +2078,65 @@ int main(){
         // }
 
         // Method 3 by hashmap
-        int Hashtable[256]={0};
+    //     int Hashtable[256]={0};
 
-        for(int i=0; i<s.length(); i++){
-            Hashtable[s[i]]++;
-        }
-         for(int i=0; i<t.length(); i++){
-            Hashtable[t[i]]--;
-        }
-        for(int i=0; i<256; i++){
-            if(Hashtable[i]!=0){
-                return false;
+    //     for(int i=0; i<s.length(); i++){
+    //         Hashtable[s[i]]++;
+    //     }
+    //      for(int i=0; i<t.length(); i++){
+    //         Hashtable[t[i]]--;
+    //     }
+    //     for(int i=0; i<256; i++){
+    //         if(Hashtable[i]!=0){
+    //             return false;
+    //         }
+    //     }
+    //     return true;
+    // }
+
+    // Leetcode 345. Reverse vowels of a string
+    // string reverseVowels(string s) {
+    //     int i=0;
+    //     int e=s.length()-1;
+    //     while(i<e){
+    //     if((s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'||s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U') && (s[e]=='a'||s[e]=='e'||s[e]=='i'||s[e]=='o'||s[e]=='u'||s[e]=='A'||s[e]=='E'||s[e]=='I'||s[e]=='O'||s[e]=='U')){
+    //         swap(s[i],s[e]);
+    //         i++;
+    //         e--;
+    //     }else if(!(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'||s[i]=='A'||s[i]=='E'||s[i]=='I'||s[i]=='O'||s[i]=='U')){
+    //         i++;
+    //     }else{
+    //         e--;
+    //     }
+    //     }
+    //     return s;
+    // }
+
+    // Leetcode. 14 Longest common prefix
+     string longestCommonPrefix(vector<string>& strs) {
+        string ans;
+        int i=0;
+        while(true){
+            char curr = 0;
+            for(int j=0; j<strs.size(); j++){
+                if(i>=strs[j].size()){
+                    curr = 0;
+                    break;
+                }
+                if(curr == 0){
+                    curr = strs[j][i];
+                }else if(curr != strs[j][i]){
+                    curr = 0;
+                    break;
+                }
             }
+            if(curr==0){
+                break;
+            }
+            ans.push_back(curr);
+            i++;
         }
-        return true;
+        return ans;
     }
-
 }
 
