@@ -2113,28 +2113,54 @@ int main(){
     // }
 
     // Leetcode. 14 Longest common prefix
-     string longestCommonPrefix(vector<string>& strs) {
-        string ans;
-        int i=0;
-        while(true){
-            char curr = 0;
-            for(int j=0; j<strs.size(); j++){
-                if(i>=strs[j].size()){
-                    curr = 0;
-                    break;
-                }
-                if(curr == 0){
-                    curr = strs[j][i];
-                }else if(curr != strs[j][i]){
-                    curr = 0;
-                    break;
+    //  string longestCommonPrefix(vector<string>& strs) {
+    //     string ans;
+    //     int i=0;
+    //     while(true){
+    //         char curr = 0;
+    //         for(int j=0; j<strs.size(); j++){
+    //             if(i>=strs[j].size()){
+    //                 curr = 0;
+    //                 break;
+    //             }
+    //             if(curr == 0){
+    //                 curr = strs[j][i];
+    //             }else if(curr != strs[j][i]){
+    //                 curr = 0;
+    //                 break;
+    //             }
+    //         }
+    //         if(curr==0){
+    //             break;
+    //         }
+    //         ans.push_back(curr);
+    //         i++;
+    //     }
+    //     return ans;
+    // }
+
+    // Leetcode 5. Longest Palandromic substring
+    bool isPalindrome(string&s, int start, int end){
+    while(start<end){
+        if(s[start]!=s[end]){
+            return false;
+        }
+        start++;
+        end--;
+    }
+    return true;
+}
+    string longestPalindrome(string s) {
+        string ans="";
+        for(int i=0; i<s.length(); i++){
+           for(int j=i; j<s.length(); j++){
+            if(isPalindrome(s,i,j)){
+                string t = s.substr(i, j-i+1);
+                if(t.size()>ans.size()){
+                    ans = t;
                 }
             }
-            if(curr==0){
-                break;
-            }
-            ans.push_back(curr);
-            i++;
+           }
         }
         return ans;
     }
