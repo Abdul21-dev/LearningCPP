@@ -2140,29 +2140,49 @@ int main(){
     // }
 
     // Leetcode 5. Longest Palandromic substring
-    bool isPalindrome(string&s, int start, int end){
-    while(start<end){
-        if(s[start]!=s[end]){
-            return false;
-        }
-        start++;
-        end--;
-    }
-    return true;
-}
-    string longestPalindrome(string s) {
-        string ans="";
-        for(int i=0; i<s.length(); i++){
-           for(int j=i; j<s.length(); j++){
-            if(isPalindrome(s,i,j)){
-                string t = s.substr(i, j-i+1);
-                if(t.size()>ans.size()){
-                    ans = t;
-                }
-            }
+//     bool isPalindrome(string&s, int start, int end){
+//     while(start<end){
+//         if(s[start]!=s[end]){
+//             return false;
+//         }
+//         start++;
+//         end--;
+//     }
+//     return true;
+// }
+//     string longestPalindrome(string s) {
+//         string ans="";
+//         for(int i=0; i<s.length(); i++){
+//            for(int j=i; j<s.length(); j++){
+//             if(isPalindrome(s,i,j)){
+//                 string t = s.substr(i, j-i+1);
+//                 if(t.size()>ans.size()){
+//                     ans = t;
+//                 }
+//             }
+//            }
+//         }
+//         return ans;
+//     }
+
+// Leetcode 204. Count Primes
+ int countPrimes(int n) {
+        if(n==0) return false;
+    vector<bool>Prime(n, true);
+    Prime[0] = Prime[1] = false;
+        int ans=0;
+       for(int i=2; i<n; i++){
+           if(Prime[i]){
+              ans++;
+              
+            int  j=2*i;
+              while(j<n){
+                Prime[j] = false;
+                j=j+i;
+              }
            }
-        }
+       }
         return ans;
     }
-}
+ }
 
