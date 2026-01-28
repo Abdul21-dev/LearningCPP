@@ -2166,22 +2166,78 @@ int main(){
 //     }
 
 // Leetcode 204. Count Primes
- int countPrimes(int n) {
-        if(n==0) return false;
-    vector<bool>Prime(n, true);
-    Prime[0] = Prime[1] = false;
-        int ans=0;
-       for(int i=2; i<n; i++){
-           if(Prime[i]){
-              ans++;
+//  int countPrimes(int n) {
+//         if(n==0) return false;
+//     vector<bool>Prime(n, true);
+//     Prime[0] = Prime[1] = false;
+//         int ans=0;
+//        for(int i=2; i<n; i++){
+//            if(Prime[i]){
+//               ans++;
               
-            int  j=2*i;
-              while(j<n){
-                Prime[j] = false;
-                j=j+i;
-              }
-           }
-       }
+//             int  j=2*i;
+//               while(j<n){
+//                 Prime[j] = false;
+//                 j=j+i;
+//               }
+//            }
+//        }
+    //     return ans;
+    // }
+
+    // Leetcode 12. Integer to Roman
+     string intToRoman(int num) {
+        string ans="";
+        vector<char>arr={'I','V','X','L','C','D','M'};
+        int nums = num;
+        while(nums>0){
+            if(nums>=1000){
+                ans.push_back(arr[6]);
+                nums = nums - 1000;
+            }else if(nums>=900 && nums<1000){
+                ans.push_back(arr[4]);
+                ans.push_back(arr[6]);
+                nums = nums - 900;
+            }else if(nums>=500 && nums<900){
+                ans.push_back(arr[5]);
+                nums = nums - 500;
+            }else if(nums>=400 && nums<500){
+                ans.push_back(arr[4]);
+                ans.push_back(arr[5]);
+                nums = nums - 400;
+            }else if(nums>=100 && nums<400){
+                ans.push_back(arr[4]);
+                nums = nums - 100;
+            }else if(nums>=90 && nums<100){
+                ans.push_back(arr[2]);
+                ans.push_back(arr[4]);
+                nums = nums - 90;
+            }else if(nums>=50 && nums<90){
+                ans.push_back(arr[3]);
+                nums = nums - 50;
+            }else if(nums>=40 && nums<50){
+                ans.push_back(arr[2]);
+                ans.push_back(arr[3]);
+                nums = nums - 40;
+            }else if(nums>=10 && nums<40){
+                ans.push_back(arr[2]);
+                nums = nums - 10;
+            }else if(nums==9){
+                ans.push_back(arr[0]);
+                ans.push_back(arr[2]);
+                nums = nums -9 ;
+            }else if(nums>=5 && nums<9){
+                ans.push_back(arr[1]);
+                nums = nums - 5;
+            }else if(nums==4){
+                ans.push_back(arr[0]);
+                ans.push_back(arr[1]);
+                nums = nums - 4;
+            }else if(nums>=1 && nums<4){
+                ans.push_back(arr[0]);
+                nums = nums - 1;
+            }
+        }
         return ans;
     }
  }
