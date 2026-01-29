@@ -2186,57 +2186,113 @@ int main(){
     // }
 
     // Leetcode 12. Integer to Roman
-     string intToRoman(int num) {
-        string ans="";
-        vector<char>arr={'I','V','X','L','C','D','M'};
-        int nums = num;
-        while(nums>0){
-            if(nums>=1000){
-                ans.push_back(arr[6]);
-                nums = nums - 1000;
-            }else if(nums>=900 && nums<1000){
-                ans.push_back(arr[4]);
-                ans.push_back(arr[6]);
-                nums = nums - 900;
-            }else if(nums>=500 && nums<900){
-                ans.push_back(arr[5]);
-                nums = nums - 500;
-            }else if(nums>=400 && nums<500){
-                ans.push_back(arr[4]);
-                ans.push_back(arr[5]);
-                nums = nums - 400;
-            }else if(nums>=100 && nums<400){
-                ans.push_back(arr[4]);
-                nums = nums - 100;
-            }else if(nums>=90 && nums<100){
-                ans.push_back(arr[2]);
-                ans.push_back(arr[4]);
-                nums = nums - 90;
-            }else if(nums>=50 && nums<90){
-                ans.push_back(arr[3]);
-                nums = nums - 50;
-            }else if(nums>=40 && nums<50){
-                ans.push_back(arr[2]);
-                ans.push_back(arr[3]);
-                nums = nums - 40;
-            }else if(nums>=10 && nums<40){
-                ans.push_back(arr[2]);
-                nums = nums - 10;
-            }else if(nums==9){
-                ans.push_back(arr[0]);
-                ans.push_back(arr[2]);
-                nums = nums -9 ;
-            }else if(nums>=5 && nums<9){
-                ans.push_back(arr[1]);
-                nums = nums - 5;
-            }else if(nums==4){
-                ans.push_back(arr[0]);
-                ans.push_back(arr[1]);
-                nums = nums - 4;
-            }else if(nums>=1 && nums<4){
-                ans.push_back(arr[0]);
-                nums = nums - 1;
+    //  string intToRoman(int num) {
+    //     string ans="";
+    //     vector<char>arr={'I','V','X','L','C','D','M'};
+    //     int nums = num;
+    //     while(nums>0){
+    //         if(nums>=1000){
+    //             ans.push_back(arr[6]);
+    //             nums = nums - 1000;
+    //         }else if(nums>=900 && nums<1000){
+    //             ans.push_back(arr[4]);
+    //             ans.push_back(arr[6]);
+    //             nums = nums - 900;
+    //         }else if(nums>=500 && nums<900){
+    //             ans.push_back(arr[5]);
+    //             nums = nums - 500;
+    //         }else if(nums>=400 && nums<500){
+    //             ans.push_back(arr[4]);
+    //             ans.push_back(arr[5]);
+    //             nums = nums - 400;
+    //         }else if(nums>=100 && nums<400){
+    //             ans.push_back(arr[4]);
+    //             nums = nums - 100;
+    //         }else if(nums>=90 && nums<100){
+    //             ans.push_back(arr[2]);
+    //             ans.push_back(arr[4]);
+    //             nums = nums - 90;
+    //         }else if(nums>=50 && nums<90){
+    //             ans.push_back(arr[3]);
+    //             nums = nums - 50;
+    //         }else if(nums>=40 && nums<50){
+    //             ans.push_back(arr[2]);
+    //             ans.push_back(arr[3]);
+    //             nums = nums - 40;
+    //         }else if(nums>=10 && nums<40){
+    //             ans.push_back(arr[2]);
+    //             nums = nums - 10;
+    //         }else if(nums==9){
+    //             ans.push_back(arr[0]);
+    //             ans.push_back(arr[2]);
+    //             nums = nums -9 ;
+    //         }else if(nums>=5 && nums<9){
+    //             ans.push_back(arr[1]);
+    //             nums = nums - 5;
+    //         }else if(nums==4){
+    //             ans.push_back(arr[0]);
+    //             ans.push_back(arr[1]);
+    //             nums = nums - 4;
+    //         }else if(nums>=1 && nums<4){
+    //             ans.push_back(arr[0]);
+    //             nums = nums - 1;
+    //         }
+    //     }
+    //     return ans;
+    // }
+
+    // Leetcode 344 Reversina string
+    //  void reverseString(vector<char>& s) {
+    //     int i=0;
+    //     int e = s.size()-1;
+    //     while(i<=e){
+    //         swap(s[i],s[e]);
+    //         i++;
+    //         e--;
+    //     }
+        
+    // }
+
+    // 
+    //Leetcode 15. Roman to integer
+     int romanToInt(string s) {
+         int ans=0;
+        vector<char>arr{'I','V','X','L','C','D','M'};
+        for(int i=s.length()-1; i>=0; i--){
+            if(s[i]==arr[0]){
+                ans = ans + 1;
+            }else if(s[i]==arr[1] && i>0 && s[i-1]==arr[0]){
+                ans=ans+4;
+                i--;
+            }else if(s[i]==arr[1] ){
+                ans=ans+5;
+            }else if(s[i]==arr[2] && i>0 && s[i-1]==arr[0]){
+                ans=ans+9;
+                i--;
+            }else if(s[i]==arr[2] ){
+                ans=ans+10;
+            }else if(s[i]==arr[3] && i>0 && s[i-1]==arr[2]){
+                ans=ans+40;
+                i--;
+            }else if(s[i]==arr[3]  ){
+                ans=ans+50;
+            }else if(s[i]==arr[4] && i>0 && s[i-1]==arr[2] ){
+                ans=ans+90;
+                i--;
+            }else if(s[i]==arr[4] ){
+                ans=ans+100;
+            }else if(s[i]==arr[5] && i>0 && s[i-1]==arr[4]){
+                ans=ans+400;
+                i--;
+            }else if(s[i]==arr[5] ){
+                ans=ans+500;
+            }else if(s[i]==arr[6] && i>0 && s[i-1]==arr[4] ){
+                ans=ans+900;
+                i--;
+            }else if(s[i]==arr[6] ){
+                ans=ans+1000;
             }
+            
         }
         return ans;
     }
