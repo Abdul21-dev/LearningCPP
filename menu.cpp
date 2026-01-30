@@ -2298,15 +2298,37 @@ int main(){
     // }
 
     // Leetcode. 367 Valid Perfect square
-    bool isPerfectSquare(int num) {
-        long i=0;
-        while(i<=num){
-          if(i*i == num){
-            return true;
-          }
-          i++;
+    // bool isPerfectSquare(int num) {
+    //     long i=0;
+    //     while(i<=num){
+    //       if(i*i == num){
+    //         return true;
+    //       }
+    //       i++;
+    //     }
+    //     return false;
+    // }
+
+    // Leetcode 88. Merge two sorted arrays
+    //  void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+    //     for(int i=0; i<n; i++){
+    //          nums1.pop_back();
+    //     }
+    //     for(int i=0; i<n; i++){
+    //         nums1.push_back(nums2[i]);
+    //     }
+    //     sort(nums1.begin(), nums1.end());
+    // }
+
+    // Leetcode 977. square of sorted Array
+    vector<int> sortedSquares(vector<int>& nums) {
+        vector<int>ans;
+        for(int i=0; i<nums.size(); i++){
+            int element = nums[i]*nums[i];
+            ans.push_back(element);
         }
-        return false;
+        sort(ans.begin(), ans.end());
+        return ans;
     }
  }
 
