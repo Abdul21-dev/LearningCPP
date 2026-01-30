@@ -2255,46 +2255,58 @@ int main(){
 
     // 
     //Leetcode 15. Roman to integer
-     int romanToInt(string s) {
-         int ans=0;
-        vector<char>arr{'I','V','X','L','C','D','M'};
-        for(int i=s.length()-1; i>=0; i--){
-            if(s[i]==arr[0]){
-                ans = ans + 1;
-            }else if(s[i]==arr[1] && i>0 && s[i-1]==arr[0]){
-                ans=ans+4;
-                i--;
-            }else if(s[i]==arr[1] ){
-                ans=ans+5;
-            }else if(s[i]==arr[2] && i>0 && s[i-1]==arr[0]){
-                ans=ans+9;
-                i--;
-            }else if(s[i]==arr[2] ){
-                ans=ans+10;
-            }else if(s[i]==arr[3] && i>0 && s[i-1]==arr[2]){
-                ans=ans+40;
-                i--;
-            }else if(s[i]==arr[3]  ){
-                ans=ans+50;
-            }else if(s[i]==arr[4] && i>0 && s[i-1]==arr[2] ){
-                ans=ans+90;
-                i--;
-            }else if(s[i]==arr[4] ){
-                ans=ans+100;
-            }else if(s[i]==arr[5] && i>0 && s[i-1]==arr[4]){
-                ans=ans+400;
-                i--;
-            }else if(s[i]==arr[5] ){
-                ans=ans+500;
-            }else if(s[i]==arr[6] && i>0 && s[i-1]==arr[4] ){
-                ans=ans+900;
-                i--;
-            }else if(s[i]==arr[6] ){
-                ans=ans+1000;
-            }
+    //  int romanToInt(string s) {
+    //      int ans=0;
+    //     vector<char>arr{'I','V','X','L','C','D','M'};
+    //     for(int i=s.length()-1; i>=0; i--){
+    //         if(s[i]==arr[0]){
+    //             ans = ans + 1;
+    //         }else if(s[i]==arr[1] && i>0 && s[i-1]==arr[0]){
+    //             ans=ans+4;
+    //             i--;
+    //         }else if(s[i]==arr[1] ){
+    //             ans=ans+5;
+    //         }else if(s[i]==arr[2] && i>0 && s[i-1]==arr[0]){
+    //             ans=ans+9;
+    //             i--;
+    //         }else if(s[i]==arr[2] ){
+    //             ans=ans+10;
+    //         }else if(s[i]==arr[3] && i>0 && s[i-1]==arr[2]){
+    //             ans=ans+40;
+    //             i--;
+    //         }else if(s[i]==arr[3]  ){
+    //             ans=ans+50;
+    //         }else if(s[i]==arr[4] && i>0 && s[i-1]==arr[2] ){
+    //             ans=ans+90;
+    //             i--;
+    //         }else if(s[i]==arr[4] ){
+    //             ans=ans+100;
+    //         }else if(s[i]==arr[5] && i>0 && s[i-1]==arr[4]){
+    //             ans=ans+400;
+    //             i--;
+    //         }else if(s[i]==arr[5] ){
+    //             ans=ans+500;
+    //         }else if(s[i]==arr[6] && i>0 && s[i-1]==arr[4] ){
+    //             ans=ans+900;
+    //             i--;
+    //         }else if(s[i]==arr[6] ){
+    //             ans=ans+1000;
+    //         }
             
+    //     }
+    //     return ans;
+    // }
+
+    // Leetcode. 367 Valid Perfect square
+    bool isPerfectSquare(int num) {
+        long i=0;
+        while(i<=num){
+          if(i*i == num){
+            return true;
+          }
+          i++;
         }
-        return ans;
+        return false;
     }
  }
 
