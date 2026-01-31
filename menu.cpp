@@ -2321,13 +2321,34 @@ int main(){
     // }
 
     // Leetcode 977. square of sorted Array
-    vector<int> sortedSquares(vector<int>& nums) {
-        vector<int>ans;
-        for(int i=0; i<nums.size(); i++){
-            int element = nums[i]*nums[i];
-            ans.push_back(element);
+    // vector<int> sortedSquares(vector<int>& nums) {
+    //     vector<int>ans;
+    //     for(int i=0; i<nums.size(); i++){
+    //         int element = nums[i]*nums[i];
+    //         ans.push_back(element);
+    //     }
+    //     sort(ans.begin(), ans.end());
+    //     return ans;
+    // }
+
+    // Leetcode 58. Length of last word
+     int lengthOfLastWord(string s) {
+        int ans=0;
+        
+        for(int i=s.length()-1; i>=0; i--){
+             if(s[i] == ' '){
+                s.pop_back();
+            }else{
+                break;
+            }
         }
-        sort(ans.begin(), ans.end());
+        for(int i=s.length()-1; i>=0; i--){
+            if(s[i] != ' '){
+                ans++;
+            }else{
+                break;
+            }
+        }
         return ans;
     }
  }
