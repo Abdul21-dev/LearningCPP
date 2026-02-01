@@ -2332,24 +2332,50 @@ int main(){
     // }
 
     // Leetcode 58. Length of last word
-     int lengthOfLastWord(string s) {
-        int ans=0;
+    //  int lengthOfLastWord(string s) {
+    //     int ans=0;
         
-        for(int i=s.length()-1; i>=0; i--){
-             if(s[i] == ' '){
-                s.pop_back();
+    //     for(int i=s.length()-1; i>=0; i--){
+    //          if(s[i] == ' '){
+    //             s.pop_back();
+    //         }else{
+    //             break;
+    //         }
+    //     }
+    //     for(int i=s.length()-1; i>=0; i--){
+    //         if(s[i] != ' '){
+    //             ans++;
+    //         }else{
+    //             break;
+    //         }
+    //     }
+    //     return ans;
+    // }
+
+    // Leetcode 125. Valid Palindrome
+     bool isPalindrome(string s) {
+        string ans;
+        for(int i=0; i<s.length(); i++){
+           if(s[i]>='A' && s[i]<='Z'){
+            s[i] = s[i] + 'a' -'A';
+           }
+        }
+        for(int i=0; i<s.length(); i++){
+            if((s[i]>='a'&&s[i]<='z') || (s[i]>='0' && s[i]<='9')){
+            ans.push_back(s[i]);
+           }
+        }
+        int i=0;
+        int j=ans.length()-1;
+        while(i<=j){
+            if(ans[i]==ans[j]){
+                i++;
+                j--;
             }else{
-                break;
+                return false;
             }
         }
-        for(int i=s.length()-1; i>=0; i--){
-            if(s[i] != ' '){
-                ans++;
-            }else{
-                break;
-            }
-        }
-        return ans;
+        return true;
     }
  }
 
