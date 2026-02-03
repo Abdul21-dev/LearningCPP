@@ -2353,29 +2353,63 @@ int main(){
     // }
 
     // Leetcode 125. Valid Palindrome
-     bool isPalindrome(string s) {
-        string ans;
-        for(int i=0; i<s.length(); i++){
-           if(s[i]>='A' && s[i]<='Z'){
-            s[i] = s[i] + 'a' -'A';
-           }
-        }
-        for(int i=0; i<s.length(); i++){
-            if((s[i]>='a'&&s[i]<='z') || (s[i]>='0' && s[i]<='9')){
-            ans.push_back(s[i]);
-           }
-        }
+    //  bool isPalindrome(string s) {
+    //     string ans;
+    //     for(int i=0; i<s.length(); i++){
+    //        if(s[i]>='A' && s[i]<='Z'){
+    //         s[i] = s[i] + 'a' -'A';
+    //        }
+    //     }
+    //     for(int i=0; i<s.length(); i++){
+    //         if((s[i]>='a'&&s[i]<='z') || (s[i]>='0' && s[i]<='9')){
+    //         ans.push_back(s[i]);
+    //        }
+    //     }
+    //     int i=0;
+    //     int j=ans.length()-1;
+    //     while(i<=j){
+    //         if(ans[i]==ans[j]){
+    //             i++;
+    //             j--;
+    //         }else{
+    //             return false;
+    //         }
+    //     }
+    //     return true;
+    // }
+
+    // Leetcode 8. string to integer(atoi)
+    int myAtoi(string s){ 
+        // int integer = atoi(s.c_str());
+        // return integer;
+
         int i=0;
-        int j=ans.length()-1;
-        while(i<=j){
-            if(ans[i]==ans[j]){
-                i++;
-                j--;
-            }else{
-                return false;
+        int num = 0;
+        int sign = 1;
+        while(i<s.length() && s[i] == ' '){
+            i++;
+        } 
+
+        while(i<s.length() && (s[i] == '-' || s[i] == '+')){
+            if(s[i] == '-'){
+                sign = -1;
             }
+            i++;
+            break;
         }
-        return true;
+
+        while(i<s.length() && isdigit(s[i])){
+            if(num > INT_MAX/10 || (num == INT_MAX/10 && s[i]>'7')){
+                if(sign == -1){
+                    return INT_MIN;
+                }else{
+                    return INT_MAX;
+                }
+            }
+            num = num*10 + (s[i] - '0');
+            i++;
+        }
+        return num*sign;
     }
  }
 
