@@ -2379,37 +2379,69 @@ int main(){
     // }
 
     // Leetcode 8. string to integer(atoi)
-    int myAtoi(string s){ 
-        // int integer = atoi(s.c_str());
-        // return integer;
+    // int myAtoi(string s){ 
+    //     // int integer = atoi(s.c_str());
+    //     // return integer;
 
-        int i=0;
-        int num = 0;
-        int sign = 1;
-        while(i<s.length() && s[i] == ' '){
-            i++;
-        } 
+    //     int i=0;
+    //     int num = 0;
+    //     int sign = 1;
+    //     while(i<s.length() && s[i] == ' '){
+    //         i++;
+    //     } 
 
-        while(i<s.length() && (s[i] == '-' || s[i] == '+')){
-            if(s[i] == '-'){
-                sign = -1;
-            }
-            i++;
-            break;
+    //     while(i<s.length() && (s[i] == '-' || s[i] == '+')){
+    //         if(s[i] == '-'){
+    //             sign = -1;
+    //         }
+    //         i++;
+    //         break;
+    //     }
+
+    //     while(i<s.length() && isdigit(s[i])){
+    //         if(num > INT_MAX/10 || (num == INT_MAX/10 && s[i]>'7')){
+    //             if(sign == -1){
+    //                 return INT_MIN;
+    //             }else{
+    //                 return INT_MAX;
+    //             }
+    //         }
+    //         num = num*10 + (s[i] - '0');
+    //         i++;
+    //     }
+    //     return num*sign;
+    // }
+
+    // Leetcode 179. Largest number
+     static bool mycomp(string a, string b){
+        string t1=a+b;
+        string t2=b+a;
+        return t1>t2;    
         }
 
-        while(i<s.length() && isdigit(s[i])){
-            if(num > INT_MAX/10 || (num == INT_MAX/10 && s[i]>'7')){
-                if(sign == -1){
-                    return INT_MIN;
-                }else{
-                    return INT_MAX;
-                }
+     bool checkzero(vector<int>nums){
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i] != 0){
+                return false;
             }
-            num = num*10 + (s[i] - '0');
-            i++;
         }
-        return num*sign;
+        return true;
+     }   
+    string largestNumber(vector<int>& nums) {
+        if(checkzero(nums)){
+            return "0";
+        }
+        vector<string>snums;
+        for(int i=0; i<nums.size(); i++){
+            snums.push_back(to_string(nums[i]));
+        }
+
+        sort(snums.begin(), snums.end(), mycomp);
+        string ans="";
+        for(int i=0; i<snums.size(); i++){
+            ans += snums[i];
+        }
+        return ans;
     }
  }
 
