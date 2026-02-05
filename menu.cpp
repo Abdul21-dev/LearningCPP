@@ -2413,35 +2413,46 @@ int main(){
     // }
 
     // Leetcode 179. Largest number
-     static bool mycomp(string a, string b){
-        string t1=a+b;
-        string t2=b+a;
-        return t1>t2;    
-        }
+    //  static bool mycomp(string a, string b){
+    //     string t1=a+b;
+    //     string t2=b+a;
+    //     return t1>t2;    
+    //     }
 
-     bool checkzero(vector<int>nums){
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i] != 0){
-                return false;
-            }
-        }
-        return true;
-     }   
-    string largestNumber(vector<int>& nums) {
-        if(checkzero(nums)){
-            return "0";
-        }
-        vector<string>snums;
-        for(int i=0; i<nums.size(); i++){
-            snums.push_back(to_string(nums[i]));
-        }
+    //  bool checkzero(vector<int>nums){
+    //     for(int i=0; i<nums.size(); i++){
+    //         if(nums[i] != 0){
+    //             return false;
+    //         }
+    //     }
+    //     return true;
+    //  }   
+    // string largestNumber(vector<int>& nums) {
+    //     if(checkzero(nums)){
+    //         return "0";
+    //     }
+    //     vector<string>snums;
+    //     for(int i=0; i<nums.size(); i++){
+    //         snums.push_back(to_string(nums[i]));
+    //     }
 
-        sort(snums.begin(), snums.end(), mycomp);
-        string ans="";
-        for(int i=0; i<snums.size(); i++){
-            ans += snums[i];
+    //     sort(snums.begin(), snums.end(), mycomp);
+    //     string ans="";
+    //     for(int i=0; i<snums.size(); i++){
+    //         ans += snums[i];
+    //     }
+    //     return ans;
+    // }
+
+    // Leetcode 238. Moving zeroes
+    void moveZeroes(vector<int>& nums) {
+    int j=0;
+    for(int i=0; i<nums.size(); i++){
+        if(nums[i] != 0){
+            swap(nums[i],nums[j]);
+            j++;
         }
-        return ans;
+    }
     }
  }
 
