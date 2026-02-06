@@ -2445,14 +2445,23 @@ int main(){
     // }
 
     // Leetcode 238. Moving zeroes
-    void moveZeroes(vector<int>& nums) {
-    int j=0;
-    for(int i=0; i<nums.size(); i++){
-        if(nums[i] != 0){
-            swap(nums[i],nums[j]);
-            j++;
+    // void moveZeroes(vector<int>& nums) {
+    // int j=0;
+    // for(int i=0; i<nums.size(); i++){
+    //     if(nums[i] != 0){
+    //         swap(nums[i],nums[j]);
+    //         j++;
+    //     }
+    // }
+    // }
+
+    // Leetcode 136single number
+    int singleNumber(vector<int>& nums) {
+        int ans = 0;
+        for(int i=0; i<nums.size(); i++){
+             ans = ans^nums[i];
         }
-    }
+        return ans;
     }
  }
 
