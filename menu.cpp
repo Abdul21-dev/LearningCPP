@@ -2456,12 +2456,54 @@ int main(){
     // }
 
     // Leetcode 136single number
-    int singleNumber(vector<int>& nums) {
-        int ans = 0;
-        for(int i=0; i<nums.size(); i++){
-             ans = ans^nums[i];
+    // int singleNumber(vector<int>& nums) {
+    //     int ans = 0;
+    //     for(int i=0; i<nums.size(); i++){
+    //          ans = ans^nums[i];
+    //     }
+    //     return ans;
+    // }
+
+    // Leetcode 767 Reorganise string
+    string reorganizeString(string s) {
+        int hash[26] = {0};
+
+        for(int i=0; i<s.size(); i++){
+            hash[s[i]-'a']++;
         }
-        return ans;
+
+        char max_feq_char;
+        int max_count = INT_MIN;
+        for(int i=0; i<26; i++){
+            if(hash[i]>max_count){
+                max_count = hash[i];
+                max_feq_char = i + 'a';
+            }
+        }
+        int index = 0;
+        while(max_count > 0 && index < s.size()){
+            s[index] = max_feq_char;
+            max_count--;
+            index += 2;
+        }
+
+        if(max_count != 0){
+            return "";
+        }
+        
+        hash[max_feq_char - 'a'] = 0;
+
+        for(int i=0; i<s.size(); i++){
+            while(hash[i]>0){
+                if(index > s.size()){
+                    index = 1;
+                }
+                s[index] = i + 'a';
+                hash[i]--;
+                index += 2;
+            }
+        }
+        return s;
     }
  }
 
