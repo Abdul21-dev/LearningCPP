@@ -2465,45 +2465,60 @@ int main(){
     // }
 
     // Leetcode 767 Reorganise string
-    string reorganizeString(string s) {
-        int hash[26] = {0};
+    // string reorganizeString(string s) {
+    //     int hash[26] = {0};
 
-        for(int i=0; i<s.size(); i++){
-            hash[s[i]-'a']++;
-        }
+    //     for(int i=0; i<s.size(); i++){
+    //         hash[s[i]-'a']++;
+    //     }
 
-        char max_feq_char;
-        int max_count = INT_MIN;
-        for(int i=0; i<26; i++){
-            if(hash[i]>max_count){
-                max_count = hash[i];
-                max_feq_char = i + 'a';
-            }
-        }
-        int index = 0;
-        while(max_count > 0 && index < s.size()){
-            s[index] = max_feq_char;
-            max_count--;
-            index += 2;
-        }
+    //     char max_feq_char;
+    //     int max_count = INT_MIN;
+    //     for(int i=0; i<26; i++){
+    //         if(hash[i]>max_count){
+    //             max_count = hash[i];
+    //             max_feq_char = i + 'a';
+    //         }
+    //     }
+    //     int index = 0;
+    //     while(max_count > 0 && index < s.size()){
+    //         s[index] = max_feq_char;
+    //         max_count--;
+    //         index += 2;
+    //     }
 
-        if(max_count != 0){
-            return "";
-        }
+    //     if(max_count != 0){
+    //         return "";
+    //     }
         
-        hash[max_feq_char - 'a'] = 0;
+    //     hash[max_feq_char - 'a'] = 0;
+
+    //     for(int i=0; i<s.size(); i++){
+    //         while(hash[i]>0){
+    //             if(index > s.size()){
+    //                 index = 1;
+    //             }
+    //             s[index] = i + 'a';
+    //             hash[i]--;
+    //             index += 2;
+    //         }
+    //     }
+    //     return s;
+    // }
+
+    //Q.387 First unique character in a string 
+    int firstUniqChar(string s) {
+        int hash[26] = {0};
+        for(int i=0; i<s.size(); i++){
+            hash[s[i] - 'a']++;
+        }
 
         for(int i=0; i<s.size(); i++){
-            while(hash[i]>0){
-                if(index > s.size()){
-                    index = 1;
-                }
-                s[index] = i + 'a';
-                hash[i]--;
-                index += 2;
+            if(hash[s[i]-'a'] == 1){
+                return i;
             }
         }
-        return s;
+        return -1;
     }
  }
 
