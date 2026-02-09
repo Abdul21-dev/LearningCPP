@@ -2507,18 +2507,31 @@ int main(){
     // }
 
     //Q.387 First unique character in a string 
-    int firstUniqChar(string s) {
-        int hash[26] = {0};
-        for(int i=0; i<s.size(); i++){
-            hash[s[i] - 'a']++;
-        }
+    // int firstUniqChar(string s) {
+    //     int hash[26] = {0};
+    //     for(int i=0; i<s.size(); i++){
+    //         hash[s[i] - 'a']++;
+    //     }
 
-        for(int i=0; i<s.size(); i++){
-            if(hash[s[i]-'a'] == 1){
-                return i;
+    //     for(int i=0; i<s.size(); i++){
+    //         if(hash[s[i]-'a'] == 1){
+    //             return i;
+    //         }
+    //     }
+    //     return -1;
+    // }
+
+    // Q.867 Transpose a matrix
+    vector<vector<int>> transpose(vector<vector<int>>& matrix) {
+        int n = matrix.size();
+        int m = matrix[0].size();
+        vector<vector<int>> trans(m, vector<int>(n));
+        for(int i=0; i<n; i++){
+            for(int j=0; j<m; j++){
+                trans[j][i] = matrix[i][j];
             }
         }
-        return -1;
+        return trans;
     }
  }
 
