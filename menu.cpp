@@ -2522,16 +2522,34 @@ int main(){
     // }
 
     // Q.867 Transpose a matrix
-    vector<vector<int>> transpose(vector<vector<int>>& matrix) {
-        int n = matrix.size();
-        int m = matrix[0].size();
-        vector<vector<int>> trans(m, vector<int>(n));
-        for(int i=0; i<n; i++){
-            for(int j=0; j<m; j++){
-                trans[j][i] = matrix[i][j];
+    // vector<vector<int>> transpose(vector<vector<int>>& matrix) {
+    //     int n = matrix.size();
+    //     int m = matrix[0].size();
+    //     vector<vector<int>> trans(m, vector<int>(n));
+    //     for(int i=0; i<n; i++){
+    //         for(int j=0; j<m; j++){
+    //             trans[j][i] = matrix[i][j];
+    //         }
+    //     }
+    //     return trans;
+    // }
+
+    // Q. 704 Binary search
+    int search(vector<int>& nums, int target) {
+        int s = 0;
+        int e = nums.size()-1;
+        while(s<=e){
+            int mid = s + (e-s)/2;
+            if(nums[mid] == target){
+                return mid;
+            }
+            else if(nums[mid] > target){
+              e = mid - 1;
+            }else{
+                s = mid + 1;
             }
         }
-        return trans;
+        return -1;
     }
  }
 
