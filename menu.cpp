@@ -2564,12 +2564,33 @@ int main(){
         // }
         // return ans;
 
-        for(int i=0; i<s.length(); i++){
-            if(s[i]>='A' && s[i]<='Z'){
-               s[i] = s[i] + 'a' - 'A';
+    //     for(int i=0; i<s.length(); i++){
+    //         if(s[i]>='A' && s[i]<='Z'){
+    //            s[i] = s[i] + 'a' - 'A';
+    //         }
+    //     }
+    //     return s;
+    // }
+
+    // Q.1748 Sum of unique elements
+    int sumOfUnique(vector<int>& nums) {
+        for(int i=0; i<nums.size(); i++){
+            int element = nums[i];
+            for(int j=0; j<nums.size(); j++){
+                if(i!=j && element == nums[j]){
+                   nums[j] = INT_MIN;
+                   nums[i] = INT_MIN;
+                }
             }
         }
-        return s;
+
+        int ans = 0;
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i] != INT_MIN){
+                ans += nums[i];
+            }
+        }
+        return ans;
     }
  }
 
