@@ -2535,21 +2535,41 @@ int main(){
     // }
 
     // Q. 704 Binary search
-    int search(vector<int>& nums, int target) {
-        int s = 0;
-        int e = nums.size()-1;
-        while(s<=e){
-            int mid = s + (e-s)/2;
-            if(nums[mid] == target){
-                return mid;
-            }
-            else if(nums[mid] > target){
-              e = mid - 1;
-            }else{
-                s = mid + 1;
+    // int search(vector<int>& nums, int target) {
+    //     int s = 0;
+    //     int e = nums.size()-1;
+    //     while(s<=e){
+    //         int mid = s + (e-s)/2;
+    //         if(nums[mid] == target){
+    //             return mid;
+    //         }
+    //         else if(nums[mid] > target){
+    //           e = mid - 1;
+    //         }else{
+    //             s = mid + 1;
+    //         }
+    //     }
+    //     return -1;
+    // }
+
+    // @.704 To Lowercase
+     string toLowerCase(string s) {
+        // string ans = "";
+        // for(int i=0; i<s.length(); i++){
+        //     if(s[i]>='A' && s[i]<='Z'){
+        //         ans.push_back(s[i] + 'a' - 'A');
+        //     }else{
+        //         ans.push_back(s[i]);
+        //     }
+        // }
+        // return ans;
+
+        for(int i=0; i<s.length(); i++){
+            if(s[i]>='A' && s[i]<='Z'){
+               s[i] = s[i] + 'a' - 'A';
             }
         }
-        return -1;
+        return s;
     }
  }
 
