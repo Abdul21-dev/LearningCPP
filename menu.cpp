@@ -2573,24 +2573,44 @@ int main(){
     // }
 
     // Q.1748 Sum of unique elements
-    int sumOfUnique(vector<int>& nums) {
-        for(int i=0; i<nums.size(); i++){
-            int element = nums[i];
-            for(int j=0; j<nums.size(); j++){
-                if(i!=j && element == nums[j]){
-                   nums[j] = INT_MIN;
-                   nums[i] = INT_MIN;
-                }
+    // int sumOfUnique(vector<int>& nums) {
+    //     for(int i=0; i<nums.size(); i++){
+    //         int element = nums[i];
+    //         for(int j=0; j<nums.size(); j++){
+    //             if(i!=j && element == nums[j]){
+    //                nums[j] = INT_MIN;
+    //                nums[i] = INT_MIN;
+    //             }
+    //         }
+    //     }
+
+    //     int ans = 0;
+    //     for(int i=0; i<nums.size(); i++){
+    //         if(nums[i] != INT_MIN){
+    //             ans += nums[i];
+    //         }
+    //     }
+    //     return ans;
+    // }
+
+    // Leercode 205 Isomorphic string
+     bool isIsomorphic(string s, string t) {
+        int hash[256] = {0};
+        bool istCharMapped[256] = {0};
+
+        for(int i=0; i<s.size(); i++){
+            if(hash[s[i]] == 0  && istCharMapped[t[i]] == 0){
+                hash[s[i]] = t[i];
+                istCharMapped[t[i]] = true;
             }
         }
 
-        int ans = 0;
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i] != INT_MIN){
-                ans += nums[i];
+        for(int i=0; i<s.size(); i++){
+            if(char(hash[s[i]]) != t[i]){
+                return false;
             }
         }
-        return ans;
+        return true;
     }
  }
 
