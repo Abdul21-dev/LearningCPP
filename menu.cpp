@@ -2594,23 +2594,39 @@ int main(){
     // }
 
     // Leercode 205 Isomorphic string
-     bool isIsomorphic(string s, string t) {
-        int hash[256] = {0};
-        bool istCharMapped[256] = {0};
+    //  bool isIsomorphic(string s, string t) {
+    //     int hash[256] = {0};
+    //     bool istCharMapped[256] = {0};
 
-        for(int i=0; i<s.size(); i++){
-            if(hash[s[i]] == 0  && istCharMapped[t[i]] == 0){
-                hash[s[i]] = t[i];
-                istCharMapped[t[i]] = true;
-            }
-        }
+    //     for(int i=0; i<s.size(); i++){
+    //         if(hash[s[i]] == 0  && istCharMapped[t[i]] == 0){
+    //             hash[s[i]] = t[i];
+    //             istCharMapped[t[i]] = true;
+    //         }
+    //     }
 
-        for(int i=0; i<s.size(); i++){
-            if(char(hash[s[i]]) != t[i]){
-                return false;
+    //     for(int i=0; i<s.size(); i++){
+    //         if(char(hash[s[i]]) != t[i]){
+    //             return false;
+    //         }
+    //     }
+    //     return true;
+    // }
+
+    // Leeetcode 1365
+    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+        vector<int>ans;
+        int count = 0;
+        for(int i=0; i<nums.size(); i++){
+            for(int j=0; j<nums.size(); j++){
+                if(nums[i] > nums[j] && i != j){
+                    count++;
+                }
             }
+            ans.push_back(count);
+            count = 0;
         }
-        return true;
+        return ans;
     }
  }
 
