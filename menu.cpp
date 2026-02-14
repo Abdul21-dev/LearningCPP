@@ -2614,19 +2614,37 @@ int main(){
     // }
 
     // Leeetcode 1365
-    vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
-        vector<int>ans;
+    // vector<int> smallerNumbersThanCurrent(vector<int>& nums) {
+    //     vector<int>ans;
+    //     int count = 0;
+    //     for(int i=0; i<nums.size(); i++){
+    //         for(int j=0; j<nums.size(); j++){
+    //             if(nums[i] > nums[j] && i != j){
+    //                 count++;
+    //             }
+    //         }
+    //         ans.push_back(count);
+    //         count = 0;
+    //     }
+    //     return ans;
+    // }
+
+    //Leetcode 1464
+    int maxProduct(vector<int>& nums) {
+       for(int i=0; i<nums.size(); i++){
+            nums[i] -= 1;
+        }
+
         int count = 0;
+
         for(int i=0; i<nums.size(); i++){
-            for(int j=0; j<nums.size(); j++){
-                if(nums[i] > nums[j] && i != j){
-                    count++;
+            for(int j=i+1; j<nums.size(); j++){
+                if(nums[i]*nums[j]>count){
+                    count = nums[i]*nums[j];
                 }
             }
-            ans.push_back(count);
-            count = 0;
         }
-        return ans;
+        return count;
     }
  }
 
