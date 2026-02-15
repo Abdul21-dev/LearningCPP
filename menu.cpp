@@ -2630,21 +2630,33 @@ int main(){
     // }
 
     //Leetcode 1464
-    int maxProduct(vector<int>& nums) {
-       for(int i=0; i<nums.size(); i++){
-            nums[i] -= 1;
-        }
+    // int maxProduct(vector<int>& nums) {
+    //    for(int i=0; i<nums.size(); i++){
+    //         nums[i] -= 1;
+    //     }
 
-        int count = 0;
+    //     int count = 0;
 
+    //     for(int i=0; i<nums.size(); i++){
+    //         for(int j=i+1; j<nums.size(); j++){
+    //             if(nums[i]*nums[j]>count){
+    //                 count = nums[i]*nums[j];
+    //             }
+    //         }
+    //     }
+    //     return count;
+    // }
+
+    // Leetcode 1929
+    vector<int> getConcatenation(vector<int>& nums) {
+        vector<int>ans;
         for(int i=0; i<nums.size(); i++){
-            for(int j=i+1; j<nums.size(); j++){
-                if(nums[i]*nums[j]>count){
-                    count = nums[i]*nums[j];
-                }
-            }
+            ans.push_back(nums[i]);
         }
-        return count;
+        for(int i=0; i<nums.size(); i++){
+            ans.push_back(nums[i]);
+        }
+        return ans;
     }
  }
 
