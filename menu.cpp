@@ -2648,15 +2648,27 @@ int main(){
     // }
 
     // Leetcode 1929
-    vector<int> getConcatenation(vector<int>& nums) {
-        vector<int>ans;
-        for(int i=0; i<nums.size(); i++){
-            ans.push_back(nums[i]);
+    // vector<int> getConcatenation(vector<int>& nums) {
+    //     vector<int>ans;
+    //     for(int i=0; i<nums.size(); i++){
+    //         ans.push_back(nums[i]);
+    //     }
+    //     for(int i=0; i<nums.size(); i++){
+    //         ans.push_back(nums[i]);
+    //     }
+    //     return ans;
+    // }
+
+    // Leetcode 1346
+     bool checkIfExist(vector<int>& arr) {
+        for(int i=0; i<arr.size(); i++){
+            for(int j=0; j<arr.size(); j++){
+                if(arr[i] == 2*arr[j] && i != j){
+                    return true;
+                }
+            }
         }
-        for(int i=0; i<nums.size(); i++){
-            ans.push_back(nums[i]);
-        }
-        return ans;
+        return false;
     }
  }
 
