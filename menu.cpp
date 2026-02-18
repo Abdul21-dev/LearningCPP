@@ -2672,15 +2672,38 @@ int main(){
     // }
 
     // Leetcode 3798
-     string largestEven(string s) {
-        for(int i=s.length()-1; i>=0; i--){
-            if(s[i] == '1'){
-                s.pop_back();
-            }else{
+    //  string largestEven(string s) {
+    //     for(int i=s.length()-1; i>=0; i--){
+    //         if(s[i] == '1'){
+    //             s.pop_back();
+    //         }else{
+    //             break;
+    //         }
+    //     }
+    //     return s;
+    // }
+
+    // Leetcode 747
+    int dominantIndex(vector<int>& nums) {
+        int ans = INT_MIN;
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i]>ans){
+                ans = nums[i];
+            }
+        }
+        int ans2=0;
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i]==ans){
+                ans2 = i;
+                continue;
+            }else if(2*nums[i]<=ans){
+               continue;
+            }else if(2*nums[i]>ans){
+                return -1;
                 break;
             }
         }
-        return s;
+        return ans2;
     }
  }
 
