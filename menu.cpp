@@ -2683,27 +2683,18 @@ int main(){
     //     return s;
     // }
 
-    // Leetcode 747
-    int dominantIndex(vector<int>& nums) {
-        int ans = INT_MIN;
+    // Leetcode 2016
+    int maximumDifference(vector<int>& nums) {
+        int ans=-1;
         for(int i=0; i<nums.size(); i++){
-            if(nums[i]>ans){
-                ans = nums[i];
+            for(int j=i+1; j<nums.size(); j++){
+                if(nums[i]<nums[j] && i<j){
+                    int x = nums[j]-nums[i];
+                    ans = max(ans,x);
+                }
             }
         }
-        int ans2=0;
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i]==ans){
-                ans2 = i;
-                continue;
-            }else if(2*nums[i]<=ans){
-               continue;
-            }else if(2*nums[i]>ans){
-                return -1;
-                break;
-            }
-        }
-        return ans2;
+        return ans;
     }
  }
 
