@@ -2684,17 +2684,34 @@ int main(){
     // }
 
     // Leetcode 2016
-    int maximumDifference(vector<int>& nums) {
-        int ans=-1;
-        for(int i=0; i<nums.size(); i++){
-            for(int j=i+1; j<nums.size(); j++){
-                if(nums[i]<nums[j] && i<j){
-                    int x = nums[j]-nums[i];
-                    ans = max(ans,x);
-                }
+    // int maximumDifference(vector<int>& nums) {
+    //     int ans=-1;
+    //     for(int i=0; i<nums.size(); i++){
+    //         for(int j=i+1; j<nums.size(); j++){
+    //             if(nums[i]<nums[j] && i<j){
+    //                 int x = nums[j]-nums[i];
+    //                 ans = max(ans,x);
+    //             }
+    //         }
+    //     }
+    //     return ans;
+    // }
+
+    // Leetcode 2540
+     int getCommon(vector<int>& nums1, vector<int>& nums2) {
+        int i=0;
+        int j=0;
+        while(i<nums1.size() && j<nums2.size()){
+            if(nums1[i]==nums2[j]){
+                return nums1[i];
+            }else if(nums1[i]<nums2[j]){
+                i++;
+            }else{
+                j++;
             }
         }
-        return ans;
+        
+        return -1;
     }
  }
 
