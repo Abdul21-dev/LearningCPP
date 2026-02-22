@@ -2714,20 +2714,18 @@ int main(){
     //     return -1;
     // }
 
-    // Leetcode 1832
-     bool checkIfPangram(string sentence) {
-        int hash[26]={0};
-        for(int i=0; i<sentence.size(); i++){
-            if(sentence[i]>='a' && sentence[i]<='z'){
-            hash[sentence[i]-'a']++;
+    // Leetcode 2441
+    int findMaxK(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        for(int i=nums.size()-1; i>=0; i--){
+            int element = nums[i];
+            for(int j=0; j<nums.size(); j++){
+                if(element == -1*nums[j]){
+                    return element;
+                }
             }
         }
-        for(int i=0; i<26; i++){
-            if(hash[i]==0){
-                return false;
-            }
-        }
-        return true;
+        return -1;
     }
  }
 
