@@ -2715,17 +2715,29 @@ int main(){
     // }
 
     // Leetcode 2441
-    int findMaxK(vector<int>& nums) {
+    // int findMaxK(vector<int>& nums) {
+    //     sort(nums.begin(), nums.end());
+    //     for(int i=nums.size()-1; i>=0; i--){
+    //         int element = nums[i];
+    //         for(int j=0; j<nums.size(); j++){
+    //             if(element == -1*nums[j]){
+    //                 return element;
+    //             }
+    //         }
+    //     }
+    //     return -1;
+    // }
+
+    // Leetcode 2089
+    vector<int> targetIndices(vector<int>& nums, int target) {
         sort(nums.begin(), nums.end());
-        for(int i=nums.size()-1; i>=0; i--){
-            int element = nums[i];
-            for(int j=0; j<nums.size(); j++){
-                if(element == -1*nums[j]){
-                    return element;
-                }
+        vector<int>arr;
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i]==target){
+                arr.push_back(i);
             }
         }
-        return -1;
+        return arr;
     }
  }
 
