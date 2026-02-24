@@ -2741,19 +2741,44 @@ int main(){
     // }
 
     // Leetcode 2109
-    string addSpaces(string s, vector<int>& spaces) {
-        string ans="";
-       int j=0;
-        for(int i=0; i<s.length(); i++){
-            if(j<spaces.size() && i==spaces[j]){
-               // ans += ' ';
-               ans.push_back(' ');
-                j++;
-            }
-                // ans += s[i];
-                ans.push_back(s[i]);
+    // string addSpaces(string s, vector<int>& spaces) {
+    //     string ans="";
+    //    int j=0;
+    //     for(int i=0; i<s.length(); i++){
+    //         if(j<spaces.size() && i==spaces[j]){
+    //            // ans += ' ';
+    //            ans.push_back(' ');
+    //             j++;
+    //         }
+    //             // ans += s[i];
+    //             ans.push_back(s[i]);
+    //     }
+    //     return ans;
+    // }
+
+    // Leetcode 1822
+    int signFunc(int x){
+    if(x>0){
+        return 1;
+    }else if(x<0){
+        return -1;
+    }else{
+        return 0;
+    }
+}
+    int arraySign(vector<int>& nums) {
+        int ans=1;
+        for(int i=0; i<nums.size(); i++){
+           if(nums[i]>0){
+            ans *= 1;
+           }else if(nums[i]<0){
+            ans *= -1;
+           }else{
+            ans *= 0;
+           }
         }
-        return ans;
+        int ans2 = signFunc(ans);
+        return ans2;
     }
  }
 
