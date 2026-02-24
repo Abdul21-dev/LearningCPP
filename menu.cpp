@@ -2729,15 +2729,31 @@ int main(){
     // }
 
     // Leetcode 2089
-    vector<int> targetIndices(vector<int>& nums, int target) {
-        sort(nums.begin(), nums.end());
-        vector<int>arr;
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i]==target){
-                arr.push_back(i);
+    // vector<int> targetIndices(vector<int>& nums, int target) {
+    //     sort(nums.begin(), nums.end());
+    //     vector<int>arr;
+    //     for(int i=0; i<nums.size(); i++){
+    //         if(nums[i]==target){
+    //             arr.push_back(i);
+    //         }
+    //     }
+    //     return arr;
+    // }
+
+    // Leetcode 2109
+    string addSpaces(string s, vector<int>& spaces) {
+        string ans="";
+       int j=0;
+        for(int i=0; i<s.length(); i++){
+            if(j<spaces.size() && i==spaces[j]){
+               // ans += ' ';
+               ans.push_back(' ');
+                j++;
             }
+                // ans += s[i];
+                ans.push_back(s[i]);
         }
-        return arr;
+        return ans;
     }
  }
 
