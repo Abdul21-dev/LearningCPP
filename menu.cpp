@@ -2757,28 +2757,48 @@ int main(){
     // }
 
     // Leetcode 1822
-    int signFunc(int x){
-    if(x>0){
-        return 1;
-    }else if(x<0){
-        return -1;
-    }else{
-        return 0;
-    }
-}
-    int arraySign(vector<int>& nums) {
-        int ans=1;
-        for(int i=0; i<nums.size(); i++){
-           if(nums[i]>0){
-            ans *= 1;
-           }else if(nums[i]<0){
-            ans *= -1;
-           }else{
-            ans *= 0;
-           }
+//     int signFunc(int x){
+//     if(x>0){
+//         return 1;
+//     }else if(x<0){
+//         return -1;
+//     }else{
+//         return 0;
+//     }
+// }
+//     int arraySign(vector<int>& nums) {
+//         int ans=1;
+//         for(int i=0; i<nums.size(); i++){
+//            if(nums[i]>0){
+//             ans *= 1;
+//            }else if(nums[i]<0){
+//             ans *= -1;
+//            }else{
+//             ans *= 0;
+//            }
+//         }
+//         int ans2 = signFunc(ans);
+//         return ans2;
+//     }
+
+// Leetcode 217
+ bool containsDuplicate(vector<int>& nums) {
+        // for(int i=0; i<nums.size(); i++){
+        //     for(int j=i+1; j<nums.size(); j++){
+        //         if(nums[i]==nums[j]){
+        //             return true;
+        //         }
+        //     }
+        // }
+        // return false;
+
+        sort(nums.begin(), nums.end());
+        for(int i=0; i<nums.size()-1; i++){
+            if(nums[i]==nums[i+1]){
+                return true;
+            }
         }
-        int ans2 = signFunc(ans);
-        return ans2;
+        return false;
     }
  }
 
