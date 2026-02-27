@@ -2802,14 +2802,26 @@ int main(){
     // }
 
     // Leetcode 442
-    vector<int> findDuplicates(vector<int>& nums) {
-        sort(nums.begin(), nums.end());
+    // vector<int> findDuplicates(vector<int>& nums) {
+    //     sort(nums.begin(), nums.end());
+    //     vector<int>arr;
+    //     for(int i=0; i<nums.size()-1; i++){
+    //         if(nums[i]==nums[i+1]){
+    //             arr.push_back(nums[i]);
+    //         }
+    //     }
+    //     return arr;
+    // }
+
+    // Leetcode 1480
+    vector<int> runningSum(vector<int>& nums) {
+        int ans = 0;
         vector<int>arr;
-        for(int i=0; i<nums.size()-1; i++){
-            if(nums[i]==nums[i+1]){
-                arr.push_back(nums[i]);
-            }
+        for(int i=0; i<nums.size(); i++){
+            ans += nums[i];
+            arr.push_back(ans);
         }
+        
         return arr;
     }
  }
