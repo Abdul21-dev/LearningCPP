@@ -2814,15 +2814,29 @@ int main(){
     // }
 
     // Leetcode 1480
-    vector<int> runningSum(vector<int>& nums) {
-        int ans = 0;
-        vector<int>arr;
-        for(int i=0; i<nums.size(); i++){
-            ans += nums[i];
-            arr.push_back(ans);
-        }
+    // vector<int> runningSum(vector<int>& nums) {
+    //     int ans = 0;
+    //     vector<int>arr;
+    //     for(int i=0; i<nums.size(); i++){
+    //         ans += nums[i];
+    //         arr.push_back(ans);
+    //     }
         
-        return arr;
-    }
+    //     return arr;
+    // }
+
+    // Leetcode 1816
+    string ans="";
+        int a=0;
+        for(int i=0; i<s.length(); i++){
+            if(s[i]==' '){
+                a++;
+            }
+            if(a==k){
+                break;
+            }
+            ans.push_back(s[i]);
+        }
+        return ans;
  }
 
