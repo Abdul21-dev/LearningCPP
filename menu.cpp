@@ -2826,17 +2826,38 @@ int main(){
     // }
 
     // Leetcode 1816
-    string ans="";
-        int a=0;
-        for(int i=0; i<s.length(); i++){
-            if(s[i]==' '){
-                a++;
+    // string ans="";
+    //     int a=0;
+    //     for(int i=0; i<s.length(); i++){
+    //         if(s[i]==' '){
+    //             a++;
+    //         }
+    //         if(a==k){
+    //             break;
+    //         }
+    //         ans.push_back(s[i]);
+    //     }
+    //     return ans;
+
+    // Leetcode 1979
+    int findGCD(vector<int>& nums) {
+        int s=INT_MIN;
+        int t=INT_MAX;
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i]>s){
+                s = nums[i];
             }
-            if(a==k){
-                break;
+            if(nums[i]<t){
+                t = nums[i];
             }
-            ans.push_back(s[i]);
         }
-        return ans;
+        int k=1;
+        for(int i=1; i<=t; i++){
+        if(s%i == 0 && t%i == 0){
+            k=i;
+        }
+        }
+        return k;
+        }
  }
 
