@@ -2840,24 +2840,64 @@ int main(){
     //     return ans;
 
     // Leetcode 1979
-    int findGCD(vector<int>& nums) {
+    // int findGCD(vector<int>& nums) {
+    //     int s=INT_MIN;
+    //     int t=INT_MAX;
+    //     for(int i=0; i<nums.size(); i++){
+    //         if(nums[i]>s){
+    //             s = nums[i];
+    //         }
+    //         if(nums[i]<t){
+    //             t = nums[i];
+    //         }
+    //     }
+    //     int k=1;
+    //     for(int i=1; i<=t; i++){
+    //     if(s%i == 0 && t%i == 0){
+    //         k=i;
+    //     }
+    //     }
+    //     return k;
+    //     }
+
+    // Leetcode 1491
+     vector<int>arr;
         int s=INT_MIN;
         int t=INT_MAX;
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i]>s){
-                s = nums[i];
+        for(int i=0; i<salary.size(); i++){
+            if(salary[i]>s){
+                s = salary[i];
             }
-            if(nums[i]<t){
-                t = nums[i];
+            if(salary[i]<t){
+                t = salary[i];
             }
         }
-        int k=1;
-        for(int i=1; i<=t; i++){
-        if(s%i == 0 && t%i == 0){
-            k=i;
+       for(int i=0; i<salary.size(); i++){
+        if(salary[i]==s || salary[i]==t){
+            continue;
         }
+        arr.push_back(salary[i]);
+       }
+       int ans=0;
+       for(int i=0; i<arr.size(); i++){
+        ans += arr[i];
+       }
+       int p=arr.size();
+       double m = (double)ans/p;
+       return m;
+    }
+
+    // Leetcode 2351
+     char repeatedCharacter(string s) {
+        int hash[26]={0};
+        for(int i=0; i<s.length(); i++){
+            hash[s[i]-'a']++;
+
+            if(hash[s[i]-'a']==2){
+                return s[i];
+            }
         }
-        return k;
-        }
+        return '\0';
+    }
  }
 
