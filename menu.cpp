@@ -2861,43 +2861,73 @@ int main(){
     //     }
 
     // Leetcode 1491
-     vector<int>arr;
-        int s=INT_MIN;
-        int t=INT_MAX;
-        for(int i=0; i<salary.size(); i++){
-            if(salary[i]>s){
-                s = salary[i];
-            }
-            if(salary[i]<t){
-                t = salary[i];
-            }
-        }
-       for(int i=0; i<salary.size(); i++){
-        if(salary[i]==s || salary[i]==t){
-            continue;
-        }
-        arr.push_back(salary[i]);
-       }
-       int ans=0;
-       for(int i=0; i<arr.size(); i++){
-        ans += arr[i];
-       }
-       int p=arr.size();
-       double m = (double)ans/p;
-       return m;
-    }
+    //  vector<int>arr;
+    //     int s=INT_MIN;
+    //     int t=INT_MAX;
+    //     for(int i=0; i<salary.size(); i++){
+    //         if(salary[i]>s){
+    //             s = salary[i];
+    //         }
+    //         if(salary[i]<t){
+    //             t = salary[i];
+    //         }
+    //     }
+    //    for(int i=0; i<salary.size(); i++){
+    //     if(salary[i]==s || salary[i]==t){
+    //         continue;
+    //     }
+    //     arr.push_back(salary[i]);
+    //    }
+    //    int ans=0;
+    //    for(int i=0; i<arr.size(); i++){
+    //     ans += arr[i];
+    //    }
+    //    int p=arr.size();
+    //    double m = (double)ans/p;
+    //    return m;
+    // }
 
-    // Leetcode 2351
-     char repeatedCharacter(string s) {
-        int hash[26]={0};
-        for(int i=0; i<s.length(); i++){
-            hash[s[i]-'a']++;
+    // // Leetcode 2351
+    //  char repeatedCharacter(string s) {
+    //     int hash[26]={0};
+    //     for(int i=0; i<s.length(); i++){
+    //         hash[s[i]-'a']++;
 
-            if(hash[s[i]-'a']==2){
-                return s[i];
-            }
+    //         if(hash[s[i]-'a']==2){
+    //             return s[i];
+    //         }
+    //     }
+    //     return '\0';
+    // }
+
+    // Leetcode 240
+    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+        // int m = matrix.size();
+        // int n = matrix[0].size();
+        // for(int i=0; i<m; i++){
+        //     for(int j=0; j<n; j++){
+        //         if(matrix[i][j]==target){
+        //             return true;
+        //         }
+        //     }
+        // }
+        // return false;
+    
+
+    int m = matrix.size();
+    int n = matrix[0].size();
+    int row = 0;
+    int col = n-1;
+    while(row<m && col>=0){
+        if(matrix[row][col]==target){
+            return true;
+        }else if(matrix[row][col]>target){
+            col--;
+        }else{
+            row++;
         }
-        return '\0';
     }
+    return false;
+     }
  }
 
