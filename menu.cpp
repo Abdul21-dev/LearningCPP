@@ -2914,20 +2914,38 @@ int main(){
         // return false;
     
 
-    int m = matrix.size();
-    int n = matrix[0].size();
-    int row = 0;
-    int col = n-1;
-    while(row<m && col>=0){
-        if(matrix[row][col]==target){
-            return true;
-        }else if(matrix[row][col]>target){
-            col--;
-        }else{
-            row++;
+    // int m = matrix.size();
+    // int n = matrix[0].size();
+    // int row = 0;
+    // int col = n-1;
+    // while(row<m && col>=0){
+    //     if(matrix[row][col]==target){
+    //         return true;
+    //     }else if(matrix[row][col]>target){
+    //         col--;
+    //     }else{
+    //         row++;
+    //     }
+    // }
+    // return false;
+    //  }
+
+    // Leetcode 3813
+    int vowelConsonantScore(string s) {
+        int v=0;
+        int c=0;
+        for(int i=0; i<s.length(); i++){
+            if(s[i]!='a' && s[i]!='e' && s[i]!='i' && s[i]!='o' && s[i]!='u' && s[i]>'a' && s[i]<='z'){
+                c++;
+            }else if(s[i]=='a' || s[i]=='e' || s[i]=='i' || s[i]=='o' || s[i]=='u'){
+                v++;
+            }
         }
+        if(c==0){
+            return 0;
+        }
+        int score = floor(v/c);
+        return score;
     }
-    return false;
-     }
  }
 
