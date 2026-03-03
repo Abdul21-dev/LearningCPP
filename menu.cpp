@@ -2931,21 +2931,47 @@ int main(){
     //  }
 
     // Leetcode 3813
-    int vowelConsonantScore(string s) {
-        int v=0;
-        int c=0;
-        for(int i=0; i<s.length(); i++){
-            if(s[i]!='a' && s[i]!='e' && s[i]!='i' && s[i]!='o' && s[i]!='u' && s[i]>'a' && s[i]<='z'){
-                c++;
-            }else if(s[i]=='a' || s[i]=='e' || s[i]=='i' || s[i]=='o' || s[i]=='u'){
-                v++;
+    // int vowelConsonantScore(string s) {
+    //     int v=0;
+    //     int c=0;
+    //     for(int i=0; i<s.length(); i++){
+    //         if(s[i]!='a' && s[i]!='e' && s[i]!='i' && s[i]!='o' && s[i]!='u' && s[i]>'a' && s[i]<='z'){
+    //             c++;
+    //         }else if(s[i]=='a' || s[i]=='e' || s[i]=='i' || s[i]=='o' || s[i]=='u'){
+    //             v++;
+    //         }
+    //     }
+    //     if(c==0){
+    //         return 0;
+    //     }
+    //     int score = floor(v/c);
+    //     return score;
+    // }
+
+    // Leetcode 169
+     int majorityElement(vector<int>& nums) {
+        // unordered_map<int,int> hash;
+        // for(int i=0; i<nums.size(); i++){
+        //     hash[nums[i]]++;
+        //     if(hash[nums[i]]>(nums.size()/2)){
+        //         return nums[i];
+        //     }
+        // }
+        // return '\0';
+
+        int candidate = 0;
+        int count = 0;
+        for(int i=0; i<nums.size(); i++){
+            if(count==0){
+                candidate = nums[i];
+            }
+            if(candidate==nums[i]){
+                count++;
+            }else{
+                count--;
             }
         }
-        if(c==0){
-            return 0;
-        }
-        int score = floor(v/c);
-        return score;
+        return candidate;
     }
  }
 
