@@ -3069,7 +3069,7 @@ int main(){
 //         }
 //         return false;
 //     }
-    vector<int> findDisappearedNumbers(vector<int>& nums) {
+  // vector<int> findDisappearedNumbers(vector<int>& nums) {
     //    vector<int>ans;
     //   int n = nums.size();
     //     for(int i=1; i<=n; i++){
@@ -3081,20 +3081,71 @@ int main(){
     //     }
     //    return ans;
     
-vector<int>ans;
-    for(int i=0; i<nums.size(); i++){
-        int index = abs(nums[i])-1;
+// vector<int>ans;
+//     for(int i=0; i<nums.size(); i++){
+//         int index = abs(nums[i])-1;
 
-        if(nums[index]>0){
-            nums[index] *= -1;
+//         if(nums[index]>0){
+//             nums[index] *= -1;
+//         }
+//     }
+//     for(int i=0; i<nums.size(); i++){
+//         if(nums[i]>0){
+//             ans.push_back(i+1);
+//         }
+//     }
+//     return ans;
+// }
+
+// Leetcode 4 
+ double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        // vector<int>nums3;
+        // nums3.reserve(nums1.size() + nums2.size());
+        // for(int i=0; i<nums1.size(); i++){
+        //     nums3.push_back(nums1[i]);
+        // }
+        // for(int i=0; i<nums2.size(); i++){
+        //     nums3.push_back(nums2[i]);
+        // }
+        // sort(nums3.begin(), nums3.end());
+        // int n=nums3.size();
+        // // double ans;
+        // if(n%2 != 0){
+        //     int p = n/2;
+        //     return (double)nums3[p];
+        // }else{
+        //     int q = n/2;
+        //     int r = (n/2)-1;
+        //     return (double)(nums3[q]+nums3[r])/2.0;
+        // }
+       // double z = round(ans * 100000) / 100000;
+        //return ans;
+
+
+       //   vector<int>nums3;
+        // nums3.reserve(nums1.size() + nums2.size());
+        // for(int i=0; i<nums1.size(); i++){
+        //     nums3.push_back(nums1[i]);
+        // }
+        // for(int i=0; i<nums2.size(); i++){
+        //     nums3.push_back(nums2[i]);
+        // }
+
+        // for(int i=0; i<nums2.size(); i++){
+        //     nums1.push_back(nums2[i]);
+        // }
+        nums1.insert(nums1.end(), nums2.begin(), nums2.end());
+        sort(nums1.begin(), nums1.end());
+        int n=nums1.size();
+        // double ans;
+        if(n%2 != 0){
+            int p = n/2;
+            return (double)nums1[p];
+        }else{
+            int q = n/2;
+            int r = (n/2)-1;
+            return (double)(nums1[q]+nums1[r])/2.0;
         }
     }
-    for(int i=0; i<nums.size(); i++){
-        if(nums[i]>0){
-            ans.push_back(i+1);
-        }
-    }
-    return ans;
-}
  }
 
