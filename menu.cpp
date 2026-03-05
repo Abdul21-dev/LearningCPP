@@ -3046,18 +3046,55 @@ int main(){
     // }
 
     // Leetcode 961
-     int repeatedNTimes(vector<int>& nums) {
-        unordered_map<int,int>hash;
-        int n = nums.size()/2;
-        for(int i=0; i<nums.size(); i++){
-            hash[nums[i]]++;
+    //  int repeatedNTimes(vector<int>& nums) {
+    //     unordered_map<int,int>hash;
+    //     int n = nums.size()/2;
+    //     for(int i=0; i<nums.size(); i++){
+    //         hash[nums[i]]++;
+    //     }
+    //     for(auto p: hash){
+    //         if(p.second==n){
+    //             return p.first;
+    //         }
+    //     }
+    //     return '/0';
+    // }
+
+    // Leetcode 448
+    // bool isPresent(const vector<int> &arr, int i){
+//         for(int j=0; j<arr.size(); j++){
+//             if(i==arr[j]){
+//                 return true;
+//             }
+//         }
+//         return false;
+//     }
+    vector<int> findDisappearedNumbers(vector<int>& nums) {
+    //    vector<int>ans;
+    //   int n = nums.size();
+    //     for(int i=1; i<=n; i++){
+    //         if(isPresent(nums, i)){
+    //             continue;
+    //         }else{
+    //             ans.push_back(i);
+    //         }
+    //     }
+    //    return ans;
+    
+vector<int>ans;
+    for(int i=0; i<nums.size(); i++){
+        int index = abs(nums[i])-1;
+
+        if(nums[index]>0){
+            nums[index] *= -1;
         }
-        for(auto p: hash){
-            if(p.second==n){
-                return p.first;
-            }
-        }
-        return '/0';
     }
+    for(int i=0; i<nums.size(); i++){
+        if(nums[i]>0){
+            ans.push_back(i+1);
+        }
+    }
+    return ans;
+}
  }
 
