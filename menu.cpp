@@ -2553,7 +2553,7 @@ int main(){
     // }
 
     // @.704 To Lowercase
-     string toLowerCase(string s) {
+    // string toLowerCase(string s) {
         // string ans = "";
         // for(int i=0; i<s.length(); i++){
         //     if(s[i]>='A' && s[i]<='Z'){
@@ -2782,7 +2782,7 @@ int main(){
 //     }
 
 // Leetcode 217
- bool containsDuplicate(vector<int>& nums) {
+// bool containsDuplicate(vector<int>& nums) {
         // for(int i=0; i<nums.size(); i++){
         //     for(int j=i+1; j<nums.size(); j++){
         //         if(nums[i]==nums[j]){
@@ -2901,7 +2901,7 @@ int main(){
     // }
 
     // Leetcode 240
-    bool searchMatrix(vector<vector<int>>& matrix, int target) {
+   // bool searchMatrix(vector<vector<int>>& matrix, int target) {
         // int m = matrix.size();
         // int n = matrix[0].size();
         // for(int i=0; i<m; i++){
@@ -2949,7 +2949,7 @@ int main(){
     // }
 
     // Leetcode 169
-     int majorityElement(vector<int>& nums) {
+    // int majorityElement(vector<int>& nums) {
         // unordered_map<int,int> hash;
         // for(int i=0; i<nums.size(); i++){
         //     hash[nums[i]]++;
@@ -2959,23 +2959,23 @@ int main(){
         // }
         // return '\0';
 
-        int candidate = 0;
-        int count = 0;
-        for(int i=0; i<nums.size(); i++){
-            if(count==0){
-                candidate = nums[i];
-            }
-            if(candidate==nums[i]){
-                count++;
-            }else{
-                count--;
-            }
-        }
-        return candidate;
-    }
+    //     int candidate = 0;
+    //     int count = 0;
+    //     for(int i=0; i<nums.size(); i++){
+    //         if(count==0){
+    //             candidate = nums[i];
+    //         }
+    //         if(candidate==nums[i]){
+    //             count++;
+    //         }else{
+    //             count--;
+    //         }
+    //     }
+    //     return candidate;
+    // }
 
     // Leetcode 229
-     vector<int> majorityElement(vector<int>& nums) {
+    // vector<int> majorityElement(vector<int>& nums) {
     //     unordered_map<int,int>hash;
     //     set<int>arr;
     //     for(int i=0; i<nums.size(); i++){
@@ -3098,7 +3098,7 @@ int main(){
 // }
 
 // Leetcode 4 
- double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+ // double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
         // vector<int>nums3;
         // nums3.reserve(nums1.size() + nums2.size());
         // for(int i=0; i<nums1.size(); i++){
@@ -3134,18 +3134,38 @@ int main(){
         // for(int i=0; i<nums2.size(); i++){
         //     nums1.push_back(nums2[i]);
         // }
-        nums1.insert(nums1.end(), nums2.begin(), nums2.end());
-        sort(nums1.begin(), nums1.end());
-        int n=nums1.size();
-        // double ans;
-        if(n%2 != 0){
-            int p = n/2;
-            return (double)nums1[p];
-        }else{
-            int q = n/2;
-            int r = (n/2)-1;
-            return (double)(nums1[q]+nums1[r])/2.0;
+    //     nums1.insert(nums1.end(), nums2.begin(), nums2.end());
+    //     sort(nums1.begin(), nums1.end());
+    //     int n=nums1.size();
+    //     // double ans;
+    //     if(n%2 != 0){
+    //         int p = n/2;
+    //         return (double)nums1[p];
+    //     }else{
+    //         int q = n/2;
+    //         int r = (n/2)-1;
+    //         return (double)(nums1[q]+nums1[r])/2.0;
+    //     }
+    // }
+
+    // Leetcode 219
+      bool containsNearbyDuplicate(vector<int>& nums, int k) {
+        // for(int i=0; i<nums.size(); i++){
+        //     for(int j=i+1; j<=i+k && j<nums.size(); j++){
+        //         if(nums[i]==nums[j] && abs(i-j)<=k){
+        //             return true;
+        //         }
+        //     }
+        // }
+        // return false;
+
+        unordered_map<int,int>hash;
+        for(int i=0; i<nums.size(); i++){
+            if(hash.count(nums[i]) && i-hash[nums[i]]<=k){
+                return true;
+            }
+            hash[nums[i]] = i;
         }
-    }
+        return false
  }
 
