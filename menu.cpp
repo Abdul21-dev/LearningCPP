@@ -3149,23 +3149,37 @@ int main(){
     // }
 
     // Leetcode 219
-      bool containsNearbyDuplicate(vector<int>& nums, int k) {
-        // for(int i=0; i<nums.size(); i++){
-        //     for(int j=i+1; j<=i+k && j<nums.size(); j++){
-        //         if(nums[i]==nums[j] && abs(i-j)<=k){
-        //             return true;
-        //         }
-        //     }
-        // }
-        // return false;
+    //   bool containsNearbyDuplicate(vector<int>& nums, int k) {
+    //     // for(int i=0; i<nums.size(); i++){
+    //     //     for(int j=i+1; j<=i+k && j<nums.size(); j++){
+    //     //         if(nums[i]==nums[j] && abs(i-j)<=k){
+    //     //             return true;
+    //     //         }
+    //     //     }
+    //     // }
+    //     // return false;
 
+    //     unordered_map<int,int>hash;
+    //     for(int i=0; i<nums.size(); i++){
+    //         if(hash.count(nums[i]) && i-hash[nums[i]]<=k){
+    //             return true;
+    //         }
+    //         hash[nums[i]] = i;
+    //     }
+    //     return false
+
+    // Leetcode 137
+    int singleNumber(vector<int>& nums) {
         unordered_map<int,int>hash;
         for(int i=0; i<nums.size(); i++){
-            if(hash.count(nums[i]) && i-hash[nums[i]]<=k){
-                return true;
-            }
-            hash[nums[i]] = i;
+            hash[nums[i]]++;
         }
-        return false
+        for(auto &p: hash){
+            if(p.second==1){
+                return p.first;
+            }
+        }
+        return '/0';
+    }
  }
 
