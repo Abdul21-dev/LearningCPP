@@ -3169,14 +3169,29 @@ int main(){
     //     return false
 
     // Leetcode 137
-    int singleNumber(vector<int>& nums) {
-        unordered_map<int,int>hash;
-        for(int i=0; i<nums.size(); i++){
-            hash[nums[i]]++;
+    // int singleNumber(vector<int>& nums) {
+    //     unordered_map<int,int>hash;
+    //     for(int i=0; i<nums.size(); i++){
+    //         hash[nums[i]]++;
+    //     }
+    //     for(auto &p: hash){
+    //         if(p.second==1){
+    //             return p.first;
+    //         }
+    //     }
+    //     return '/0';
+    // }
+
+    // Leetcode 231
+    bool isPowerOfTwo(int n) {
+        if(n<0){
+            return false;
         }
-        for(auto &p: hash){
-            if(p.second==1){
-                return p.first;
+        for(int i=0; i<=n; i++){
+            if(pow(2,i)==n){
+                return true;
+            }else if(pow(2,i)>n){
+                return false;
             }
         }
         return '/0';
