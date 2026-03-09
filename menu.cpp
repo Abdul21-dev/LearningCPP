@@ -3183,18 +3183,32 @@ int main(){
     // }
 
     // Leetcode 231
-    bool isPowerOfTwo(int n) {
-        if(n<0){
-            return false;
-        }
-        for(int i=0; i<=n; i++){
-            if(pow(2,i)==n){
-                return true;
-            }else if(pow(2,i)>n){
-                return false;
+    // bool isPowerOfTwo(int n) {
+    //     if(n<0){
+    //         return false;
+    //     }
+    //     for(int i=0; i<=n; i++){
+    //         if(pow(2,i)==n){
+    //             return true;
+    //         }else if(pow(2,i)>n){
+    //             return false;
+    //         }
+    //     }
+    //     return '/0';
+    // }
+
+    // Leetcode 507
+     bool checkPerfectNumber(int num) {
+        int ans=0;
+        for(int i=1; i<=num/2; i++){
+            if(num%i==0){
+                ans += i;
             }
         }
-        return '/0';
+        if(ans == num){
+            return true;
+        }
+        return false;
     }
  }
 
