@@ -3198,17 +3198,23 @@ int main(){
     // }
 
     // Leetcode 507
-     bool checkPerfectNumber(int num) {
-        int ans=0;
-        for(int i=1; i<=num/2; i++){
-            if(num%i==0){
-                ans += i;
-            }
-        }
-        if(ans == num){
-            return true;
-        }
-        return false;
+    //  bool checkPerfectNumber(int num) {
+    //     int ans=0;
+    //     for(int i=1; i<=num/2; i++){
+    //         if(num%i==0){
+    //             ans += i;
+    //         }
+    //     }
+    //     if(ans == num){
+    //         return true;
+    //     }
+    //     return false;
+    // }
+
+    // Leetcode 50
+     double myPow(double x, int n) {
+        return round(pow(x,n)*100000)/100000;
+       
     }
  }
 
