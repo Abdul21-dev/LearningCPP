@@ -3218,25 +3218,38 @@ int main(){
     // }
 
     // Leetcode 167
-    vector<int> twoSum(vector<int>& numbers, int target) {
-     //   vector<int>ans;
-       int s = 0;
-       int e = numbers.size()-1;
-       while(s<e){
-        int sum = numbers[s]+numbers[e];
-        if(sum==target){
-            // ans.push_back(s+1);
-            // ans.push_back(e+1);
+    // vector<int> twoSum(vector<int>& numbers, int target) {
+    //  //   vector<int>ans;
+    //    int s = 0;
+    //    int e = numbers.size()-1;
+    //    while(s<e){
+    //     int sum = numbers[s]+numbers[e];
+    //     if(sum==target){
+    //         // ans.push_back(s+1);
+    //         // ans.push_back(e+1);
            
-             break;
-        }else if(sum<target){
-            s++;
-        }else{
-            e--;
+    //          break;
+    //     }else if(sum<target){
+    //         s++;
+    //     }else{
+    //         e--;
+    //     }
+    //    }
+    //    // return ans;
+    //   return {s+1, e+1};
+    // }
+
+    // Leetcode 976
+    int largestPerimeter(vector<int>& nums) {
+       sort(nums.begin(), nums.end());
+    
+    for(int i = nums.size() - 1; i >= 2; i--) {
+        if(nums[i-1] + nums[i-2] > nums[i]) {
+            return nums[i] + nums[i-1] + nums[i-2];
         }
-       }
-       // return ans;
-      return {s+1, e+1};
+    }
+    
+    return 0;
     }
  }
 
