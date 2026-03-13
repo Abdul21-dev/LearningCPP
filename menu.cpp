@@ -3240,16 +3240,33 @@ int main(){
     // }
 
     // Leetcode 976
-    int largestPerimeter(vector<int>& nums) {
-       sort(nums.begin(), nums.end());
+    // int largestPerimeter(vector<int>& nums) {
+    //    sort(nums.begin(), nums.end());
     
-    for(int i = nums.size() - 1; i >= 2; i--) {
-        if(nums[i-1] + nums[i-2] > nums[i]) {
-            return nums[i] + nums[i-1] + nums[i-2];
+    // for(int i = nums.size() - 1; i >= 2; i--) {
+    //     if(nums[i-1] + nums[i-2] > nums[i]) {
+    //         return nums[i] + nums[i-1] + nums[i-2];
+    //     }
+    // }
+    
+    // return 0;
+    // }
+
+    // Leetcode 2022 
+    vector<vector<int>> construct2DArray(vector<int>& original, int m, int n) {
+        vector<vector<int>>brr;
+        if(m*n != original.size()){
+            return brr;
         }
-    }
-    
-    return 0;
+         vector<vector<int>>arr(m, vector<int>(n));
+         int k=0;
+         for(int i=0; i<m; i++){
+            for(int j=0; j<n; j++){
+                arr[i][j]=original[k];
+                k++;
+            }
+         }
+         return arr;
     }
  }
 
