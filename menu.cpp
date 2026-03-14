@@ -3253,20 +3253,38 @@ int main(){
     // }
 
     // Leetcode 2022 
-    vector<vector<int>> construct2DArray(vector<int>& original, int m, int n) {
-        vector<vector<int>>brr;
-        if(m*n != original.size()){
-            return brr;
+    // vector<vector<int>> construct2DArray(vector<int>& original, int m, int n) {
+    //     vector<vector<int>>brr;
+    //     if(m*n != original.size()){
+    //         return brr;
+    //     }
+    //      vector<vector<int>>arr(m, vector<int>(n));
+    //      int k=0;
+    //      for(int i=0; i<m; i++){
+    //         for(int j=0; j<n; j++){
+    //             arr[i][j]=original[k];
+    //             k++;
+    //         }
+    //      }
+    //      return arr;
+    // }
+
+    // Leetcode 1394
+      int findLucky(vector<int>& arr) {
+        unordered_map<int,int>hash;
+        for(int i=0; i<arr.size(); i++){
+            hash[arr[i]]++;
         }
-         vector<vector<int>>arr(m, vector<int>(n));
-         int k=0;
-         for(int i=0; i<m; i++){
-            for(int j=0; j<n; j++){
-                arr[i][j]=original[k];
-                k++;
+       int ans=INT_MIN;
+        for(auto &p: hash){
+            if(p.second == p.first && p.second>ans){
+                ans = p.second ;
             }
-         }
-         return arr;
+        }
+        if(ans>INT_MIN){
+            return ans;
+        }
+        return -1;
     }
  }
 
