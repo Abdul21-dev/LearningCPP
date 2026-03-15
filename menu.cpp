@@ -3270,21 +3270,42 @@ int main(){
     // }
 
     // Leetcode 1394
-      int findLucky(vector<int>& arr) {
+    //   int findLucky(vector<int>& arr) {
+    //     unordered_map<int,int>hash;
+    //     for(int i=0; i<arr.size(); i++){
+    //         hash[arr[i]]++;
+    //     }
+    //    int ans=INT_MIN;
+    //     for(auto &p: hash){
+    //         if(p.second == p.first && p.second>ans){
+    //             ans = p.second ;
+    //         }
+    //     }
+    //     if(ans>INT_MIN){
+    //         return ans;
+    //     }
+    //     return -1;
+    // }
+
+    // Leetcode 3005
+    int maxFrequencyElements(vector<int>& nums) {
         unordered_map<int,int>hash;
-        for(int i=0; i<arr.size(); i++){
-            hash[arr[i]]++;
+        for(int i=0; i<nums.size(); i++){
+            hash[nums[i]]++;
         }
-       int ans=INT_MIN;
+        int ans=INT_MIN;
         for(auto &p: hash){
-            if(p.second == p.first && p.second>ans){
-                ans = p.second ;
+            if(p.second > ans){
+                ans = p.second;
             }
         }
-        if(ans>INT_MIN){
-            return ans;
+        int ans2=0;
+        for(auto &p: hash){
+          if(p.second == ans){
+            ans2 += ans;
+          }
         }
-        return -1;
+        return ans2;
     }
  }
 
