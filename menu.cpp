@@ -3288,24 +3288,64 @@ int main(){
     // }
 
     // Leetcode 3005
-    int maxFrequencyElements(vector<int>& nums) {
+    // int maxFrequencyElements(vector<int>& nums) {
+    //     unordered_map<int,int>hash;
+    //     for(int i=0; i<nums.size(); i++){
+    //         hash[nums[i]]++;
+    //     }
+    //     int ans=INT_MIN;
+    //     for(auto &p: hash){
+    //         if(p.second > ans){
+    //             ans = p.second;
+    //         }
+    //     }
+    //     int ans2=0;
+    //     for(auto &p: hash){
+    //       if(p.second == ans){
+    //         ans2 += ans;
+    //       }
+    //     }
+    //     return ans2;
+    // }
+
+    // Leetcode 260
+      vector<int> singleNumber(vector<int>& nums) {
+        vector<int>ans;
         unordered_map<int,int>hash;
         for(int i=0; i<nums.size(); i++){
             hash[nums[i]]++;
         }
-        int ans=INT_MIN;
+
         for(auto &p: hash){
-            if(p.second > ans){
-                ans = p.second;
-            }
-        }
-        int ans2=0;
-        for(auto &p: hash){
-          if(p.second == ans){
-            ans2 += ans;
+          if(p.second == 1){
+             ans.push_back(p.first);
           }
         }
-        return ans2;
+        return ans;
+    }
+
+    // Leetcode 540
+     int singleNonDuplicate(vector<int>& nums) {
+        // int ans = 0;
+        // for(int i=0; i<nums.size(); i++){
+        //     ans = ans^nums[i];
+        // }
+        // return ans;
+
+        int s=0;
+        int e=nums.size()-1;
+        while(s<e){
+            int mid = s+(e-s)/2;
+            if(mid%2 == 1){
+                mid--;
+            }
+            if(nums[mid]==nums[mid+1]){
+                s = mid+2;
+            }else{
+                e = mid;
+            }
+        }
+        return nums[e];
     }
  }
 
