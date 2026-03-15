@@ -3309,43 +3309,63 @@ int main(){
     // }
 
     // Leetcode 260
-      vector<int> singleNumber(vector<int>& nums) {
-        vector<int>ans;
+    //   vector<int> singleNumber(vector<int>& nums) {
+    //     vector<int>ans;
+    //     unordered_map<int,int>hash;
+    //     for(int i=0; i<nums.size(); i++){
+    //         hash[nums[i]]++;
+    //     }
+
+    //     for(auto &p: hash){
+    //       if(p.second == 1){
+    //          ans.push_back(p.first);
+    //       }
+    //     }
+    //     return ans;
+    // }
+
+    // // Leetcode 540
+    //  int singleNonDuplicate(vector<int>& nums) {
+    //     // int ans = 0;
+    //     // for(int i=0; i<nums.size(); i++){
+    //     //     ans = ans^nums[i];
+    //     // }
+    //     // return ans;
+
+    //     int s=0;
+    //     int e=nums.size()-1;
+    //     while(s<e){
+    //         int mid = s+(e-s)/2;
+    //         if(mid%2 == 1){
+    //             mid--;
+    //         }
+    //         if(nums[mid]==nums[mid+1]){
+    //             s = mid+2;
+    //         }else{
+    //             e = mid;
+    //         }
+    //     }
+    //     return nums[e];
+    // }
+
+    // Leetcode 1941
+    bool areOccurrencesEqual(string s) {
         unordered_map<int,int>hash;
-        for(int i=0; i<nums.size(); i++){
-            hash[nums[i]]++;
+        for(int i=0; i<s.size(); i++){
+            hash[s[i]]++;
+        }
+        int ans;
+        for(auto &p: hash){
+            ans = p.second;
+            break;
         }
 
         for(auto &p: hash){
-          if(p.second == 1){
-             ans.push_back(p.first);
-          }
-        }
-        return ans;
-    }
-
-    // Leetcode 540
-     int singleNonDuplicate(vector<int>& nums) {
-        // int ans = 0;
-        // for(int i=0; i<nums.size(); i++){
-        //     ans = ans^nums[i];
-        // }
-        // return ans;
-
-        int s=0;
-        int e=nums.size()-1;
-        while(s<e){
-            int mid = s+(e-s)/2;
-            if(mid%2 == 1){
-                mid--;
-            }
-            if(nums[mid]==nums[mid+1]){
-                s = mid+2;
-            }else{
-                e = mid;
+            if(p.second != ans){
+                return false;
             }
         }
-        return nums[e];
+      return true;
     }
  }
 
