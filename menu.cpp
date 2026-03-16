@@ -3369,14 +3369,42 @@ int main(){
     // }
 
     // Letcode 2390
-    string removeStars(string s) {
-        for(int i=0; i<s.size(); i++){
-            if(s[i]=='*'){
-                s.erase(i-1,2);
-                i=i-2;
-            }
+    // string removeStars(string s) {
+    //     for(int i=0; i<s.size(); i++){
+    //         if(s[i]=='*'){
+    //             s.erase(i-1,2);
+    //             i=i-2;
+    //         }
+    //     }
+    //     return s;
+    // }
+
+    // Leetcode 326
+     bool isPowerOfThree(int n) {
+        if(n<=0){
+            return false;
         }
-        return s;
+        long long ans=1;
+    //     for(int i=0; i<=n; i++){
+            
+    //         if( ans== n){
+    //             return true;
+    //         }else if(ans>n){
+    //             // break;
+    //             return false;
+    //         }
+    //         ans *= 3;
+    //     }
+    //    // return false;
+    //    return '/0';
+
+    while(ans <= n){
+        if(ans == n){
+            return true;
+        }
+        ans *= 3;
+    }
+    return false;
     }
  }
 
