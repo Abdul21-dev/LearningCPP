@@ -3349,23 +3349,34 @@ int main(){
     // }
 
     // Leetcode 1941
-    bool areOccurrencesEqual(string s) {
-        unordered_map<int,int>hash;
-        for(int i=0; i<s.size(); i++){
-            hash[s[i]]++;
-        }
-        int ans;
-        for(auto &p: hash){
-            ans = p.second;
-            break;
-        }
+    // bool areOccurrencesEqual(string s) {
+    //     unordered_map<int,int>hash;
+    //     for(int i=0; i<s.size(); i++){
+    //         hash[s[i]]++;
+    //     }
+    //     int ans;
+    //     for(auto &p: hash){
+    //         ans = p.second;
+    //         break;
+    //     }
 
-        for(auto &p: hash){
-            if(p.second != ans){
-                return false;
+    //     for(auto &p: hash){
+    //         if(p.second != ans){
+    //             return false;
+    //         }
+    //     }
+    //   return true;
+    // }
+
+    // Letcode 2390
+    string removeStars(string s) {
+        for(int i=0; i<s.size(); i++){
+            if(s[i]=='*'){
+                s.erase(i-1,2);
+                i=i-2;
             }
         }
-      return true;
+        return s;
     }
  }
 
