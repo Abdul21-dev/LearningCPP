@@ -3380,31 +3380,54 @@ int main(){
     // }
 
     // Leetcode 326
-     bool isPowerOfThree(int n) {
-        if(n<=0){
-            return false;
-        }
-        long long ans=1;
-    //     for(int i=0; i<=n; i++){
-            
-    //         if( ans== n){
-    //             return true;
-    //         }else if(ans>n){
-    //             // break;
-    //             return false;
-    //         }
-    //         ans *= 3;
+    //  bool isPowerOfThree(int n) {
+    //     if(n<=0){
+    //         return false;
     //     }
-    //    // return false;
-    //    return '/0';
+    //     long long ans=1;
+    // //     for(int i=0; i<=n; i++){
+            
+    // //         if( ans== n){
+    // //             return true;
+    // //         }else if(ans>n){
+    // //             // break;
+    // //             return false;
+    // //         }
+    // //         ans *= 3;
+    // //     }
+    // //    // return false;
+    // //    return '/0';
 
-    while(ans <= n){
-        if(ans == n){
+    // while(ans <= n){
+    //     if(ans == n){
+    //         return true;
+    //     }
+    //     ans *= 3;
+    // }
+    // return false;
+    // }
+
+    // Leetcode 2309
+    bool isPresent(string s, char a){
+    for(int i=0; i<s.size(); i++){
+        if(s[i]-a==32){
             return true;
         }
-        ans *= 3;
     }
     return false;
+}
+    string greatestLetter(string s) {
+        char great='0';
+        for(int i=0; i<s.size(); i++){
+            if(s[i]>great && s[i]>='A' &&s[i]<='Z' && isPresent(s, s[i])){
+                great = s[i];
+            }
+        }
+      string ans="";
+      if(great != '0'){
+          ans.push_back(great);
+      }
+      return ans;
     }
  }
 
