@@ -3443,20 +3443,37 @@ int main(){
 // }
 
 // Leetcode 35
- int searchInsert(vector<int>& nums, int target) {
-        int s=0;
-        int e=nums.size()-1;
-        while(s<=e){
-            int mid = s + (e-s)/2;
-            if(nums[mid]==target){
-                return mid;
-            }else if(nums[mid]>target){
-                e = mid-1;
-            }else{
-                s=mid+1;
-            }
-        }
-        return e+1;
+//  int searchInsert(vector<int>& nums, int target) {
+//         int s=0;
+//         int e=nums.size()-1;
+//         while(s<=e){
+//             int mid = s + (e-s)/2;
+//             if(nums[mid]==target){
+//                 return mid;
+//             }else if(nums[mid]>target){
+//                 e = mid-1;
+//             }else{
+//                 s=mid+1;
+//             }
+//         }
+//         return e+1;
+//     }
+
+// Leetcode 509
+ int fib(int n) {
+       int a=0; int b=1;
+       int s=0;
+       int i=1;
+       if(n==1){
+        return 1;
+       }
+       while(n>i){
+        s=a+b;
+        a=b;
+        b=s;
+        i++;
+       }
+       return s;
     }
  }
 
