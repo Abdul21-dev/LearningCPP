@@ -3408,26 +3408,38 @@ int main(){
     // }
 
     // Leetcode 2309
-    bool isPresent(string s, char a){
-    for(int i=0; i<s.size(); i++){
-        if(s[i]-a==32){
-            return true;
-        }
+//     bool isPresent(string s, char a){
+//     for(int i=0; i<s.size(); i++){
+//         if(s[i]-a==32){
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+//     string greatestLetter(string s) {
+//         char great='0';
+//         for(int i=0; i<s.size(); i++){
+//             if(s[i]>great && s[i]>='A' &&s[i]<='Z' && isPresent(s, s[i])){
+//                 great = s[i];
+//             }
+//         }
+//       string ans="";
+//       if(great != '0'){
+//           ans.push_back(great);
+//       }
+//       return ans;
+//     }
+
+// Leetcode 342
+bool isPowerOfFour(int n) {
+    if(n <= 0) return false;
+
+    long long ans = 1;
+    while(ans <= n){
+        if(ans == n) return true;
+        ans *= 4;
     }
     return false;
 }
-    string greatestLetter(string s) {
-        char great='0';
-        for(int i=0; i<s.size(); i++){
-            if(s[i]>great && s[i]>='A' &&s[i]<='Z' && isPresent(s, s[i])){
-                great = s[i];
-            }
-        }
-      string ans="";
-      if(great != '0'){
-          ans.push_back(great);
-      }
-      return ans;
-    }
  }
 
