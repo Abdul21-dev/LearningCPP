@@ -3431,15 +3431,32 @@ int main(){
 //     }
 
 // Leetcode 342
-bool isPowerOfFour(int n) {
-    if(n <= 0) return false;
+// bool isPowerOfFour(int n) {
+//     if(n <= 0) return false;
 
-    long long ans = 1;
-    while(ans <= n){
-        if(ans == n) return true;
-        ans *= 4;
+//     long long ans = 1;
+//     while(ans <= n){
+//         if(ans == n) return true;
+//         ans *= 4;
+//     }
+//     return false;
+// }
+
+// Leetcode 35
+ int searchInsert(vector<int>& nums, int target) {
+        int s=0;
+        int e=nums.size()-1;
+        while(s<=e){
+            int mid = s + (e-s)/2;
+            if(nums[mid]==target){
+                return mid;
+            }else if(nums[mid]>target){
+                e = mid-1;
+            }else{
+                s=mid+1;
+            }
+        }
+        return e+1;
     }
-    return false;
-}
  }
 
