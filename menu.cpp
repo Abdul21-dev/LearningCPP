@@ -3460,20 +3460,43 @@ int main(){
 //     }
 
 // Leetcode 509
- int fib(int n) {
-       int a=0; int b=1;
-       int s=0;
-       int i=1;
-       if(n==1){
-        return 1;
-       }
-       while(n>i){
-        s=a+b;
-        a=b;
-        b=s;
-        i++;
-       }
-       return s;
+//  int fib(int n) {
+//        int a=0; int b=1;
+//        int s=0;
+//        int i=1;
+//        if(n==1){
+//         return 1;
+//        }
+//        while(n>i){
+//         s=a+b;
+//         a=b;
+//         b=s;
+//         i++;
+//        }
+//        return s;
+//     }
+
+// Leetcode 389
+bool isPresent(char x, string &s){
+    for(int i=0; i<s.size(); i++){
+        if(x==s[i]){
+            s[i]='0';
+            return true;
+        }
     }
+    return false;
+}
+    char findTheDifference(string s, string t) {
+        char ans;
+        for(int i=0; i<t.size(); i++){
+            if(isPresent(t[i], s)){
+                continue;
+            }else{
+                ans = t[i];
+                break;
+            }
+        }
+    return ans;
+ }
  }
 
