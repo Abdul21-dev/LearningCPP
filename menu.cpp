@@ -3477,26 +3477,46 @@ int main(){
 //     }
 
 // Leetcode 389
-bool isPresent(char x, string &s){
-    for(int i=0; i<s.size(); i++){
-        if(x==s[i]){
-            s[i]='0';
-            return true;
+// bool isPresent(char x, string &s){
+//     for(int i=0; i<s.size(); i++){
+//         if(x==s[i]){
+//             s[i]='0';
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+//     char findTheDifference(string s, string t) {
+//         char ans;
+//         for(int i=0; i<t.size(); i++){
+//             if(isPresent(t[i], s)){
+//                 continue;
+//             }else{
+//                 ans = t[i];
+//                 break;
+//             }
+//         }
+//     return ans;
+//  }
+
+// Leetcode 1287
+ int findSpecialInteger(vector<int>& arr) {
+        unordered_map<int,int>hash;
+        for(int i=0; i<arr.size(); i++){
+            hash[arr[i]]++;
         }
-    }
-    return false;
-}
-    char findTheDifference(string s, string t) {
-        char ans;
-        for(int i=0; i<t.size(); i++){
-            if(isPresent(t[i], s)){
-                continue;
-            }else{
-                ans = t[i];
-                break;
+        int max=INT_MIN;
+        for(auto &p: hash){
+            if(p.second > max){
+                max = p.second;
             }
         }
-    return ans;
- }
+        for(auto &p: hash){
+            if(p.second == max){
+                return p.first;;
+            }
+        }
+        return '/0';
+    }
  }
 
