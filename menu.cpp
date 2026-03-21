@@ -3500,23 +3500,35 @@ int main(){
 //  }
 
 // Leetcode 1287
- int findSpecialInteger(vector<int>& arr) {
-        unordered_map<int,int>hash;
-        for(int i=0; i<arr.size(); i++){
-            hash[arr[i]]++;
-        }
-        int max=INT_MIN;
-        for(auto &p: hash){
-            if(p.second > max){
-                max = p.second;
+//  int findSpecialInteger(vector<int>& arr) {
+//         unordered_map<int,int>hash;
+//         for(int i=0; i<arr.size(); i++){
+//             hash[arr[i]]++;
+//         }
+//         int max=INT_MIN;
+//         for(auto &p: hash){
+//             if(p.second > max){
+//                 max = p.second;
+//             }
+//         }
+//         for(auto &p: hash){
+//             if(p.second == max){
+//                 return p.first;;
+//             }
+//         }
+//         return '/0';
+//     }
+
+// Letter 744
+char nextGreatestLetter(vector<char>& letters, char target) {
+        char x = letters[0];
+        sort(letters.begin(), letters.end());
+        for(int i=0; i<letters.size(); i++){
+            if(letters[i]>target){
+                return letters[i];
             }
         }
-        for(auto &p: hash){
-            if(p.second == max){
-                return p.first;;
-            }
-        }
-        return '/0';
+        return x;
     }
  }
 
