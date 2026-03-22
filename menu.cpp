@@ -3520,15 +3520,46 @@ int main(){
 //     }
 
 // Letter 744
-char nextGreatestLetter(vector<char>& letters, char target) {
-        char x = letters[0];
-        sort(letters.begin(), letters.end());
-        for(int i=0; i<letters.size(); i++){
-            if(letters[i]>target){
-                return letters[i];
+// char nextGreatestLetter(vector<char>& letters, char target) {
+//         char x = letters[0];
+//         sort(letters.begin(), letters.end());
+//         for(int i=0; i<letters.size(); i++){
+//             if(letters[i]>target){
+//                 return letters[i];
+//             }
+//         }
+//         return x;
+//     }
+
+// Leetcode 1089
+ void duplicateZeros(vector<int>& arr) {
+    int n = arr.size();
+    int zeros = 0;
+
+    // Count zeros
+    for(int i = 0; i < n; i++){
+        if(arr[i] == 0) zeros++;
+    }
+
+    int i = n - 1;
+    int j = n + zeros - 1;
+
+    // Traverse from back
+    while(i >= 0){
+        if(j < n){
+            arr[j] = arr[i];
+        }
+
+        if(arr[i] == 0){
+            j--;
+            if(j < n){
+                arr[j] = 0;
             }
         }
-        return x;
+
+        i--;
+        j--;
+    }
     }
  }
 
