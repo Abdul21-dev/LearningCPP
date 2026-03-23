@@ -3532,34 +3532,50 @@ int main(){
 //     }
 
 // Leetcode 1089
- void duplicateZeros(vector<int>& arr) {
-    int n = arr.size();
-    int zeros = 0;
+//  void duplicateZeros(vector<int>& arr) {
+//     int n = arr.size();
+//     int zeros = 0;
 
-    // Count zeros
-    for(int i = 0; i < n; i++){
-        if(arr[i] == 0) zeros++;
-    }
+//     // Count zeros
+//     for(int i = 0; i < n; i++){
+//         if(arr[i] == 0) zeros++;
+//     }
 
-    int i = n - 1;
-    int j = n + zeros - 1;
+//     int i = n - 1;
+//     int j = n + zeros - 1;
 
-    // Traverse from back
-    while(i >= 0){
-        if(j < n){
-            arr[j] = arr[i];
+//     // Traverse from back
+//     while(i >= 0){
+//         if(j < n){
+//             arr[j] = arr[i];
+//         }
+
+//         if(arr[i] == 0){
+//             j--;
+//             if(j < n){
+//                 arr[j] = 0;
+//             }
+//         }
+
+//         i--;
+//         j--;
+//     }
+//     }
+
+// Leetcode 1207
+  bool uniqueOccurrences(vector<int>& arr) {
+        unordered_map<int,int>hash;
+        for(int i=0; i<arr.size(); i++){
+            hash[arr[i]]++;
         }
-
-        if(arr[i] == 0){
-            j--;
-            if(j < n){
-                arr[j] = 0;
+        for(auto &p: hash){
+            for(auto &q: hash){
+                if(p.first != q.first && p.second == q.second){
+                    return false;
+                }
             }
         }
-
-        i--;
-        j--;
-    }
+        return true;
     }
  }
 
