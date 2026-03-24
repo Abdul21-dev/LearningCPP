@@ -3563,19 +3563,32 @@ int main(){
 //     }
 
 // Leetcode 1207
-  bool uniqueOccurrences(vector<int>& arr) {
-        unordered_map<int,int>hash;
-        for(int i=0; i<arr.size(); i++){
-            hash[arr[i]]++;
+//   bool uniqueOccurrences(vector<int>& arr) {
+//         unordered_map<int,int>hash;
+//         for(int i=0; i<arr.size(); i++){
+//             hash[arr[i]]++;
+//         }
+//         for(auto &p: hash){
+//             for(auto &q: hash){
+//                 if(p.first != q.first && p.second == q.second){
+//                     return false;
+//                 }
+//             }
+//         }
+//         return true;
+//     }
+
+// Leetcode 1550
+ bool threeConsecutiveOdds(vector<int>& arr) {
+        if(arr.size()<3){
+            return false;
         }
-        for(auto &p: hash){
-            for(auto &q: hash){
-                if(p.first != q.first && p.second == q.second){
-                    return false;
-                }
+        for(int i=0; i<arr.size()-2; i++){
+            if(arr[i]%2 != 0 && arr[i+1]%2 != 0 && arr[i+2]%2 != 0){
+               return true;
             }
         }
-        return true;
+        return false;
     }
  }
 
