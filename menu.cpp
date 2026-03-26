@@ -3592,38 +3592,49 @@ int main(){
 //     }
 
 // Leetcode 1704
-bool isVowel(char x){
-    if(x=='A' ||x=='E' ||x=='I' ||x=='O' ||x=='U' ||x=='a' ||x=='e' ||x=='o' ||x=='i' ||x=='u'){
-        return true;
-    }
-    return false;
-}
-    bool halvesAreAlike(string s) {
-        string a="";
-        string b="";
-        for(int i=0; i<=(s.size()/2)-1; i++){
-            a.push_back(s[i]);
-        }
-         for(int i=(s.size()/2); i<s.size(); i++){
-            b.push_back(s[i]);
-        }
+// bool isVowel(char x){
+//     if(x=='A' ||x=='E' ||x=='I' ||x=='O' ||x=='U' ||x=='a' ||x=='e' ||x=='o' ||x=='i' ||x=='u'){
+//         return true;
+//     }
+//     return false;
+// }
+//     bool halvesAreAlike(string s) {
+//         string a="";
+//         string b="";
+//         for(int i=0; i<=(s.size()/2)-1; i++){
+//             a.push_back(s[i]);
+//         }
+//          for(int i=(s.size()/2); i<s.size(); i++){
+//             b.push_back(s[i]);
+//         }
 
-        int v1=0;
-        int v2=0;
-        for(int i=0; i<a.size(); i++){
-            if(isVowel(a[i])){
-                v1++;
+//         int v1=0;
+//         int v2=0;
+//         for(int i=0; i<a.size(); i++){
+//             if(isVowel(a[i])){
+//                 v1++;
+//             }
+//         }
+//         for(int i=0; i<b.size(); i++){
+//             if(isVowel(b[i])){
+//                 v2++;
+//             }
+//         }
+//         if(v1==v2){
+//             return true;
+//         }
+//         return false;
+//     }
+
+// Leetcode 1523
+int countOdds(int low, int high) {
+        int count = 0;
+        for(int i=low; i<=high; i++){
+            if(i%2 != 0){
+                count++;
             }
         }
-        for(int i=0; i<b.size(); i++){
-            if(isVowel(b[i])){
-                v2++;
-            }
-        }
-        if(v1==v2){
-            return true;
-        }
-        return false;
+        return count;
     }
  }
 
