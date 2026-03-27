@@ -3627,14 +3627,36 @@ int main(){
 //     }
 
 // Leetcode 1523
-int countOdds(int low, int high) {
-        int count = 0;
-        for(int i=low; i<=high; i++){
-            if(i%2 != 0){
-                count++;
+// int countOdds(int low, int high) {
+//         int count = 0;
+//         for(int i=low; i<=high; i++){
+//             if(i%2 != 0){
+//                 count++;
+//             }
+//         }
+//         return count;
+//     }
+
+// Leetcode 1323
+ int maximum69Number (int num) {
+        vector<int>arr;
+        while(num>0){
+            arr.push_back(num%10);
+            num = num/10;
+        }
+        reverse(arr.begin(), arr.end());
+        for(int i=0; i<arr.size(); i++){
+            if(arr[i]==6){
+                arr[i]=9;
+                break;
             }
         }
-        return count;
+        int n=arr.size();
+        int ans=0;
+        for(int i=n-1; i>=0; i--){
+            ans += arr[i]*pow(10,n-i-1);
+        }
+        return ans;
     }
  }
 
