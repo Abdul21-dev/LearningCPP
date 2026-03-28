@@ -3638,24 +3638,47 @@ int main(){
 //     }
 
 // Leetcode 1323
- int maximum69Number (int num) {
-        vector<int>arr;
-        while(num>0){
-            arr.push_back(num%10);
-            num = num/10;
+//  int maximum69Number (int num) {
+//         vector<int>arr;
+//         while(num>0){
+//             arr.push_back(num%10);
+//             num = num/10;
+//         }
+//         reverse(arr.begin(), arr.end());
+//         for(int i=0; i<arr.size(); i++){
+//             if(arr[i]==6){
+//                 arr[i]=9;
+//                 break;
+//             }
+//         }
+//         int n=arr.size();
+//         int ans=0;
+//         for(int i=n-1; i>=0; i--){
+//             ans += arr[i]*pow(10,n-i-1);
+//         }
+//         return ans;
+//     }
+
+// Leetcde 349
+bool isPresent(int a, vector<int>nums2){
+    for(int i=0; i<nums2.size(); i++){
+        if(a==nums2[i]){
+            return true;
         }
-        reverse(arr.begin(), arr.end());
-        for(int i=0; i<arr.size(); i++){
-            if(arr[i]==6){
-                arr[i]=9;
-                break;
+    }
+    return false;
+}
+    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+        set<int>st;
+        for(int i=0; i<nums1.size(); i++){
+            if(isPresent(nums1[i], nums2)){
+                st.insert(nums1[i]);
             }
         }
-        int n=arr.size();
-        int ans=0;
-        for(int i=n-1; i>=0; i--){
-            ans += arr[i]*pow(10,n-i-1);
-        }
+        vector<int>ans;
+       for (auto x : st) {
+    ans.push_back(x);
+}
         return ans;
     }
  }
