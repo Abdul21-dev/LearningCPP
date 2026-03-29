@@ -3660,26 +3660,51 @@ int main(){
 //     }
 
 // Leetcde 349
-bool isPresent(int a, vector<int>nums2){
-    for(int i=0; i<nums2.size(); i++){
-        if(a==nums2[i]){
-            return true;
-        }
-    }
-    return false;
-}
-    vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
-        set<int>st;
-        for(int i=0; i<nums1.size(); i++){
-            if(isPresent(nums1[i], nums2)){
-                st.insert(nums1[i]);
-            }
-        }
+// bool isPresent(int a, vector<int>nums2){
+//     for(int i=0; i<nums2.size(); i++){
+//         if(a==nums2[i]){
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+//     vector<int> intersection(vector<int>& nums1, vector<int>& nums2) {
+//         set<int>st;
+//         for(int i=0; i<nums1.size(); i++){
+//             if(isPresent(nums1[i], nums2)){
+//                 st.insert(nums1[i]);
+//             }
+//         }
+//         vector<int>ans;
+//        for (auto x : st) {
+//     ans.push_back(x);
+// }
+//         return ans;
+//     }
+
+// Leetcode 7
+ int reverse(int x) {
         vector<int>ans;
-       for (auto x : st) {
-    ans.push_back(x);
-}
-        return ans;
+        int sign = 1;
+        long long a = abs((long long)x);
+        if(x<0){
+            sign = -1;
+        }
+        
+        while(a>0){
+            ans.push_back(a%10);
+            a=a/10;
+        }
+        long long ans2=0;
+        for(int i=ans.size()-1; i>=0; i--){
+            ans2 += ans[i]*pow(10,ans.size()-i-1);
+        }
+       
+       long long y= sign*ans2;
+       if(y>INT_MAX || y<INT_MIN){
+        return 0;
+       }
+       return y;
     }
  }
 
