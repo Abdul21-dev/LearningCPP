@@ -3683,28 +3683,47 @@ int main(){
 //     }
 
 // Leetcode 7
- int reverse(int x) {
-        vector<int>ans;
-        int sign = 1;
-        long long a = abs((long long)x);
-        if(x<0){
-            sign = -1;
-        }
+//  int reverse(int x) {
+//         vector<int>ans;
+//         int sign = 1;
+//         long long a = abs((long long)x);
+//         if(x<0){
+//             sign = -1;
+//         }
         
-        while(a>0){
-            ans.push_back(a%10);
-            a=a/10;
-        }
-        long long ans2=0;
-        for(int i=ans.size()-1; i>=0; i--){
-            ans2 += ans[i]*pow(10,ans.size()-i-1);
-        }
+//         while(a>0){
+//             ans.push_back(a%10);
+//             a=a/10;
+//         }
+//         long long ans2=0;
+//         for(int i=ans.size()-1; i>=0; i--){
+//             ans2 += ans[i]*pow(10,ans.size()-i-1);
+//         }
        
-       long long y= sign*ans2;
-       if(y>INT_MAX || y<INT_MIN){
-        return 0;
-       }
-       return y;
+//        long long y= sign*ans2;
+//        if(y>INT_MAX || y<INT_MIN){
+//         return 0;
+//        }
+//        return y;
+//     }
+
+// Leetcode 1281
+int subtractProductAndSum(int n) {
+        vector<int>arr;
+        while(n>0){
+            arr.push_back(n%10);
+            n=n/10;
+        }
+        long long pro=1;
+        int sum=0;
+        for(int i=0; i<arr.size(); i++){
+            pro *= arr[i];
+        }
+        for(int i=0; i<arr.size(); i++){
+           sum += arr[i];
+        }
+        int ans = pro-sum;
+        return ans;
     }
  }
 
