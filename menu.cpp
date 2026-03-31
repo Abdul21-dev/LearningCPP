@@ -3708,22 +3708,35 @@ int main(){
 //     }
 
 // Leetcode 1281
-int subtractProductAndSum(int n) {
-        vector<int>arr;
-        while(n>0){
-            arr.push_back(n%10);
-            n=n/10;
+// int subtractProductAndSum(int n) {
+//         vector<int>arr;
+//         while(n>0){
+//             arr.push_back(n%10);
+//             n=n/10;
+//         }
+//         long long pro=1;
+//         int sum=0;
+//         for(int i=0; i<arr.size(); i++){
+//             pro *= arr[i];
+//         }
+//         for(int i=0; i<arr.size(); i++){
+//            sum += arr[i];
+//         }
+//         int ans = pro-sum;
+//         return ans;
+//     }
+
+// Leetcode 1295
+  int findNumbers(vector<int>& nums) {
+          int count = 0;
+
+    for(int x : nums){
+        if(to_string(x).size() % 2 == 0){
+            count++;
         }
-        long long pro=1;
-        int sum=0;
-        for(int i=0; i<arr.size(); i++){
-            pro *= arr[i];
-        }
-        for(int i=0; i<arr.size(); i++){
-           sum += arr[i];
-        }
-        int ans = pro-sum;
-        return ans;
+    }
+
+    return count;
     }
  }
 
