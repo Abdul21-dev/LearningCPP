@@ -3727,16 +3727,35 @@ int main(){
 //     }
 
 // Leetcode 1295
-  int findNumbers(vector<int>& nums) {
-          int count = 0;
+//   int findNumbers(vector<int>& nums) {
+//           int count = 0;
 
-    for(int x : nums){
-        if(to_string(x).size() % 2 == 0){
-            count++;
+//     for(int x : nums){
+//         if(to_string(x).size() % 2 == 0){
+//             count++;
+//         }
+//     }
+
+//     return count;
+//     }
+
+// Leetcode 3442
+ int maxDifference(string s) {
+        unordered_map<int,int>hash;
+        for(int i=0; i<s.size(); i++){
+            hash[s[i]]++;
         }
-    }
-
-    return count;
+        int odd=0;
+        int even=INT_MAX;
+        for(auto &p: hash){
+          if(p.second%2 == 0){
+            even = min(even, p.second);
+          }else{
+            odd = max(odd, p.second);
+          }
+        }
+        int a = odd-even;
+        return a;
     }
  }
 
