@@ -3740,22 +3740,49 @@ int main(){
 //     }
 
 // Leetcode 3442
- int maxDifference(string s) {
+//  int maxDifference(string s) {
+//         unordered_map<int,int>hash;
+//         for(int i=0; i<s.size(); i++){
+//             hash[s[i]]++;
+//         }
+//         int odd=0;
+//         int even=INT_MAX;
+//         for(auto &p: hash){
+//           if(p.second%2 == 0){
+//             even = min(even, p.second);
+//           }else{
+//             odd = max(odd, p.second);
+//           }
+//         }
+//         int a = odd-even;
+//         return a;
+//     }
+
+// Leetode 3663
+int getLeastFrequentDigit(int n) {
+        vector<int>arr;
+        while(n>0){
+            arr.push_back(n%10);
+            n=n/10;
+        }
+        reverse(arr.begin(), arr.end());
         unordered_map<int,int>hash;
-        for(int i=0; i<s.size(); i++){
-            hash[s[i]]++;
+        for(int i=0; i<arr.size(); i++){
+            hash[arr[i]]++;
         }
-        int odd=0;
-        int even=INT_MAX;
+        int meen = INT_MAX;
         for(auto &p: hash){
-          if(p.second%2 == 0){
-            even = min(even, p.second);
-          }else{
-            odd = max(odd, p.second);
-          }
+            if(p.second<meen){
+                meen = p.second;
+            }
+        } 
+        int ans=INT_MAX;
+        for(auto &p: hash){
+            if(p.second == meen){
+                ans = min(ans, p.first);
+            }
         }
-        int a = odd-even;
-        return a;
+        return ans;
     }
  }
 
