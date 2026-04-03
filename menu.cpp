@@ -3759,30 +3759,53 @@ int main(){
 //     }
 
 // Leetode 3663
-int getLeastFrequentDigit(int n) {
+// int getLeastFrequentDigit(int n) {
+//         vector<int>arr;
+//         while(n>0){
+//             arr.push_back(n%10);
+//             n=n/10;
+//         }
+//         reverse(arr.begin(), arr.end());
+//         unordered_map<int,int>hash;
+//         for(int i=0; i<arr.size(); i++){
+//             hash[arr[i]]++;
+//         }
+//         int meen = INT_MAX;
+//         for(auto &p: hash){
+//             if(p.second<meen){
+//                 meen = p.second;
+//             }
+//         } 
+//         int ans=INT_MAX;
+//         for(auto &p: hash){
+//             if(p.second == meen){
+//                 ans = min(ans, p.first);
+//             }
+//         }
+//         return ans;
+//     }
+
+// Leetcode 9
+ bool isPalindrome(int x) {
+        if(x<0){
+            return false;
+        }
         vector<int>arr;
-        while(n>0){
-            arr.push_back(n%10);
-            n=n/10;
+        while(x>0){
+            arr.push_back(x%10);
+            x=x/10;
         }
-        reverse(arr.begin(), arr.end());
-        unordered_map<int,int>hash;
-        for(int i=0; i<arr.size(); i++){
-            hash[arr[i]]++;
-        }
-        int meen = INT_MAX;
-        for(auto &p: hash){
-            if(p.second<meen){
-                meen = p.second;
-            }
-        } 
-        int ans=INT_MAX;
-        for(auto &p: hash){
-            if(p.second == meen){
-                ans = min(ans, p.first);
+        int s=0;
+        int e=arr.size()-1;
+        while(s<=e){
+            if(arr[s]==arr[e]){
+                s++;
+                e--;
+            }else{
+                return false;
             }
         }
-        return ans;
+        return true;
     }
  }
 
