@@ -3786,26 +3786,41 @@ int main(){
 //     }
 
 // Leetcode 9
- bool isPalindrome(int x) {
-        if(x<0){
-            return false;
-        }
-        vector<int>arr;
-        while(x>0){
-            arr.push_back(x%10);
-            x=x/10;
-        }
-        int s=0;
-        int e=arr.size()-1;
-        while(s<=e){
-            if(arr[s]==arr[e]){
-                s++;
-                e--;
+//  bool isPalindrome(int x) {
+//         if(x<0){
+//             return false;
+//         }
+//         vector<int>arr;
+//         while(x>0){
+//             arr.push_back(x%10);
+//             x=x/10;
+//         }
+//         int s=0;
+//         int e=arr.size()-1;
+//         while(s<=e){
+//             if(arr[s]==arr[e]){
+//                 s++;
+//                 e--;
+//             }else{
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+
+// Leecode 1446
+ int maxPower(string s) {
+        int ans=1;
+        int check=1;
+        for(int i=0; i<=s.size()-1; i++){
+            if(s[i]==s[i+1]){
+                check++;
             }else{
-                return false;
+                ans = max(ans,check);
+                check=1;
             }
         }
-        return true;
+        return ans;
     }
  }
 
