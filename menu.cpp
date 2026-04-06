@@ -3809,18 +3809,27 @@ int main(){
 //     }
 
 // Leecode 1446
- int maxPower(string s) {
-        int ans=1;
-        int check=1;
-        for(int i=0; i<=s.size()-1; i++){
-            if(s[i]==s[i+1]){
-                check++;
-            }else{
-                ans = max(ans,check);
-                check=1;
-            }
+//  int maxPower(string s) {
+//         int ans=1;
+//         int check=1;
+//         for(int i=0; i<=s.size()-1; i++){
+//             if(s[i]==s[i+1]){
+//                 check++;
+//             }else{
+//                 ans = max(ans,check);
+//                 check=1;
+//             }
+//         }
+//         return ans;
+//     }
+
+// Leetcode 2413
+ int smallestEvenMultiple(int n) {
+        if(n%2 != 0){
+            return n*2;
+        }else{
+            return n;
         }
-        return ans;
     }
  }
 
