@@ -3824,12 +3824,25 @@ int main(){
 //     }
 
 // Leetcode 2413
- int smallestEvenMultiple(int n) {
-        if(n%2 != 0){
-            return n*2;
-        }else{
-            return n;
+//  int smallestEvenMultiple(int n) {
+//         if(n%2 != 0){
+//             return n*2;
+//         }else{
+//             return n;
+//         }
+//     }
+
+// Leetcode 2278
+ int percentageLetter(string s, char letter) {
+        int a = s.size();
+        int ans = 0;
+        for(int i=0; i<s.size(); i++){
+            if(s[i]==letter){
+                ans++;
+            }
         }
+        int per = ans*100/a;
+        return per;
     }
  }
 
