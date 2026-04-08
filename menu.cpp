@@ -3833,16 +3833,37 @@ int main(){
 //     }
 
 // Leetcode 2278
- int percentageLetter(string s, char letter) {
-        int a = s.size();
-        int ans = 0;
-        for(int i=0; i<s.size(); i++){
-            if(s[i]==letter){
-                ans++;
-            }
+//  int percentageLetter(string s, char letter) {
+//         int a = s.size();
+//         int ans = 0;
+//         for(int i=0; i<s.size(); i++){
+//             if(s[i]==letter){
+//                 ans++;
+//             }
+//         }
+//         int per = ans*100/a;
+//         return per;
+//     }
+
+// Leetcode 1838
+int maxFrequency(vector<int>& nums, int k) {
+         sort(nums.begin(), nums.end());
+
+    long long sum = 0;
+    int l = 0, ans = 0;
+
+    for(int r = 0; r < nums.size(); r++){
+        sum += nums[r];
+
+        while((long long)nums[r] * (r - l + 1) - sum > k){
+            sum -= nums[l];
+            l++;
         }
-        int per = ans*100/a;
-        return per;
+
+        ans = max(ans, r - l + 1);
+    }
+
+    return ans;
     }
  }
 
