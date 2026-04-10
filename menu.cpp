@@ -3867,29 +3867,42 @@ int main(){
 //     }
 
 // Leetcode 3541
-  int maxFreqSum(string s) {
-          vector<int> freq(26, 0);
+//   int maxFreqSum(string s) {
+//           vector<int> freq(26, 0);
 
-    // count frequencies
-    for(char c : s){
-        freq[c - 'a']++;
-    }
+//     // count frequencies
+//     for(char c : s){
+//         freq[c - 'a']++;
+//     }
 
-    int maxVowel = 0;
-    int maxConsonant = 0;
+//     int maxVowel = 0;
+//     int maxConsonant = 0;
 
-    for(int i = 0; i < 26; i++){
-        char c = 'a' + i;
+//     for(int i = 0; i < 26; i++){
+//         char c = 'a' + i;
 
-        if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
-            maxVowel = max(maxVowel, freq[i]);
-        } else {
-            maxConsonant = max(maxConsonant, freq[i]);
+//         if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u'){
+//             maxVowel = max(maxVowel, freq[i]);
+//         } else {
+//             maxConsonant = max(maxConsonant, freq[i]);
+//         }
+//     }
+
+//     return maxVowel + maxConsonant;
+//     }
+
+// Leetcode 2427
+ int commonFactors(int a, int b) {
+        int cf=0;
+        int k = min(a,b);
+        int z = 1;
+        while(z<=k){
+            if(a%z==0 && b%z==0){
+                cf++;
+            }
+          z++;
         }
+        return cf;
     }
-
-    return maxVowel + maxConsonant;
-    }
-
  }
 
