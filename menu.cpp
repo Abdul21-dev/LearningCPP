@@ -3892,17 +3892,40 @@ int main(){
 //     }
 
 // Leetcode 2427
- int commonFactors(int a, int b) {
-        int cf=0;
-        int k = min(a,b);
-        int z = 1;
-        while(z<=k){
-            if(a%z==0 && b%z==0){
-                cf++;
+//  int commonFactors(int a, int b) {
+//         int cf=0;
+//         int k = min(a,b);
+//         int z = 1;
+//         while(z<=k){
+//             if(a%z==0 && b%z==0){
+//                 cf++;
+//             }
+//           z++;
+//         }
+//         return cf;
+//     }
+
+// Leetcode 2108
+bool isPal(string s){
+    int x=0;
+    int e=s.size()-1;
+    while(x<=e){
+       if(s[x]==s[e]){
+        x++;
+        e--;
+       }else{
+        return false;
+       }
+    }
+    return true;
+}
+    string firstPalindrome(vector<string>& words) {
+        for(int i=0; i<words.size(); i++){
+            if(isPal(words[i])){
+                return words[i];
             }
-          z++;
         }
-        return cf;
+        return "";
     }
  }
 
