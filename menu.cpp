@@ -3906,26 +3906,38 @@ int main(){
 //     }
 
 // Leetcode 2108
-bool isPal(string s){
-    int x=0;
-    int e=s.size()-1;
-    while(x<=e){
-       if(s[x]==s[e]){
-        x++;
-        e--;
-       }else{
-        return false;
-       }
-    }
-    return true;
-}
-    string firstPalindrome(vector<string>& words) {
+// bool isPal(string s){
+//     int x=0;
+//     int e=s.size()-1;
+//     while(x<=e){
+//        if(s[x]==s[e]){
+//         x++;
+//         e--;
+//        }else{
+//         return false;
+//        }
+//     }
+//     return true;
+// }
+//     string firstPalindrome(vector<string>& words) {
+//         for(int i=0; i<words.size(); i++){
+//             if(isPal(words[i])){
+//                 return words[i];
+//             }
+//         }
+//         return "";
+//     }
+
+// Leetcode 2828
+ bool isAcronym(vector<string>& words, string s) {
+        string ans="";
         for(int i=0; i<words.size(); i++){
-            if(isPal(words[i])){
-                return words[i];
-            }
+            ans += words[i][0];
         }
-        return "";
+        if(ans == s){
+            return true;
+        }
+        return false;
     }
  }
 
