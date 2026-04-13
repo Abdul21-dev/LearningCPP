@@ -3929,15 +3929,35 @@ int main(){
 //     }
 
 // Leetcode 2828
- bool isAcronym(vector<string>& words, string s) {
+//  bool isAcronym(vector<string>& words, string s) {
+//         string ans="";
+//         for(int i=0; i<words.size(); i++){
+//             ans += words[i][0];
+//         }
+//         if(ans == s){
+//             return true;
+//         }
+//         return false;
+//     }
+
+// Leetcode 2000
+string reversePrefix(string word, char ch) {
         string ans="";
-        for(int i=0; i<words.size(); i++){
-            ans += words[i][0];
+        int s=0;
+        int e=0;
+        for(int i=0; i<word.size(); i++){
+            if(word[i]==ch){
+                e=i;
+                break;
+            }
         }
-        if(ans == s){
-            return true;
+        for(int i=e; i>=0; i--){
+            ans += word[i];
         }
-        return false;
+        for(int i=e+1; i<word.size(); i++){
+            ans += word[i];
+        }
+        return ans;
     }
  }
 
