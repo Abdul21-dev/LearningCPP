@@ -3941,23 +3941,35 @@ int main(){
 //     }
 
 // Leetcode 2000
-string reversePrefix(string word, char ch) {
-        string ans="";
-        int s=0;
-        int e=0;
-        for(int i=0; i<word.size(); i++){
-            if(word[i]==ch){
-                e=i;
-                break;
-            }
-        }
-        for(int i=e; i>=0; i--){
-            ans += word[i];
-        }
-        for(int i=e+1; i<word.size(); i++){
-            ans += word[i];
-        }
-        return ans;
+// string reversePrefix(string word, char ch) {
+//         string ans="";
+//         int s=0;
+//         int e=0;
+//         for(int i=0; i<word.size(); i++){
+//             if(word[i]==ch){
+//                 e=i;
+//                 break;
+//             }
+//         }
+//         for(int i=e; i>=0; i--){
+//             ans += word[i];
+//         }
+//         for(int i=e+1; i<word.size(); i++){
+//             ans += word[i];
+//         }
+//         return ans;
+//     }
+
+// Leetcode 1619
+double trimMean(vector<int>& arr) {
+        sort(arr.begin(), arr.end());
+       int n=arr.size();
+       int x=n/20;
+       double sum=0;
+       for(int i=x; i<arr.size()-x; i++){
+        sum += arr[i];
+       }
+       return sum/(n-2*x);
     }
  }
 
