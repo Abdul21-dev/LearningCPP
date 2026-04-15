@@ -3961,15 +3961,27 @@ int main(){
 //     }
 
 // Leetcode 1619
-double trimMean(vector<int>& arr) {
-        sort(arr.begin(), arr.end());
-       int n=arr.size();
-       int x=n/20;
-       double sum=0;
-       for(int i=x; i<arr.size()-x; i++){
-        sum += arr[i];
-       }
-       return sum/(n-2*x);
+// double trimMean(vector<int>& arr) {
+//         sort(arr.begin(), arr.end());
+//        int n=arr.size();
+//        int x=n/20;
+//        double sum=0;
+//        for(int i=x; i<arr.size()-x; i++){
+//         sum += arr[i];
+//        }
+//        return sum/(n-2*x);
+//     }
+
+// Leetcode 2485
+ int pivotInteger(int n) {
+      int total = n * (n + 1) / 2;
+    int left = 0;
+
+    for (int i = 1; i <= n; i++) {
+        left += i;
+        if (left == total - left + i) return i;
+    }
+    return -1;
     }
  }
 
