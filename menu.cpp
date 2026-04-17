@@ -3986,20 +3986,42 @@ int main(){
 
 
 // Leetcode 2520
- int countDigits(int num) {
-        int count=0;
-        vector<int>arr;
-        int a=num;
-        while(a>0){
-          arr.push_back(a%10);
-          a=a/10;
-        }
-        for(int i=0; i<arr.size(); i++){
-            if(num%arr[i]==0){
-                count++;
+//  int countDigits(int num) {
+//         int count=0;
+//         vector<int>arr;
+//         int a=num;
+//         while(a>0){
+//           arr.push_back(a%10);
+//           a=a/10;
+//         }
+//         for(int i=0; i<arr.size(); i++){
+//             if(num%arr[i]==0){
+//                 count++;
+//             }
+//         }
+//         return count;
+//     }
+
+// Leetcode 2733
+int findNonMinOrMax(vector<int>& nums) {
+        int maxx=INT_MIN;
+        int minn=INT_MAX;
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i]>maxx){
+                maxx = nums[i];
             }
         }
-        return count;
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i]<minn){
+                minn = nums[i];
+            }
+        }
+        for(int i=0; i<nums.size(); i++){
+            if(nums[i]!=maxx && nums[i]!=minn){
+                return nums[i];
+            }
+        }
+        return -1;
     }
  }
 
