@@ -4003,25 +4003,36 @@ int main(){
 //     }
 
 // Leetcode 2733
-int findNonMinOrMax(vector<int>& nums) {
-        int maxx=INT_MIN;
-        int minn=INT_MAX;
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i]>maxx){
-                maxx = nums[i];
+// int findNonMinOrMax(vector<int>& nums) {
+//         int maxx=INT_MIN;
+//         int minn=INT_MAX;
+//         for(int i=0; i<nums.size(); i++){
+//             if(nums[i]>maxx){
+//                 maxx = nums[i];
+//             }
+//         }
+//         for(int i=0; i<nums.size(); i++){
+//             if(nums[i]<minn){
+//                 minn = nums[i];
+//             }
+//         }
+//         for(int i=0; i<nums.size(); i++){
+//             if(nums[i]!=maxx && nums[i]!=minn){
+//                 return nums[i];
+//             }
+//         }
+//         return -1;
+//     }
+
+// Leetcode 2652
+ int sumOfMultiples(int n) {
+        int sum=0;
+        for(int i=0; i<=n; i++){
+            if(i%3==0 || i%5==0 || i%7==0){
+                sum += i;
             }
         }
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i]<minn){
-                minn = nums[i];
-            }
-        }
-        for(int i=0; i<nums.size(); i++){
-            if(nums[i]!=maxx && nums[i]!=minn){
-                return nums[i];
-            }
-        }
-        return -1;
+        return sum;
     }
  }
 
