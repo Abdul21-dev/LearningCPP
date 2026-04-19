@@ -4025,14 +4025,26 @@ int main(){
 //     }
 
 // Leetcode 2652
- int sumOfMultiples(int n) {
-        int sum=0;
-        for(int i=0; i<=n; i++){
-            if(i%3==0 || i%5==0 || i%7==0){
-                sum += i;
+//  int sumOfMultiples(int n) {
+//         int sum=0;
+//         for(int i=0; i<=n; i++){
+//             if(i%3==0 || i%5==0 || i%7==0){
+//                 sum += i;
+//             }
+//         }
+//         return sum;
+//     }
+
+// Leetcode 2710
+string removeTrailingZeros(string num) {
+        for(int i=num.size()-1; i>=0; i--){
+            if(num[i]=='0'){
+                num.erase(i,1);
+            }else{
+                break;
             }
         }
-        return sum;
+        return num;
     }
  }
 
