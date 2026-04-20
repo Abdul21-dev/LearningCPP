@@ -4036,15 +4036,27 @@ int main(){
 //     }
 
 // Leetcode 2710
-string removeTrailingZeros(string num) {
-        for(int i=num.size()-1; i>=0; i--){
-            if(num[i]=='0'){
-                num.erase(i,1);
-            }else{
-                break;
+// string removeTrailingZeros(string num) {
+//         for(int i=num.size()-1; i>=0; i--){
+//             if(num[i]=='0'){
+//                 num.erase(i,1);
+//             }else{
+//                 break;
+//             }
+//         }
+//         return num;
+//     }
+
+// Leetcode 2778
+ int sumOfSquares(vector<int>& nums) {
+        int n=nums.size();
+        int sum=0;
+        for(int i=0; i<nums.size(); i++){
+            if(n%(i+1)==0){
+             sum += nums[i]*nums[i];
             }
         }
-        return num;
+        return sum;
     }
  }
 
