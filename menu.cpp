@@ -4048,15 +4048,32 @@ int main(){
 //     }
 
 // Leetcode 2778
- int sumOfSquares(vector<int>& nums) {
-        int n=nums.size();
-        int sum=0;
-        for(int i=0; i<nums.size(); i++){
-            if(n%(i+1)==0){
-             sum += nums[i]*nums[i];
+//  int sumOfSquares(vector<int>& nums) {
+//         int n=nums.size();
+//         int sum=0;
+//         for(int i=0; i<nums.size(); i++){
+//             if(n%(i+1)==0){
+//              sum += nums[i]*nums[i];
+//             }
+//         }
+//         return sum;
+//     }
+
+// Leetcode 3174
+string clearDigits(string s) {
+        string result = "";
+
+    for (char c : s) {
+        if (isdigit(c)) {
+            if (!result.empty()) {
+                result.pop_back();
             }
+        } else {
+            result.push_back(c);
         }
-        return sum;
+    }
+
+    return result;
     }
  }
 
