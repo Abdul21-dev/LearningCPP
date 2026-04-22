@@ -4060,20 +4060,40 @@ int main(){
 //     }
 
 // Leetcode 3174
-string clearDigits(string s) {
-        string result = "";
+// string clearDigits(string s) {
+//         string result = "";
 
-    for (char c : s) {
-        if (isdigit(c)) {
-            if (!result.empty()) {
-                result.pop_back();
-            }
-        } else {
-            result.push_back(c);
+//     for (char c : s) {
+//         if (isdigit(c)) {
+//             if (!result.empty()) {
+//                 result.pop_back();
+//             }
+//         } else {
+//             result.push_back(c);
+//         }
+//     }
+
+//     return result;
+//     }
+
+// Leetcode 3536
+ int max1 = -1, max2 = -1;
+
+    while (n > 0) {
+        int digit = n % 10;
+
+        if (digit > max1) {
+            max2 = max1;
+            max1 = digit;
+        } else if (digit > max2) {
+            max2 = digit;
         }
+
+        n /= 10;
     }
 
-    return result;
-    }
+    if (max2 == -1) return 0; // safety
+
+    return max1 * max2;
  }
 
