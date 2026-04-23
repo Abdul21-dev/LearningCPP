@@ -4077,23 +4077,42 @@ int main(){
 //     }
 
 // Leetcode 3536
- int max1 = -1, max2 = -1;
+//  int max1 = -1, max2 = -1;
 
-    while (n > 0) {
-        int digit = n % 10;
+//     while (n > 0) {
+//         int digit = n % 10;
 
-        if (digit > max1) {
-            max2 = max1;
-            max1 = digit;
-        } else if (digit > max2) {
-            max2 = digit;
+//         if (digit > max1) {
+//             max2 = max1;
+//             max1 = digit;
+//         } else if (digit > max2) {
+//             max2 = digit;
+//         }
+
+//         n /= 10;
+//     }
+
+//     if (max2 == -1) return 0; // safety
+
+//     return max1 * max2;
+
+// Leetcode 3099
+int sumOfTheDigitsOfHarshadNumber(int x) {
+        vector<int>arr;
+        int a = x;
+        while(a>0){
+            arr.push_back(a%10);
+            a = a/10;
         }
-
-        n /= 10;
+       int sum=0;
+       for(int i=0; i<arr.size(); i++){
+        sum += arr[i];
+       }
+       if(x%sum == 0){
+        return sum;
+       }else{
+        return -1;
+       }
     }
-
-    if (max2 == -1) return 0; // safety
-
-    return max1 * max2;
  }
 
