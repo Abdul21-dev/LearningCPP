@@ -4097,22 +4097,56 @@ int main(){
 //     return max1 * max2;
 
 // Leetcode 3099
-int sumOfTheDigitsOfHarshadNumber(int x) {
-        vector<int>arr;
-        int a = x;
-        while(a>0){
-            arr.push_back(a%10);
-            a = a/10;
+// int sumOfTheDigitsOfHarshadNumber(int x) {
+//         vector<int>arr;
+//         int a = x;
+//         while(a>0){
+//             arr.push_back(a%10);
+//             a = a/10;
+//         }
+//        int sum=0;
+//        for(int i=0; i<arr.size(); i++){
+//         sum += arr[i];
+//        }
+//        if(x%sum == 0){
+//         return sum;
+//        }else{
+//         return -1;
+//        }
+//     }
+
+// Leetcode 2833
+int furthestDistanceFromOrigin(string moves) {
+        int countl=0;
+        int countr=0;
+        for(int i=0; i<moves.size(); i++){
+            if(moves[i]=='L'){
+                countl++;
+            }else if(moves[i]=='R'){
+                countr++;
+            }
         }
-       int sum=0;
-       for(int i=0; i<arr.size(); i++){
-        sum += arr[i];
-       }
-       if(x%sum == 0){
-        return sum;
-       }else{
-        return -1;
-       }
+        int distance=0;
+        for(int i=0; i<moves.size(); i++){
+            if(countl>countr){
+                if(moves[i]=='L'){
+                    distance--;
+                }else if(moves[i]=='R'){
+                    distance++;
+                }else if(moves[i]=='_'){
+                    distance--;
+                }
+            }else{
+                if(moves[i]=='L'){
+                    distance--;
+                }else if(moves[i]=='R'){
+                    distance++;
+                }else if(moves[i]=='_'){
+                    distance++;
+                }
+            }
+        }
+        return abs(distance);
     }
  }
 
