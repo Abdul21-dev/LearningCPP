@@ -4116,37 +4116,54 @@ int main(){
 //     }
 
 // Leetcode 2833
-int furthestDistanceFromOrigin(string moves) {
-        int countl=0;
-        int countr=0;
-        for(int i=0; i<moves.size(); i++){
-            if(moves[i]=='L'){
-                countl++;
-            }else if(moves[i]=='R'){
-                countr++;
+// int furthestDistanceFromOrigin(string moves) {
+//         int countl=0;
+//         int countr=0;
+//         for(int i=0; i<moves.size(); i++){
+//             if(moves[i]=='L'){
+//                 countl++;
+//             }else if(moves[i]=='R'){
+//                 countr++;
+//             }
+//         }
+//         int distance=0;
+//         for(int i=0; i<moves.size(); i++){
+//             if(countl>countr){
+//                 if(moves[i]=='L'){
+//                     distance--;
+//                 }else if(moves[i]=='R'){
+//                     distance++;
+//                 }else if(moves[i]=='_'){
+//                     distance--;
+//                 }
+//             }else{
+//                 if(moves[i]=='L'){
+//                     distance--;
+//                 }else if(moves[i]=='R'){
+//                     distance++;
+//                 }else if(moves[i]=='_'){
+//                     distance++;
+//                 }
+//             }
+//         }
+//         return abs(distance);
+//     }
+
+// Leetcode 2894
+int differenceOfSums(int n, int m) {
+        int num1=0;
+        int num2=0;
+        for(int i=1; i<=n; i++){
+            if(i%m != 0){
+                num1 += i;
             }
         }
-        int distance=0;
-        for(int i=0; i<moves.size(); i++){
-            if(countl>countr){
-                if(moves[i]=='L'){
-                    distance--;
-                }else if(moves[i]=='R'){
-                    distance++;
-                }else if(moves[i]=='_'){
-                    distance--;
-                }
-            }else{
-                if(moves[i]=='L'){
-                    distance--;
-                }else if(moves[i]=='R'){
-                    distance++;
-                }else if(moves[i]=='_'){
-                    distance++;
-                }
+         for(int i=1; i<=n; i++){
+            if(i%m == 0){
+                num2 += i;
             }
         }
-        return abs(distance);
+        return num1-num2;
     }
  }
 
