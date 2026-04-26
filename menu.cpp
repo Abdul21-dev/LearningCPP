@@ -4150,20 +4150,41 @@ int main(){
 //     }
 
 // Leetcode 2894
-int differenceOfSums(int n, int m) {
-        int num1=0;
-        int num2=0;
-        for(int i=1; i<=n; i++){
-            if(i%m != 0){
-                num1 += i;
-            }
+// int differenceOfSums(int n, int m) {
+//         int num1=0;
+//         int num2=0;
+//         for(int i=1; i<=n; i++){
+//             if(i%m != 0){
+//                 num1 += i;
+//             }
+//         }
+//          for(int i=1; i<=n; i++){
+//             if(i%m == 0){
+//                 num2 += i;
+//             }
+//         }
+//         return num1-num2;
+//     }
+
+// Leetcode 3622
+bool checkDivisibility(int n) {
+        vector<int>arr;
+        int sum=0;
+        int product=1;
+        int a=n;
+        while(n>0){
+            arr.push_back(n%10);
+            n=n/10;
         }
-         for(int i=1; i<=n; i++){
-            if(i%m == 0){
-                num2 += i;
-            }
+        for(int i=0; i<arr.size(); i++){
+            sum += arr[i];
+            product *= arr[i];
         }
-        return num1-num2;
+        int sum2 = sum+product;
+        if(a%sum2==0){
+            return true;
+        }
+        return false;
     }
  }
 
