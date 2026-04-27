@@ -4167,21 +4167,35 @@ int main(){
 //     }
 
 // Leetcode 3622
-bool checkDivisibility(int n) {
-        vector<int>arr;
-        int sum=0;
-        int product=1;
-        int a=n;
-        while(n>0){
-            arr.push_back(n%10);
-            n=n/10;
+// bool checkDivisibility(int n) {
+//         vector<int>arr;
+//         int sum=0;
+//         int product=1;
+//         int a=n;
+//         while(n>0){
+//             arr.push_back(n%10);
+//             n=n/10;
+//         }
+//         for(int i=0; i<arr.size(); i++){
+//             sum += arr[i];
+//             product *= arr[i];
+//         }
+//         int sum2 = sum+product;
+//         if(a%sum2==0){
+//             return true;
+//         }
+//         return false;
+//     }
+
+// Leetcode 1952
+ bool isThree(int n) {
+        int divisor=0;
+        for(int i=1; i<=n; i++){
+            if(n%i==0){
+                divisor++;
+            }
         }
-        for(int i=0; i<arr.size(); i++){
-            sum += arr[i];
-            product *= arr[i];
-        }
-        int sum2 = sum+product;
-        if(a%sum2==0){
+        if(divisor==3){
             return true;
         }
         return false;
