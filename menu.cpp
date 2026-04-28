@@ -4188,17 +4188,30 @@ int main(){
 //     }
 
 // Leetcode 1952
- bool isThree(int n) {
-        int divisor=0;
-        for(int i=1; i<=n; i++){
-            if(n%i==0){
-                divisor++;
-            }
+//  bool isThree(int n) {
+//         int divisor=0;
+//         for(int i=1; i<=n; i++){
+//             if(n%i==0){
+//                 divisor++;
+//             }
+//         }
+//         if(divisor==3){
+//             return true;
+//         }
+//         return false;
+//     }
+
+// Leetcode 3452
+int sumOfGoodNumbers(vector<int>& nums, int k) {
+        int sum=0;
+        int n=nums.size();
+        for(int i=0; i<nums.size(); i++){
+            if( (i-k < 0 || nums[i] > nums[i-k]) && 
+            (i+k >= n || nums[i] > nums[i+k]) ){
+            sum += nums[i];
         }
-        if(divisor==3){
-            return true;
         }
-        return false;
+        return sum;
     }
  }
 
