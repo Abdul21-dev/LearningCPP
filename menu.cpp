@@ -4228,13 +4228,29 @@ int main(){
 //     }
 
 // Leetcode 2469
- vector<double> convertTemperature(double celsius) {
-        vector<double>ans;
-        double kelvin = celsius + 273.15;
-        double Fahrenheit = celsius * 1.80 + 32.00;
-        ans.push_back(kelvin);
-        ans.push_back(Fahrenheit);
-        return ans;
+//  vector<double> convertTemperature(double celsius) {
+//         vector<double>ans;
+//         double kelvin = celsius + 273.15;
+//         double Fahrenheit = celsius * 1.80 + 32.00;
+//         ans.push_back(kelvin);
+//         ans.push_back(Fahrenheit);
+//         return ans;
+//     }
+
+// Leetcode 2544
+ int alternateDigitSum(int n) {
+        int sum=0;
+        vector<int>ans;
+        while(n>0){
+            ans.push_back(n%10);
+            n = n/10;
+        }
+        int sign = 1;
+        for(int i=ans.size()-1; i>=0; i--){
+            sum += sign*ans[i];
+            sign *= -1;
+        }
+        return sum;
     }
  }
 
