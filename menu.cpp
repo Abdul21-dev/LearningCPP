@@ -4238,19 +4238,158 @@ int main(){
 //     }
 
 // Leetcode 2544
- int alternateDigitSum(int n) {
-        int sum=0;
-        vector<int>ans;
-        while(n>0){
-            ans.push_back(n%10);
-            n = n/10;
+//  int alternateDigitSum(int n) {
+//         int sum=0;
+//         vector<int>ans;
+//         while(n>0){
+//             ans.push_back(n%10);
+//             n = n/10;
+//         }
+//         int sign = 1;
+//         for(int i=ans.size()-1; i>=0; i--){
+//             sum += sign*ans[i];
+//             sign *= -1;
+//         }
+//         return sum;
+//     }
+
+// cout << "Enter your age :" << endl;
+// int age;
+// cin>>age;
+// if(age>=18){
+//     cout << "You can vote";
+// }else{
+//     cout << "You can't vote";
+// }
+
+// square/rectangle
+// for(int i=0; i<5; i++){
+//     for(int j=0; j<5; j++){
+//         cout << "* ";
+//     }
+//     cout<<endl;
+// }
+
+// Hollow square/rectangle
+// for(int i=0; i<3; i++){
+//      if(i==0 || i==2){
+//             for(int j=0; j<5; j++){
+//                 cout<< "* ";2
+//             }
+//         }else{
+//             cout << "* ";
+//             for(int j=1; j<4; j++){
+//                 cout << "  ";
+//             }
+//             cout << "* ";
+//         }
+//     cout<<endl;
+// }
+
+// half pyramid
+// for(int i=0; i<5; i++){
+//     for(int j=0; j<i+1; j++){
+//         cout << "* ";
+//     }
+//     cout << endl;
+// }
+
+// inverted half pyramid
+// for(int i=0; i<5; i++){
+//     for(int j=4; j>=i; j--){
+//         cout << "* ";
+//     }
+//     cout << endl;
+// }
+
+// Numeric half pyramid
+// for(int i=1; i<6; i++){
+//     for(int j=1; j<i+1; j++){
+//         cout << j;
+//     }
+//     cout << endl;
+// }
+
+// inverted half pyramid
+// for(int i=0; i<6; i++){
+//     if(i==0 || i==5){
+//         for(int j=5; j>=i; j--){
+//             cout << "* ";
+//         }
+//     }else{
+//             cout << "*";
+//             for(int j=4; j>=i; j--){
+//                 cout << "  ";
+//             }
+//             cout << "*";
+//         }
+//     cout << endl;
+// }
+
+// Full pyramid
+// for(int i=0; i<6; i++){
+//     for(int k=0; k<5-i; k++){
+//         cout<<"  ";
+//     }
+//     for(int j=0; j<(2*i)+1; j++){
+//         cout<<"* ";
+//     }
+//     cout << endl;
+// }
+
+// Full hollow pyramid
+// for(int i=0; i<6; i++){
+//     for(int k=0; k<6-i; k++){
+//         cout << " ";
+//     }
+//     if(i==0 || i==5){
+//        for(int j=0; j<(2*i)+1; j++){
+//         cout << "*";
+//        }
+//     }else{
+//         cout << "*";
+//         for(int j=1; j<2*i; j++){
+//             cout << " ";
+//         }
+//         cout << "*";
+//     }
+//     cout << endl;
+// }
+
+// Full inverted pyramid
+// for(int i=5; i>=0; i--){
+//     for(int k=0; k<6-i; k++){
+//          cout << " ";
+//     }
+//     for(int j=0; j<i+1; j++){
+//         cout << "* ";
+//     }
+//     cout << endl;
+// }
+
+// Lc 551
+ bool checkRecord(string s) {
+        int A = 0;
+        int L = 0;
+        for(int i=0; i<s.size(); i++){
+            if(s[i]=='A'){
+                A++;
+            }else if(s[i]=='L'){
+                L++;
+            }
         }
-        int sign = 1;
-        for(int i=ans.size()-1; i>=0; i--){
-            sum += sign*ans[i];
-            sign *= -1;
+        if(A>=2){
+            return false;
+        }else if(L>=3){
+            for(int i=0; i<s.size()-1; i++){
+                if(s[i]=='L' && s[i+1]=='L' && s[i+2]=='L'){
+                    return false;
+                }
+            }
         }
-        return sum;
+        return true;
     }
+
  }
+
 
