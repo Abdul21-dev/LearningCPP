@@ -4368,26 +4368,59 @@ int main(){
 // }
 
 // Lc 551
- bool checkRecord(string s) {
-        int A = 0;
-        int L = 0;
-        for(int i=0; i<s.size(); i++){
-            if(s[i]=='A'){
-                A++;
-            }else if(s[i]=='L'){
-                L++;
-            }
-        }
-        if(A>=2){
+//  bool checkRecord(string s) {
+//         int A = 0;
+//         int L = 0;
+//         for(int i=0; i<s.size(); i++){
+//             if(s[i]=='A'){
+//                 A++;
+//             }else if(s[i]=='L'){
+//                 L++;
+//             }
+//         }
+//         if(A>=2){
+//             return false;
+//         }else if(L>=3){
+//             for(int i=0; i<s.size()-1; i++){
+//                 if(s[i]=='L' && s[i+1]=='L' && s[i+2]=='L'){
+//                     return false;
+//                 }
+//             }
+//         }
+//         return true;
+//     }
+
+// Leetcode 728
+bool selfdiv(int a){
+    vector<int>arr;
+    int b=a;
+    while(b>0){
+        arr.push_back(b%10);
+        b=b/10;
+    }
+    for(int i=0; i<arr.size(); i++){
+        if(arr[i]==0){
             return false;
-        }else if(L>=3){
-            for(int i=0; i<s.size()-1; i++){
-                if(s[i]=='L' && s[i+1]=='L' && s[i+2]=='L'){
-                    return false;
-                }
+        }
+    }
+    for(int i=0; i<arr.size(); i++){
+        if(a%arr[i] != 0){
+            return false;
+        }
+    }
+    return true;
+   }
+    vector<int> selfDividingNumbers(int left, int right) {
+        vector<int>ans;
+        for(int i=left; i<=right; i++){
+            if(i%10 == 0){
+                continue;
+            }
+            else if(selfdiv(i)){
+                ans.push_back(i);
             }
         }
-        return true;
+        return ans;
     }
 
  }
