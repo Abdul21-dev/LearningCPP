@@ -4391,33 +4391,71 @@ int main(){
 //     }
 
 // Leetcode 728
-bool selfdiv(int a){
-    vector<int>arr;
-    int b=a;
-    while(b>0){
-        arr.push_back(b%10);
-        b=b/10;
-    }
-    for(int i=0; i<arr.size(); i++){
-        if(arr[i]==0){
-            return false;
+// bool selfdiv(int a){
+//     vector<int>arr;
+//     int b=a;
+//     while(b>0){
+//         arr.push_back(b%10);
+//         b=b/10;
+//     }
+//     for(int i=0; i<arr.size(); i++){
+//         if(arr[i]==0){
+//             return false;
+//         }
+//     }
+//     for(int i=0; i<arr.size(); i++){
+//         if(a%arr[i] != 0){
+//             return false;
+//         }
+//     }
+//     return true;
+//    }
+//     vector<int> selfDividingNumbers(int left, int right) {
+//         vector<int>ans;
+//         for(int i=left; i<=right; i++){
+//             if(i%10 == 0){
+//                 continue;
+//             }
+//             else if(selfdiv(i)){
+//                 ans.push_back(i);
+//             }
+//         }
+//         return ans;
+//     }
+
+// Leetcode 1051
+int heightChecker(vector<int>& heights) {
+        int ans=0;
+        vector<int>arr;
+        for(int i=0; i<heights.size(); i++){
+            arr.push_back(heights[i]);
         }
-    }
-    for(int i=0; i<arr.size(); i++){
-        if(a%arr[i] != 0){
-            return false;
-        }
-    }
-    return true;
-   }
-    vector<int> selfDividingNumbers(int left, int right) {
-        vector<int>ans;
-        for(int i=left; i<=right; i++){
-            if(i%10 == 0){
-                continue;
+        sort(heights.begin(), heights.end());
+        int i=0;
+        while(i<heights.size()){
+            if(arr[i] != heights[i]){
+                ans++;
             }
-            else if(selfdiv(i)){
-                ans.push_back(i);
+            i++;
+        }
+        return ans;
+    }
+
+    // Leetcode 1122
+     vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+        vector<int>ans;
+        for(int i=0; i<arr2.size(); i++){
+            for(int j=0; j<arr1.size(); j++){
+                if(arr2[i]==arr1[j]){
+                    ans.push_back(arr2[i]);
+                    arr1[j]=INT_MIN;
+                }
+            }
+        }
+        sort(arr1.begin(), arr1.end());
+        for(int i=0; i<arr1.size(); i++){
+            if(arr1[i]>INT_MIN){
+                ans.push_back(arr1[i]);
             }
         }
         return ans;
