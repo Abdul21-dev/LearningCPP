@@ -4594,18 +4594,86 @@ int main(){
 // }
 
 // Mssing element from an array with duplicates
-vector<int>nums{1,3,5,3,4};
-for(int i=0; i<nums.size(); i++){
-    if(nums[abs(nums[i])-1]<0){
-        continue;
+// vector<int>nums{1,3,5,3,4};
+// for(int i=0; i<nums.size(); i++){
+//     if(nums[abs(nums[i])-1]<0){
+//         continue;
+//     }
+//     nums[abs(nums[i])-1] *= -1;
+// }
+// for(int i=0; i<nums.size(); i++){
+//     if(nums[i]>0){
+//         cout << i+1;
+//     }
+// }
+
+// Factorial of a large number
+// cout << "Enter number whose factorial you want:" << endl;
+// int N;
+// cin >> N;
+//  vector<int>ans;
+//  int carry = 0;
+//  ans.push_back(1);
+//     for(int i=2; i<=N; i++){
+//          for(int j=0; j<ans.size(); j++){
+//             int x = ans[j]*i + carry;
+//             ans[j] = x%10;
+//             carry = x/10;
+//          }
+//          while(carry>0){
+//             ans.push_back(carry%10);
+//             carry = carry/10;
+//          }
+//     }
+//     reverse(ans.begin(), ans.end());
+//     for(auto p: ans){
+//         cout << p << " ";
+//     }
+
+//Sprial print a matrix
+ vector<int> spiralOrder(vector<vector<int>>& matrix) {
+        vector<int>ans;
+        int m=matrix.size();
+        int n=matrix[0].size();
+        int total_elements = m*n;
+
+        int startingrow=0;
+        int endingcol=n-1;
+        int endingrow=m-1;
+        int startingcol=0;
+
+        int count = 0;
+        while(count<total_elements){
+            // startingrow
+            for(int i=startingcol; i<=endingcol && count<total_elements; i++){
+                ans.push_back(matrix[startingrow][i]);
+                count++;
+            }
+            startingrow++;
+
+           //endingcol
+            for(int i=startingrow; i<=endingrow && count<total_elements; i++){
+                ans.push_back(matrix[i][endingcol]);
+                count++;
+            }
+            endingcol--;
+            
+            // endingrow
+            for(int i=endingcol; i>=startingcol && count<total_elements; i--){
+                ans.push_back(matrix[endingrow][i]);
+                count++;
+            }
+            endingrow--;
+            
+            // startingcol
+            for(int i=endingrow; i>=startingrow && count<total_elements; i--){
+                ans.push_back(matrix[i][startingcol]);
+                count++;
+            }
+            startingcol++;
+        }
+        return ans;
     }
-    nums[abs(nums[i])-1] *= -1;
-}
-for(int i=0; i<nums.size(); i++){
-    if(nums[i]>0){
-        cout << i+1;
-    }
-}
  }
 
 
