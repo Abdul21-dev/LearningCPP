@@ -4424,43 +4424,188 @@ int main(){
 //     }
 
 // Leetcode 1051
-int heightChecker(vector<int>& heights) {
-        int ans=0;
-        vector<int>arr;
-        for(int i=0; i<heights.size(); i++){
-            arr.push_back(heights[i]);
-        }
-        sort(heights.begin(), heights.end());
-        int i=0;
-        while(i<heights.size()){
-            if(arr[i] != heights[i]){
-                ans++;
-            }
-            i++;
-        }
-        return ans;
-    }
+// int heightChecker(vector<int>& heights) {
+//         int ans=0;
+//         vector<int>arr;
+//         for(int i=0; i<heights.size(); i++){
+//             arr.push_back(heights[i]);
+//         }
+//         sort(heights.begin(), heights.end());
+//         int i=0;
+//         while(i<heights.size()){
+//             if(arr[i] != heights[i]){
+//                 ans++;
+//             }
+//             i++;
+//         }
+//         return ans;
+//     }
 
     // Leetcode 1122
-     vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
-        vector<int>ans;
-        for(int i=0; i<arr2.size(); i++){
-            for(int j=0; j<arr1.size(); j++){
-                if(arr2[i]==arr1[j]){
-                    ans.push_back(arr2[i]);
-                    arr1[j]=INT_MIN;
-                }
-            }
-        }
-        sort(arr1.begin(), arr1.end());
-        for(int i=0; i<arr1.size(); i++){
-            if(arr1[i]>INT_MIN){
-                ans.push_back(arr1[i]);
-            }
-        }
-        return ans;
-    }
+    //  vector<int> relativeSortArray(vector<int>& arr1, vector<int>& arr2) {
+    //     vector<int>ans;
+    //     for(int i=0; i<arr2.size(); i++){
+    //         for(int j=0; j<arr1.size(); j++){
+    //             if(arr2[i]==arr1[j]){
+    //                 ans.push_back(arr2[i]);
+    //                 arr1[j]=INT_MIN;
+    //             }
+    //         }
+    //     }
+    //     sort(arr1.begin(), arr1.end());
+    //     for(int i=0; i<arr1.size(); i++){
+    //         if(arr1[i]>INT_MIN){
+    //             ans.push_back(arr1[i]);
+    //         }
+    //     }
+    //     return ans;
+    // }
 
+    // Missing elements from an array with duplicates
+    // vector<int>nums{1,3,5,3,4};
+    // for(int i=0; i<nums.size(); i++){
+    //     if(nums[abs(nums[i])] <0){
+    //           continue;
+    //     }
+    //     nums[abs(nums[i])] *= -1;
+    // }
+    // for(int i=0; i<nums.size(); i++){
+    //     if(nums[i]>0){
+    //         cout << i;
+    //     }
+    // }
+
+    // Leetcode 3731
+    //  bool check(int a, vector<int>& nums){
+    //     for(int i=0; i<nums.size(); i++){
+    //         if(nums[i]==a){
+    //             return true;
+    //         }
+    //     }
+    //     return false;
+    // }
+    // vector<int> findMissingElements(vector<int>& nums) {
+    //     vector<int>ans;
+    //     int mini = INT_MAX;
+    //     for(int i=0; i<nums.size(); i++){
+    //         if(nums[i]<mini){
+    //             mini = nums[i];
+    //         }
+    //     }
+    //     int maxi = INT_MIN;
+    //     for(int i=0; i<nums.size(); i++){
+    //         if(nums[i]>maxi){
+    //             maxi = nums[i];
+    //         }
+    //     }
+    //     for(int i=mini; i<=maxi; i++){
+    //         if(!(check(i,nums))){
+    //             ans.push_back(i);
+    //         }
+    //     }
+    //   sort(ans.begin(), ans.end());
+    //     return ans;
+    // }
+
+    // Leetcode 1539
+//     bool check(int a, vector<int>& arr){
+//     for(int i=0; i<arr.size(); i++){
+//         if(a==arr[i]){
+//             return true;
+//         }
+//     }
+//     return false;
+// }
+//     int findKthPositive(vector<int>& arr, int k) {
+//         for(int i=1; i<INT_MAX; i++){
+//             if(!(check(i, arr))){
+//                 k--;
+//                 if(k==0){
+//                     return i;
+//                 }
+//             }
+//         }
+//         return 0;
+//     }
+
+// common element in 3 sorted array
+//   vector<int>arr{1,5,10,20,40,80};
+//   vector<int>brr{6,7,20,80,100};
+//   vector<int>crr{3,4,15,20,30,70,80,120};
+   
+//   int i=0;
+//   int j=0; int k=0;
+//   vector<int>ans;
+//   while(i<arr.size() && j<brr.size() && k<crr.size()){
+//     if(arr[i]==brr[j] && brr[j]==crr[k]){
+//         ans.push_back(arr[i]);
+//         i++;
+//         j++;
+//         k++;
+//     }
+//     else if(arr[i]<brr[j]){
+//         i++;
+//     }else if(arr[i]>brr[j]){
+//         j++;
+//     }else if(arr[i]==brr[j] && crr[k]<brr[j]){
+//         k++;
+//     }else{
+//         i++;
+//         j++;
+//     }
+//   }
+
+//   for(int i=0; i<ans.size(); i++){
+//     cout << ans[i] << " ";
+//   }
+
+// Waveprint a matrix
+// vector<vector<int> >arr{{1,2,3}, {4,5,6}, {7,8,9}};
+
+// int i=0; int j=0;
+// while(i<arr.size() && j<arr[i].size()){
+//     if(i==0){
+//         for(int i=0; i<arr.size(); i++){
+//             cout << arr[i][j] << " ";
+//         }
+//         j++;
+//         i=arr.size()-1;
+//     }else if(i==arr.size()-1){
+//         for(int i=arr.size()-1; i>=0; i--){
+//             cout << arr[i][j] << " ";
+//         }
+//         j++;
+//         i=0;
+//     }
+// }
+
+// while(j<arr[0].size()){
+// if(j%2==0){
+//     for(int i=0; i<arr.size(); i++){
+//       cout << arr[i][j] << " ";
+//     }
+//     j++;
+// }else if(j%2 != 0){
+//     for(int i=arr.size()-1; i>=0; i--){
+//         cout << arr[i][j] << " ";
+//     }
+//     j++;
+// }
+// }
+
+// Mssing element from an array with duplicates
+vector<int>nums{1,3,5,3,4};
+for(int i=0; i<nums.size(); i++){
+    if(nums[abs(nums[i])-1]<0){
+        continue;
+    }
+    nums[abs(nums[i])-1] *= -1;
+}
+for(int i=0; i<nums.size(); i++){
+    if(nums[i]>0){
+        cout << i+1;
+    }
+}
  }
 
 
