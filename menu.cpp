@@ -4631,48 +4631,94 @@ int main(){
 //     }
 
 //Sprial print a matrix
- vector<int> spiralOrder(vector<vector<int>>& matrix) {
-        vector<int>ans;
-        int m=matrix.size();
-        int n=matrix[0].size();
-        int total_elements = m*n;
+//  vector<int> spiralOrder(vector<vector<int>>& matrix) {
+//         vector<int>ans;
+//         int m=matrix.size();
+//         int n=matrix[0].size();
+//         int total_elements = m*n;
 
-        int startingrow=0;
-        int endingcol=n-1;
-        int endingrow=m-1;
-        int startingcol=0;
+//         int startingrow=0;
+//         int endingcol=n-1;
+//         int endingrow=m-1;
+//         int startingcol=0;
 
-        int count = 0;
-        while(count<total_elements){
-            // startingrow
-            for(int i=startingcol; i<=endingcol && count<total_elements; i++){
-                ans.push_back(matrix[startingrow][i]);
-                count++;
-            }
-            startingrow++;
+//         int count = 0;
+//         while(count<total_elements){
+//             // startingrow
+//             for(int i=startingcol; i<=endingcol && count<total_elements; i++){
+//                 ans.push_back(matrix[startingrow][i]);
+//                 count++;
+//             }
+//             startingrow++;
 
-           //endingcol
-            for(int i=startingrow; i<=endingrow && count<total_elements; i++){
-                ans.push_back(matrix[i][endingcol]);
-                count++;
-            }
-            endingcol--;
+//            //endingcol
+//             for(int i=startingrow; i<=endingrow && count<total_elements; i++){
+//                 ans.push_back(matrix[i][endingcol]);
+//                 count++;
+//             }
+//             endingcol--;
             
-            // endingrow
-            for(int i=endingcol; i>=startingcol && count<total_elements; i--){
-                ans.push_back(matrix[endingrow][i]);
-                count++;
-            }
-            endingrow--;
+//             // endingrow
+//             for(int i=endingcol; i>=startingcol && count<total_elements; i--){
+//                 ans.push_back(matrix[endingrow][i]);
+//                 count++;
+//             }
+//             endingrow--;
             
-            // startingcol
-            for(int i=endingrow; i>=startingrow && count<total_elements; i--){
-                ans.push_back(matrix[i][startingcol]);
-                count++;
-            }
-            startingcol++;
+//             // startingcol
+//             for(int i=endingrow; i>=startingrow && count<total_elements; i--){
+//                 ans.push_back(matrix[i][startingcol]);
+//                 count++;
+//             }
+//             startingcol++;
+//         }
+//         return ans;
+//     }
+
+// first occurance by binarysearch
+// vector<int>arr{1,3,3,3,3,4,5,6};
+// int target = 3;
+// int s=0;
+// int e=arr.size()-1;
+// int ans=0;
+// while(s<=e){
+//     int mid = s + (e-s)/2;
+//     if(arr[mid]==target){
+//         ans = mid;
+//         e = mid - 1;
+//     }else if(target<arr[mid]){
+//         e = mid-1;
+//     }else{
+//         s=mid+1;
+//     }
+// }
+// cout << ans;
+
+// Last occurance in binarysearch
+// while(s<=e){
+//     int mid = s + (e-s)/2;
+//     if(arr[mid]==target){
+//         ans = mid;
+//         s = mid + 1;
+//     }else if(target<arr[mid]){
+//         e = mid-1;
+//     }else{
+//         s=mid+1;
+//     }
+// }
+// cout << ans;
+
+// Leetcode 1486
+int xorOperation(int n, int start) {
+        int arr[n];
+        for(int i=0; i<n; i++){
+            arr[i] = start + (2 * i);
         }
-        return ans;
+        int x=0;
+        for(int i=0; i<n; i++){
+            x = x^arr[i];
+        }
+        return x;
     }
  }
 
