@@ -4709,16 +4709,97 @@ int main(){
 // cout << ans;
 
 // Leetcode 1486
-int xorOperation(int n, int start) {
-        int arr[n];
-        for(int i=0; i<n; i++){
-            arr[i] = start + (2 * i);
+// int xorOperation(int n, int start) {
+//         int arr[n];
+//         for(int i=0; i<n; i++){
+//             arr[i] = start + (2 * i);
+//         }
+//         int x=0;
+//         for(int i=0; i<n; i++){
+//             x = x^arr[i];
+//         }
+//         return x;
+//     }
+
+// Leetcode 240
+// bool searchMatrix(vector<vector<int>>& matrix, int target) {
+    //     int j=matrix[0].size()-1;
+    //     int i=0;
+
+    //     while(j>=0){
+    //         int current = matrix[i][j];
+    //         if(current == target){
+    //             return true;
+    //         }else if(current >target){
+    //             j--;
+    //             continue;
+    //         }else if(current < target){
+    //             for(int i=0; i<matrix.size(); i++){
+    //                if(matrix[i][j]==target){
+    //                 return true;
+    //                }else if(matrix[i][j]>target){
+    //                 break;
+    //                }
+    //             }
+    //         }
+    //         j--;
+    //     }
+    //     return false;
+
+    //     int i=0;
+    //     int j=matrix[0].size()-1;
+    //     while(j>=0 && i<matrix.size()){
+    //         int element = matrix[i][j];
+    //         if(element == target){
+    //             return true;
+    //         }else if(element > target){
+    //             j--;
+    //         }else{
+    //             i++;
+    //         }
+    //     }
+    //     return false;
+    //  }
+
+    // Leetcode 59 (Spiral matrix II)
+     vector<vector<int>> generateMatrix(int n) {
+         vector<vector<int>> ans(n, vector<int>(n,0));
+        int startingrow=0;
+        int startingcol=0;
+        int endingrow=n-1;
+        int endingcol=n-1;
+        int count=1;
+        int k=1;
+        while(count <= n*n){
+          for(int i=startingcol; i<=endingcol && count <= n*n; i++){
+            ans[startingrow][i] = k;
+            k++;
+            count++;
+          }
+          startingrow++;
+
+          for(int i=startingrow; i<= endingrow && count <= n*n; i++){
+            ans[i][endingcol] = k;
+            k++;
+            count++;
+          }
+          endingcol--;
+
+          for(int i=endingcol; i>=startingcol && count <= n*n; i--){
+            ans[endingrow][i] = k;
+            k++;
+            count++;
+          }
+          endingrow--;
+
+          for(int i=endingrow; i>=startingrow && count <= n*n; i--){
+            ans[i][startingcol] = k;
+            k++;
+            count++;
+          }
+          startingcol++;
         }
-        int x=0;
-        for(int i=0; i<n; i++){
-            x = x^arr[i];
-        }
-        return x;
+        return ans;
     }
  }
 
