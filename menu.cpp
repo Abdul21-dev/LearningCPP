@@ -4762,45 +4762,110 @@ int main(){
     //  }
 
     // Leetcode 59 (Spiral matrix II)
-     vector<vector<int>> generateMatrix(int n) {
-         vector<vector<int>> ans(n, vector<int>(n,0));
-        int startingrow=0;
-        int startingcol=0;
-        int endingrow=n-1;
-        int endingcol=n-1;
-        int count=1;
-        int k=1;
-        while(count <= n*n){
-          for(int i=startingcol; i<=endingcol && count <= n*n; i++){
-            ans[startingrow][i] = k;
-            k++;
-            count++;
-          }
-          startingrow++;
+    //  vector<vector<int>> generateMatrix(int n) {
+    //      vector<vector<int>> ans(n, vector<int>(n,0));
+    //     int startingrow=0;
+    //     int startingcol=0;
+    //     int endingrow=n-1;
+    //     int endingcol=n-1;
+    //     int count=1;
+    //     int k=1;
+    //     while(count <= n*n){
+    //       for(int i=startingcol; i<=endingcol && count <= n*n; i++){
+    //         ans[startingrow][i] = k;
+    //         k++;
+    //         count++;
+    //       }
+    //       startingrow++;
 
-          for(int i=startingrow; i<= endingrow && count <= n*n; i++){
-            ans[i][endingcol] = k;
-            k++;
-            count++;
-          }
-          endingcol--;
+    //       for(int i=startingrow; i<= endingrow && count <= n*n; i++){
+    //         ans[i][endingcol] = k;
+    //         k++;
+    //         count++;
+    //       }
+    //       endingcol--;
 
-          for(int i=endingcol; i>=startingcol && count <= n*n; i--){
-            ans[endingrow][i] = k;
-            k++;
-            count++;
-          }
-          endingrow--;
+    //       for(int i=endingcol; i>=startingcol && count <= n*n; i--){
+    //         ans[endingrow][i] = k;
+    //         k++;
+    //         count++;
+    //       }
+    //       endingrow--;
 
-          for(int i=endingrow; i>=startingrow && count <= n*n; i--){
-            ans[i][startingcol] = k;
-            k++;
-            count++;
-          }
-          startingcol++;
+    //       for(int i=endingrow; i>=startingrow && count <= n*n; i--){
+    //         ans[i][startingcol] = k;
+    //         k++;
+    //         count++;
+    //       }
+    //       startingcol++;
+    //     }
+    //     return ans;
+    // }
+
+    // Leetcode 415
+    string addStrings(string num1, string num2) {
+    //    vector<int>n1;
+    //    vector<int>n2;
+       vector<int>ans;
+    //    for(int i=0; i<num1.size(); i++){
+    //     n1.push_back(num1[i]-'0');
+    //    }
+    //    for(int i=0; i<num2.size(); i++){
+    //     n2.push_back(num2[i]-'0');
+    //    }
+       int x;
+       int carry=0;
+       int i=num1.size()-1; int j=num2.size()-1;
+       while(i>=0 && j>=0){
+            int x = (num1[i]-'0')+(num2[j]-'0') + carry;
+            ans.push_back(x%10);
+            carry = x/10;
+            // while(carry){
+            //     ans.push_back(carry%10);
+            //     carry = carry/10;
+            // }
+            i--;
+            j--;
+       }
+        
+       if(num1.size()>num2.size()){
+        while(i>=0){
+        int x = (num1[i]-'0')+0+carry;
+        ans.push_back(x%10);
+            carry = x/10;
+            // while(carry){
+            //     ans.push_back(carry%10);
+            //     carry = carry/10;
+            // }
+            i--;
+       }
+       }
+       
+       if(num2.size()>num1.size()){
+        while(j>=0){
+        int x = (num2[j]-'0')+0+carry;
+        ans.push_back(x%10);
+            carry = x/10;
+            // while(carry){
+            //     ans.push_back(carry%10);
+            //     carry = carry/10;
+            // }
+            j--;
+            }
+       }
+       while(carry){
+                ans.push_back(carry%10);
+                carry = carry/10;
+            }
+       reverse(ans.begin(), ans.end());
+       string s="";
+       for(int i=0; i<ans.size(); i++){
+        s.push_back(ans[i]+'0');
+       }
+       return s;
+
         }
-        return ans;
-    }
+    
  }
 
 
