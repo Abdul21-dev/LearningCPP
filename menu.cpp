@@ -4803,68 +4803,117 @@ int main(){
     // }
 
     // Leetcode 415
-    string addStrings(string num1, string num2) {
+    // string addStrings(string num1, string num2) {
     //    vector<int>n1;
     //    vector<int>n2;
-       vector<int>ans;
+     //  vector<int>ans;
     //    for(int i=0; i<num1.size(); i++){
     //     n1.push_back(num1[i]-'0');
     //    }
     //    for(int i=0; i<num2.size(); i++){
     //     n2.push_back(num2[i]-'0');
     //    }
-       int x;
-       int carry=0;
-       int i=num1.size()-1; int j=num2.size()-1;
-       while(i>=0 && j>=0){
-            int x = (num1[i]-'0')+(num2[j]-'0') + carry;
-            ans.push_back(x%10);
-            carry = x/10;
-            // while(carry){
-            //     ans.push_back(carry%10);
-            //     carry = carry/10;
-            // }
-            i--;
-            j--;
-       }
+    //    int x;
+    //    int carry=0;
+    //    int i=num1.size()-1; int j=num2.size()-1;
+    //    while(i>=0 && j>=0){
+    //         int x = (num1[i]-'0')+(num2[j]-'0') + carry;
+    //         ans.push_back(x%10);
+    //         carry = x/10;
+    //         // while(carry){
+    //         //     ans.push_back(carry%10);
+    //         //     carry = carry/10;
+    //         // }
+    //         i--;
+    //         j--;
+    //    }
         
-       if(num1.size()>num2.size()){
-        while(i>=0){
-        int x = (num1[i]-'0')+0+carry;
-        ans.push_back(x%10);
-            carry = x/10;
-            // while(carry){
-            //     ans.push_back(carry%10);
-            //     carry = carry/10;
-            // }
-            i--;
-       }
-       }
+    //    if(num1.size()>num2.size()){
+    //     while(i>=0){
+    //     int x = (num1[i]-'0')+0+carry;
+    //     ans.push_back(x%10);
+    //         carry = x/10;
+    //         // while(carry){
+    //         //     ans.push_back(carry%10);
+    //         //     carry = carry/10;
+    //         // }
+    //         i--;
+    //    }
+    //    }
        
-       if(num2.size()>num1.size()){
-        while(j>=0){
-        int x = (num2[j]-'0')+0+carry;
-        ans.push_back(x%10);
-            carry = x/10;
-            // while(carry){
-            //     ans.push_back(carry%10);
-            //     carry = carry/10;
-            // }
-            j--;
-            }
-       }
-       while(carry){
-                ans.push_back(carry%10);
-                carry = carry/10;
-            }
-       reverse(ans.begin(), ans.end());
-       string s="";
-       for(int i=0; i<ans.size(); i++){
-        s.push_back(ans[i]+'0');
-       }
-       return s;
+    //    if(num2.size()>num1.size()){
+    //     while(j>=0){
+    //     int x = (num2[j]-'0')+0+carry;
+    //     ans.push_back(x%10);
+    //         carry = x/10;
+    //         // while(carry){
+    //         //     ans.push_back(carry%10);
+    //         //     carry = carry/10;
+    //         // }
+    //         j--;
+    //         }
+    //    }
+    //    while(carry){
+    //             ans.push_back(carry%10);
+    //             carry = carry/10;
+    //         }
+    //    reverse(ans.begin(), ans.end());
+    //    string s="";
+    //    for(int i=0; i<ans.size(); i++){
+    //     s.push_back(ans[i]+'0');
+    //    }
+    //    return s;
 
+    //     }
+
+    // Missing element
+    // vector<int>arr{2,3,3,1,4};
+    // vector<int>arr{5,6,2,4,2,1};
+    // for(int i=0; i<arr.size(); i++){
+    //     if(arr[abs(arr[i])-1]<0){
+    //         continue;
+    //     }
+    //     arr[abs(arr[i])-1] *= -1;
+    // }
+    // for(int i=0; i<arr.size(); i++){
+    //     if(arr[i]>0){
+    //         cout << i+1;
+    //     }
+    // }
+
+    // Leetcode 844
+    bool backspaceCompare(string s, string t) {
+        string s1="";
+        string t1="";
+        for(int i=0; i<s.size(); i++){
+            if(s1.size()==0 && s[i]=='#'){
+                continue;
+            }
+            if(s1.size()==0){
+                s1.push_back(s[i]);
+            }else if(s[i]=='#'){
+                s1.pop_back();
+            }else{
+                s1.push_back(s[i]);
+            }
         }
+         for(int i=0; i<t.size(); i++){
+            if(t1.size()==0 && t[i]=='#'){
+                continue;
+            }
+            if(t1.size()==0){
+                t1.push_back(t[i]);
+            }else if(t[i]=='#'){
+                t1.pop_back();
+            }else{
+                t1.push_back(t[i]);
+            }
+        }
+        if(s1==t1){
+            return true;
+        }
+        return false;
+    }
     
  }
 
