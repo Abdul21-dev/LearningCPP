@@ -4882,36 +4882,80 @@ int main(){
     // }
 
     // Leetcode 844
-    bool backspaceCompare(string s, string t) {
-        string s1="";
-        string t1="";
-        for(int i=0; i<s.size(); i++){
-            if(s1.size()==0 && s[i]=='#'){
-                continue;
-            }
-            if(s1.size()==0){
-                s1.push_back(s[i]);
-            }else if(s[i]=='#'){
-                s1.pop_back();
-            }else{
-                s1.push_back(s[i]);
-            }
+    // bool backspaceCompare(string s, string t) {
+    //     string s1="";
+    //     string t1="";
+    //     for(int i=0; i<s.size(); i++){
+    //         if(s1.size()==0 && s[i]=='#'){
+    //             continue;
+    //         }
+    //         if(s1.size()==0){
+    //             s1.push_back(s[i]);
+    //         }else if(s[i]=='#'){
+    //             s1.pop_back();
+    //         }else{
+    //             s1.push_back(s[i]);
+    //         }
+    //     }
+    //      for(int i=0; i<t.size(); i++){
+    //         if(t1.size()==0 && t[i]=='#'){
+    //             continue;
+    //         }
+    //         if(t1.size()==0){
+    //             t1.push_back(t[i]);
+    //         }else if(t[i]=='#'){
+    //             t1.pop_back();
+    //         }else{
+    //             t1.push_back(t[i]);
+    //         }
+    //     }
+    //     if(s1==t1){
+    //         return true;
+    //     }
+    //     return false;
+    // }
+
+    // Leetcode 3708
+    // int longestSubarray(vector<int>& nums) {
+    //     int count = 2;
+    //     int ans = 2;
+    //     for(int i=2; i<nums.size(); i++){
+    //         if(nums[i]==nums[i-1]+nums[i-2]){
+    //             count++;
+    //             ans = max(ans,count);
+    //         }else{
+    //             count = 2;
+    //         }
+    //     }
+    //     return ans;
+    // }
+
+    // Leetcode 202
+    int sq(int n){
+    vector<int>arr;
+    while(n>0){
+        arr.push_back(n%10);
+        n = n/10;
+    }
+    int sum = 0;
+    for(auto p:arr){
+        sum += p*p;
+    }
+    return sum;
+}
+    bool isHappy(int n) {
+        unordered_map<int,int>hash;
+        while(n){
+            n = sq(n);
+            if(n==1){
+           return true;
         }
-         for(int i=0; i<t.size(); i++){
-            if(t1.size()==0 && t[i]=='#'){
-                continue;
-            }
-            if(t1.size()==0){
-                t1.push_back(t[i]);
-            }else if(t[i]=='#'){
-                t1.pop_back();
-            }else{
-                t1.push_back(t[i]);
-            }
+         hash[n]++;
+         if(hash[n]==2){
+            break;
+         }
         }
-        if(s1==t1){
-            return true;
-        }
+       
         return false;
     }
     
