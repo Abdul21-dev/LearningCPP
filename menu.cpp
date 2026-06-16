@@ -7,6 +7,44 @@
 #include<string.h>
 using namespace std;
 
+
+void solve(vector<int>& arr, int i, int sum, int& maxi){
+    if(i>=arr.size()){
+        maxi = max(sum, maxi);
+        return;
+    }
+
+    // include
+    solve(arr, i+2, sum+arr[i], maxi);
+    // exclude
+    solve(arr, i+1, sum, maxi);
+}
+// int solve(vector<int>& arr, int i){
+//     if(i>=arr.size()){
+//         return;
+//     }
+//     int sum=0;
+//     for(int i=0; i<arr.size(); i++){
+
+//     }
+// }
+
+// int solve(vector<int>& arr,int segments){
+//     if(segments==0){
+//       return 0;
+//     }
+//     if(segments<0){
+//         return INT_MIN;
+//     }
+//     int op=INT_MIN;
+//     for(int i=0; i<arr.size(); i++){
+//         int ans = solve(arr, segments-arr[i]);
+//         if(ans != INT_MIN){
+//       op = max(ans+1, op);
+//         }
+//     }
+//     return op;
+//   }
 // void Printfunction(){
 //     int n;
 //     cout << "Enter the value of n" << endl;
@@ -4931,34 +4969,50 @@ int main(){
     // }
 
     // Leetcode 202
-    int sq(int n){
-    vector<int>arr;
-    while(n>0){
-        arr.push_back(n%10);
-        n = n/10;
-    }
-    int sum = 0;
-    for(auto p:arr){
-        sum += p*p;
-    }
-    return sum;
-}
-    bool isHappy(int n) {
-        unordered_map<int,int>hash;
-        while(n){
-            n = sq(n);
-            if(n==1){
-           return true;
-        }
-         hash[n]++;
-         if(hash[n]==2){
-            break;
-         }
-        }
+//     int sq(int n){
+//     vector<int>arr;
+//     while(n>0){
+//         arr.push_back(n%10);
+//         n = n/10;
+//     }
+//     int sum = 0;
+//     for(auto p:arr){
+//         sum += p*p;
+//     }
+//     return sum;
+// }
+//     bool isHappy(int n) {
+//         unordered_map<int,int>hash;
+//         while(n){
+//             n = sq(n);
+//             if(n==1){
+//            return true;
+//         }
+//          hash[n]++;
+//          if(hash[n]==2){
+//             break;
+//          }
+//         }
        
-        return false;
-    }
+//         return false;
+//     }
+
+// vector<int>arr{5,3,2};
+// int segments = 11;
+// int ans = solve(arr, segments);
+// if(ans<0){
+//     ans=0;
+// }
+// cout << "Maximum number of segments are:" << ans;
     
+
+// Maximum sum of non-adjacent elements
+vector<int>arr{1,2,4,9};
+int i=0;
+int sum=0;
+int maxi=INT_MIN;
+ solve(arr, i, sum, maxi);
+cout << "Maximum sum of non-adjacent elements are: " <<maxi; 
  }
 
 
