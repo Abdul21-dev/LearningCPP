@@ -7,18 +7,29 @@
 #include<string.h>
 using namespace std;
 
-
-void solve(vector<int>& arr, int i, int sum, int& maxi){
+ bool solve(vector<int>&arr, int i){
     if(i>=arr.size()){
-        maxi = max(sum, maxi);
-        return;
+      return true;
+    }
+    if(arr[i]<arr[i+1]){
+      solve(arr, i+1);
+    }else{
+      return false;
     }
 
-    // include
-    solve(arr, i+2, sum+arr[i], maxi);
-    // exclude
-    solve(arr, i+1, sum, maxi);
-}
+  }
+
+// void solve(vector<int>& arr, int i, int sum, int& maxi){
+//     if(i>=arr.size()){
+//         maxi = max(sum, maxi);
+//         return;
+//     }
+
+//     // include
+//     solve(arr, i+2, sum+arr[i], maxi);
+//     // exclude
+//     solve(arr, i+1, sum, maxi);
+// }
 // int solve(vector<int>& arr, int i){
 //     if(i>=arr.size()){
 //         return;
@@ -5007,12 +5018,19 @@ int main(){
     
 
 // Maximum sum of non-adjacent elements
-vector<int>arr{1,2,4,9};
+// vector<int>arr{1,2,4,9};
+// int i=0;
+// int sum=0;
+// int maxi=INT_MIN;
+//  solve(arr, i, sum, maxi);
+// cout << "Maximum sum of non-adjacent elements are: " <<maxi; 
+//  }
+
+// check if array is sorted by recursion
+vector<int>arr{10,20,3,40,50};
 int i=0;
-int sum=0;
-int maxi=INT_MIN;
- solve(arr, i, sum, maxi);
-cout << "Maximum sum of non-adjacent elements are: " <<maxi; 
- }
+bool x= solve(arr, i);
+cout << x;
+}
 
 
