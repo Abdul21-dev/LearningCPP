@@ -7,17 +7,29 @@
 #include<string.h>
 using namespace std;
 
- bool solve(vector<int>&arr, int i){
-    if(i>=arr.size()){
-      return true;
-    }
-    if(arr[i]<arr[i+1]){
-      solve(arr, i+1);
-    }else{
-      return false;
-    }
+// void solve(string str, int i, int n, string a, vector<string>& ans){
+//     if(i>=n){
+//        ans.push_back(a);
+//        return;
+//     }
 
-  }
+//     // include
+//     solve(str,i+1,n,a+str[i],ans);
+//     //exclude
+//     solve(str,i+1,n,a,ans);
+// }
+
+//  bool solve(vector<int>&arr, int i){
+//     if(i>=arr.size()){
+//       return true;
+//     }
+//     if(arr[i]<arr[i+1]){
+//       solve(arr, i+1);
+//     }else{
+//       return false;
+//     }
+
+//   }
 
 // void solve(vector<int>& arr, int i, int sum, int& maxi){
 //     if(i>=arr.size()){
@@ -5027,10 +5039,40 @@ int main(){
 //  }
 
 // check if array is sorted by recursion
-vector<int>arr{10,20,3,40,50};
-int i=0;
-bool x= solve(arr, i);
-cout << x;
+// vector<int>arr{10,20,3,40,50};
+// int i=0;
+// bool x= solve(arr, i);
+// cout << x;
+
+// All subsequence of a string
+// string str = "abc";
+// int i=0;
+// int n=3;
+// string a="";
+// vector<string>ans;
+// solve(str,i,n, a,ans);
+// for(int i=0; i<ans.size(); i++){
+//     cout<<ans[i]<<endl;
+// }
+
+// Leetcode 2553
+void solve(int a, vector<int>& ans){
+    vector<int>arr;
+    while(a>0){
+        arr.push_back(a%10);
+        a=a/10;
+    }
+    for(int i=arr.size()-1; i>=0; i--){
+        ans.push_back(arr[i]);
+    }
+}
+    vector<int> separateDigits(vector<int>& nums) {
+        vector<int>ans;
+        for(int i=0; i<nums.size(); i++){
+            solve(nums[i], ans);
+        }
+        return ans;
+    }
 }
 
 
