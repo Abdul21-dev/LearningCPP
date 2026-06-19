@@ -5056,22 +5056,42 @@ int main(){
 // }
 
 // Leetcode 2553
-void solve(int a, vector<int>& ans){
-    vector<int>arr;
-    while(a>0){
-        arr.push_back(a%10);
-        a=a/10;
-    }
-    for(int i=arr.size()-1; i>=0; i--){
-        ans.push_back(arr[i]);
-    }
-}
-    vector<int> separateDigits(vector<int>& nums) {
-        vector<int>ans;
-        for(int i=0; i<nums.size(); i++){
-            solve(nums[i], ans);
+// void solve(int a, vector<int>& ans){
+//     vector<int>arr;
+//     while(a>0){
+//         arr.push_back(a%10);
+//         a=a/10;
+//     }
+//     for(int i=arr.size()-1; i>=0; i--){
+//         ans.push_back(arr[i]);
+//     }
+// }
+//     vector<int> separateDigits(vector<int>& nums) {
+//         vector<int>ans;
+//         for(int i=0; i<nums.size(); i++){
+//             solve(nums[i], ans);
+//         }
+//         return ans;
+//     }
+
+// Leetcode 189
+ void rotate(vector<int>& nums, int k) {
+        reverse(nums.begin(), nums.end());
+        k = k%nums.size();
+        int i=0;
+        int j=k-1;
+        while(i<=j){
+            swap(nums[i], nums[j]);
+            i++;
+            j--;
         }
-        return ans;
+        int a = k;
+        int b = nums.size()-1;
+        while(a<=b){
+            swap(nums[a], nums[b]);
+            a++;
+            b--;
+        }
     }
 }
 
