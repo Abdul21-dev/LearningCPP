@@ -5074,25 +5074,51 @@ int main(){
 //         return ans;
 //     }
 
-// Leetcode 189
- void rotate(vector<int>& nums, int k) {
-        reverse(nums.begin(), nums.end());
-        k = k%nums.size();
-        int i=0;
-        int j=k-1;
-        while(i<=j){
-            swap(nums[i], nums[j]);
-            i++;
-            j--;
-        }
-        int a = k;
-        int b = nums.size()-1;
-        while(a<=b){
-            swap(nums[a], nums[b]);
-            a++;
-            b--;
-        }
+// // Leetcode 189
+//  void rotate(vector<int>& nums, int k) {
+//         reverse(nums.begin(), nums.end());
+//         k = k%nums.size();
+//         int i=0;
+//         int j=k-1;
+//         while(i<=j){
+//             swap(nums[i], nums[j]);
+//             i++;
+//             j--;
+//         }
+//         int a = k;
+//         int b = nums.size()-1;
+//         while(a<=b){
+//             swap(nums[a], nums[b]);
+//             a++;
+//             b--;
+//         }
+//     }
+
+// merge two sorted arrays
+vector<int>arr{2,4,5,6};
+vector<int>brr{3,7,12,14};
+vector<int>ans;
+int i=0; int j=0;
+while(i<arr.size() && j<brr.size()){
+    if(arr[i]<=brr[j]){
+        ans.push_back(arr[i]);
+        i++;
+    }else{
+        ans.push_back(brr[j]);
+        j++;
     }
+}
+while(i<arr.size()){
+    ans.push_back(arr[i]);
+        i++;
+}
+while(j<brr.size()){
+    ans.push_back(brr[j]);
+        j++;
+}
+for(auto p:ans){
+    cout << p <<" ";
+}
 }
 
 
