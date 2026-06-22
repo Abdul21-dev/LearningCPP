@@ -5095,30 +5095,41 @@ int main(){
 //     }
 
 // merge two sorted arrays
-vector<int>arr{2,4,5,6};
-vector<int>brr{3,7,12,14};
-vector<int>ans;
-int i=0; int j=0;
-while(i<arr.size() && j<brr.size()){
-    if(arr[i]<=brr[j]){
-        ans.push_back(arr[i]);
-        i++;
-    }else{
-        ans.push_back(brr[j]);
-        j++;
+// vector<int>arr{2,4,5,6};
+// vector<int>brr{3,7,12,14};
+// vector<int>ans;
+// int i=0; int j=0;
+// while(i<arr.size() && j<brr.size()){
+//     if(arr[i]<=brr[j]){
+//         ans.push_back(arr[i]);
+//         i++;
+//     }else{
+//         ans.push_back(brr[j]);
+//         j++;
+//     }
+// }
+// while(i<arr.size()){
+//     ans.push_back(arr[i]);
+//         i++;
+// }
+// while(j<brr.size()){
+//     ans.push_back(brr[j]);
+//         j++;
+// }
+// for(auto p:ans){
+//     cout << p <<" ";
+// }
+
+// Leetcode 1502
+bool canMakeArithmeticProgression(vector<int>& arr) {
+        sort(arr.begin(), arr.end());
+        int k = arr[1]-arr[0];
+        for(int i=1; i<arr.size()-1; i++){
+            if(arr[i+1]-arr[i] != k){
+                return false;
+            }
+        }
+        return true;
     }
 }
-while(i<arr.size()){
-    ans.push_back(arr[i]);
-        i++;
-}
-while(j<brr.size()){
-    ans.push_back(brr[j]);
-        j++;
-}
-for(auto p:ans){
-    cout << p <<" ";
-}
-}
-
 
