@@ -5121,15 +5121,35 @@ int main(){
 // }
 
 // Leetcode 1502
-bool canMakeArithmeticProgression(vector<int>& arr) {
-        sort(arr.begin(), arr.end());
-        int k = arr[1]-arr[0];
-        for(int i=1; i<arr.size()-1; i++){
-            if(arr[i+1]-arr[i] != k){
-                return false;
+// bool canMakeArithmeticProgression(vector<int>& arr) {
+//         sort(arr.begin(), arr.end());
+//         int k = arr[1]-arr[0];
+//         for(int i=1; i<arr.size()-1; i++){
+//             if(arr[i+1]-arr[i] != k){
+//                 return false;
+//             }
+//         }
+//         return true;
+//     }
+
+// Leetcode 1716
+int totalMoney(int n) {
+        int start = 1;
+        int k=1;
+        int count = 0;
+        int sum=0;
+        while(n>0){
+            sum += start;
+            start++;
+            count++;
+            if(count%7 == 0){
+                k++;
+                start = k;
             }
+            
+            n--;
         }
-        return true;
+        return sum;
     }
 }
 
