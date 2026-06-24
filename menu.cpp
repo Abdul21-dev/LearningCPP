@@ -5133,23 +5133,43 @@ int main(){
 //     }
 
 // Leetcode 1716
-int totalMoney(int n) {
-        int start = 1;
-        int k=1;
-        int count = 0;
-        int sum=0;
-        while(n>0){
-            sum += start;
-            start++;
-            count++;
-            if(count%7 == 0){
-                k++;
-                start = k;
-            }
+// int totalMoney(int n) {
+//         int start = 1;
+//         int k=1;
+//         int count = 0;
+//         int sum=0;
+//         while(n>0){
+//             sum += start;
+//             start++;
+//             count++;
+//             if(count%7 == 0){
+//                 k++;
+//                 start = k;
+//             }
             
-            n--;
+//             n--;
+//         }
+//         return sum;
+//     }
+
+// Leetcode 1385
+bool solve(int a,vector<int>& arr2, int d){
+    for(int i=0; i<arr2.size(); i++){
+        if(abs(a-arr2[i])>d){
+            continue;
         }
-        return sum;
+        return false;
+    }
+    return true;
+}
+    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
+        int count = 0;
+        for(int i=0; i<arr1.size(); i++){
+            if(solve(arr1[i], arr2, d)){
+                count++;
+            }
+        }
+        return count;
     }
 }
 
