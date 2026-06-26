@@ -7,6 +7,63 @@
 #include<string.h>
 using namespace std;
 
+// void Merge(int* arr,int s,int e){
+//     int mid = s +(e-s)/2;
+
+//     int len1 = mid - s + 1;
+//     int len2 = e - mid;
+
+//     int* left = new int[len1];
+//     int* right = new int[len2];
+
+//     int k=s;
+//     for(int i=0; i<len1; i++){
+//         left[i] = arr[k];
+//         k++;
+//     }
+//     k = mid+1;
+//     for(int i=0; i<len2; i++){
+//         right[i] = arr[k];
+//         k++;
+//     }
+
+//     int i=0;
+//     int j=0;
+//     int m=s;
+//     while(i<len1 && j<len2){
+//         if(left[i]<=right[j]){
+//             arr[m++] = left[i++];
+//         }else{
+//             arr[m++] = right[j++];
+//         }
+//     }
+
+//     while(i<len1){
+//         arr[m++] = left[i++];
+//     }
+
+//     while(i<len2){
+//         arr[m++] = right[j++];
+//     }
+// }
+
+// void Mergesort(int* arr, int s, int e){
+//     //Basecase
+//     if(s>=e){
+//         return;
+//     }
+//     int mid = s + (e-s)/2;
+
+//     // left sort
+//     Mergesort(arr, s, mid);
+
+//     // right sort
+//     Mergesort(arr, mid+1, e);
+
+//     // Merge both
+//     Merge(arr, s, e);
+// }
+
 // void solve(string str, int i, int n, string a, vector<string>& ans){
 //     if(i>=n){
 //        ans.push_back(a);
@@ -5153,23 +5210,70 @@ int main(){
 //     }
 
 // Leetcode 1385
-bool solve(int a,vector<int>& arr2, int d){
-    for(int i=0; i<arr2.size(); i++){
-        if(abs(a-arr2[i])>d){
-            continue;
+// bool solve(int a,vector<int>& arr2, int d){
+//     for(int i=0; i<arr2.size(); i++){
+//         if(abs(a-arr2[i])>d){
+//             continue;
+//         }
+//         return false;
+//     }
+//     return true;
+// }
+//     int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
+//         int count = 0;
+//         for(int i=0; i<arr1.size(); i++){
+//             if(solve(arr1[i], arr2, d)){
+//                 count++;
+//             }
+//         }
+//         return count;
+//     }
+
+// Merge sort
+// int arr[] = {4,1,6,8,12,10,3,3,7,5};
+// int n = 10;
+// int s=0;
+// int e=n-1;
+// Mergesort(arr, s, e);
+// for(int i=0; i<n; i++){
+//     cout << arr[i] << " ";
+// }
+
+//Leetcode 941
+bool validMountainArray(vector<int>& arr) {
+        if(arr.size()<3){
+            return false;
         }
-        return false;
-    }
-    return true;
-}
-    int findTheDistanceValue(vector<int>& arr1, vector<int>& arr2, int d) {
-        int count = 0;
-        for(int i=0; i<arr1.size(); i++){
-            if(solve(arr1[i], arr2, d)){
-                count++;
+        int maxi=INT_MIN;
+        for(int i=0; i<arr.size(); i++){
+            maxi = max(maxi, arr[i]);
+        }
+        int maxindex=0;
+        for(int i=0; i<arr.size(); i++){
+            if(arr[i]==maxi){
+                maxindex = i;
+                break;
             }
         }
-        return count;
+        if(maxindex == 0 || maxindex == arr.size()-1)
+        return false;
+        int i = maxindex;
+        while(i>0){
+            if(arr[i]>arr[i-1]){
+                i--;
+                continue;
+            }
+            return false;
+        }
+        int j = maxindex;
+        while(j<arr.size()-1){
+            if(arr[j+1]<arr[j]){
+                j++;
+                continue;
+            }
+            return false;
+        }
+        return true;
     }
 }
 
