@@ -5240,40 +5240,65 @@ int main(){
 // }
 
 //Leetcode 941
-bool validMountainArray(vector<int>& arr) {
-        if(arr.size()<3){
-            return false;
+// bool validMountainArray(vector<int>& arr) {
+//         if(arr.size()<3){
+//             return false;
+//         }
+//         int maxi=INT_MIN;
+//         for(int i=0; i<arr.size(); i++){
+//             maxi = max(maxi, arr[i]);
+//         }
+//         int maxindex=0;
+//         for(int i=0; i<arr.size(); i++){
+//             if(arr[i]==maxi){
+//                 maxindex = i;
+//                 break;
+//             }
+//         }
+//         if(maxindex == 0 || maxindex == arr.size()-1)
+//         return false;
+//         int i = maxindex;
+//         while(i>0){
+//             if(arr[i]>arr[i-1]){
+//                 i--;
+//                 continue;
+//             }
+//             return false;
+//         }
+//         int j = maxindex;
+//         while(j<arr.size()-1){
+//             if(arr[j+1]<arr[j]){
+//                 j++;
+//                 continue;
+//             }
+//             return false;
+//         }
+//         return true;
+//     }
+
+// Leetcode 1646
+int getMaximumGenerated(int n) {
+        if (n == 0)
+    return 0;
+
+    if (n == 1)
+    return 1;
+        vector<int>arr(n+1,0);
+        arr[0] = 0;
+        arr[1] = 1;
+        for(int i=1; i<n; i++){
+            if(2*i<=n){
+              arr[2*i] = arr[i];
+            }
+            if((2*i)+1 <= n){
+            arr[(2*i)+1] = arr[i] + arr[i+1];
+            }
         }
-        int maxi=INT_MIN;
-        for(int i=0; i<arr.size(); i++){
+        int maxi = INT_MIN;
+        for(int i=0; i<=n; i++){
             maxi = max(maxi, arr[i]);
         }
-        int maxindex=0;
-        for(int i=0; i<arr.size(); i++){
-            if(arr[i]==maxi){
-                maxindex = i;
-                break;
-            }
-        }
-        if(maxindex == 0 || maxindex == arr.size()-1)
-        return false;
-        int i = maxindex;
-        while(i>0){
-            if(arr[i]>arr[i-1]){
-                i--;
-                continue;
-            }
-            return false;
-        }
-        int j = maxindex;
-        while(j<arr.size()-1){
-            if(arr[j+1]<arr[j]){
-                j++;
-                continue;
-            }
-            return false;
-        }
-        return true;
+        return maxi;
     }
 }
 
