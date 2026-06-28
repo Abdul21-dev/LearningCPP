@@ -7,6 +7,52 @@
 #include<string.h>
 using namespace std;
 
+int partition(int* arr, int s, int e){
+    int pivotIndex = s;
+    int pivotElement = arr[s];
+
+    int count = 0;
+    for(int i=s+1; i<=e; i++){
+        if(arr[i] <= pivotElement){
+            count++;
+        }
+    }
+
+    int rightIndex = s+count;
+    swap(arr[pivotIndex], arr[rightIndex]);
+    pivotIndex = rightIndex;
+    pivotElement = arr[pivotElement];
+
+    int i=0; int j=e;
+    while(i<pivotIndex && j>pivotIndex){
+        while(arr[i]<=pivotElement){
+            i++;
+        }
+        while(arr[j]>pivotElement){
+            j--;
+        }
+        if(i<pivotIndex && j>pivotIndex){
+            swap(arr[i], arr[j]);
+        }
+    }
+    return pivotIndex;
+}
+
+void Quicksort(int* arr, int s, int e){
+    //Basecase
+    if(s>=e){
+    return;
+    }
+   
+    int p = partition(arr, s, e);
+
+    // Left
+    Quicksort(arr, s, p-1);
+    //Right
+    Quicksort(arr, p+1, e);
+
+}
+
 // void Merge(int* arr,int s,int e){
 //     int mid = s +(e-s)/2;
 
@@ -5277,28 +5323,38 @@ int main(){
 //     }
 
 // Leetcode 1646
-int getMaximumGenerated(int n) {
-        if (n == 0)
-    return 0;
+// int getMaximumGenerated(int n) {
+//         if (n == 0)
+//     return 0;
 
-    if (n == 1)
-    return 1;
-        vector<int>arr(n+1,0);
-        arr[0] = 0;
-        arr[1] = 1;
-        for(int i=1; i<n; i++){
-            if(2*i<=n){
-              arr[2*i] = arr[i];
-            }
-            if((2*i)+1 <= n){
-            arr[(2*i)+1] = arr[i] + arr[i+1];
-            }
-        }
-        int maxi = INT_MIN;
-        for(int i=0; i<=n; i++){
-            maxi = max(maxi, arr[i]);
-        }
-        return maxi;
-    }
+//     if (n == 1)
+//     return 1;
+//         vector<int>arr(n+1,0);
+//         arr[0] = 0;
+//         arr[1] = 1;
+//         for(int i=1; i<n; i++){
+//             if(2*i<=n){
+//               arr[2*i] = arr[i];
+//             }
+//             if((2*i)+1 <= n){
+//             arr[(2*i)+1] = arr[i] + arr[i+1];
+//             }
+//         }
+//         int maxi = INT_MIN;
+//         for(int i=0; i<=n; i++){
+//             maxi = max(maxi, arr[i]);
+//         }
+//         return maxi;
+//     }
+
+// Quicksort
+int arr[] = {18,8,3,4,1,20,50,5,30};
+int n = 9;
+int s=0;
+int e=n-1;
+Quicksort(arr, s, e);
+for(int i=0; i<n; i++){
+    cout << arr[i] << " ";
+}
 }
 
