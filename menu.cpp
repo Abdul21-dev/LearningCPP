@@ -7,51 +7,51 @@
 #include<string.h>
 using namespace std;
 
-int partition(int* arr, int s, int e){
-    int pivotIndex = s;
-    int pivotElement = arr[s];
+// int partition(int* arr, int s, int e){
+//     int pivotIndex = s;
+//     int pivotElement = arr[s];
 
-    int count = 0;
-    for(int i=s+1; i<=e; i++){
-        if(arr[i] <= pivotElement){
-            count++;
-        }
-    }
+//     int count = 0;
+//     for(int i=s+1; i<=e; i++){
+//         if(arr[i] <= pivotElement){
+//             count++;
+//         }
+//     }
 
-    int rightIndex = s+count;
-    swap(arr[pivotIndex], arr[rightIndex]);
-    pivotIndex = rightIndex;
-    pivotElement = arr[pivotElement];
+//     int rightIndex = s+count;
+//     swap(arr[pivotIndex], arr[rightIndex]);
+//     pivotIndex = rightIndex;
+//     pivotElement = arr[pivotElement];
 
-    int i=0; int j=e;
-    while(i<pivotIndex && j>pivotIndex){
-        while(arr[i]<=pivotElement){
-            i++;
-        }
-        while(arr[j]>pivotElement){
-            j--;
-        }
-        if(i<pivotIndex && j>pivotIndex){
-            swap(arr[i], arr[j]);
-        }
-    }
-    return pivotIndex;
-}
+//     int i=0; int j=e;
+//     while(i<pivotIndex && j>pivotIndex){
+//         while(arr[i]<=pivotElement){
+//             i++;
+//         }
+//         while(arr[j]>pivotElement){
+//             j--;
+//         }
+//         if(i<pivotIndex && j>pivotIndex){
+//             swap(arr[i], arr[j]);
+//         }
+//     }
+//     return pivotIndex;
+// }
 
-void Quicksort(int* arr, int s, int e){
-    //Basecase
-    if(s>=e){
-    return;
-    }
+// void Quicksort(int* arr, int s, int e){
+//     //Basecase
+//     if(s>=e){
+//     return;
+//     }
    
-    int p = partition(arr, s, e);
+//     int p = partition(arr, s, e);
 
-    // Left
-    Quicksort(arr, s, p-1);
-    //Right
-    Quicksort(arr, p+1, e);
+//     // Left
+//     Quicksort(arr, s, p-1);
+//     //Right
+//     Quicksort(arr, p+1, e);
 
-}
+// }
 
 // void Merge(int* arr,int s,int e){
 //     int mid = s +(e-s)/2;
@@ -5348,13 +5348,26 @@ int main(){
 //     }
 
 // Quicksort
-int arr[] = {18,8,3,4,1,20,50,5,30};
-int n = 9;
-int s=0;
-int e=n-1;
-Quicksort(arr, s, e);
-for(int i=0; i<n; i++){
-    cout << arr[i] << " ";
-}
+// int arr[] = {18,8,3,4,1,20,50,5,30};
+// int n = 9;
+// int s=0;
+// int e=n-1;
+// Quicksort(arr, s, e);
+// for(int i=0; i<n; i++){
+//     cout << arr[i] << " ";
+// }
+
+// Leetcode 1967
+int numOfStrings(vector<string>& patterns, string word) {
+        int i=0;
+        int count=0;
+        while(i<patterns.size()){
+            if(word.find(patterns[i]) != string::npos){
+            count++;
+            }
+            i++;
+        }
+        return count;
+    }
 }
 
