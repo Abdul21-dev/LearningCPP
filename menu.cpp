@@ -7,6 +7,22 @@
 #include<string.h>
 using namespace std;
 
+void permutation(string& str, int i){
+    if(i>=str.length()){
+        cout << str << " ";
+        return;
+    }
+
+    for(int j=i; j<str.length(); j++){
+        swap(str[i], str[j]);
+
+        permutation(str, i+1);
+
+        // Backtracking statement
+         swap(str[i], str[j]);
+    }
+}
+
 // int partition(int* arr, int s, int e){
 //     int pivotIndex = s;
 //     int pivotElement = arr[s];
@@ -5358,16 +5374,21 @@ int main(){
 // }
 
 // Leetcode 1967
-int numOfStrings(vector<string>& patterns, string word) {
-        int i=0;
-        int count=0;
-        while(i<patterns.size()){
-            if(word.find(patterns[i]) != string::npos){
-            count++;
-            }
-            i++;
-        }
-        return count;
-    }
+// int numOfStrings(vector<string>& patterns, string word) {
+//         int i=0;
+//         int count=0;
+//         while(i<patterns.size()){
+//             if(word.find(patterns[i]) != string::npos){
+//             count++;
+//             }
+//             i++;
+//         }
+//         return count;
+//     }
+
+// Backtracking //Permutation
+string str = "abc";
+int i=0;
+permutation(str, i);
 }
 
